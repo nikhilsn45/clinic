@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.persistent.dao.DoctorDao;
-import com.persistent.entities.Doctor;
+import com.persistent.entities.DoctorInfo;
 
 
 @Service
@@ -27,25 +28,30 @@ public class DoctorService {
 		dao.deleteById(id);
 	}
 	
-	public void addDoctor(Doctor d)
+	public void addDoctor(DoctorInfo d)
 	{
 		dao.save(d);
 	}
 	
-	public void addDoctors(List<Doctor> l)
+	public void addDoctors(List<DoctorInfo> l)
 	{
 		dao.saveAll(l);
 	}
 	
-	public void updateDoctor(Doctor d)
+	public void updateDoctor(DoctorInfo d)
 	{
 		dao.save(d);
 	}
 	
-	public Doctor findDoctorById(int id)
+	public DoctorInfo findDoctorById(int id)
 	{
 		
 		return dao.findById(id);
 	}
 	//Call to Custom Queries  Dao Implementations
+
+	public List<DoctorInfo> findBySpecialityAndStateAndCity(String speciality, String state, String city) {
+		// TODO Auto-generated method stub
+		return dao.findBySpecialityOrStateAndCity(speciality,state,city);
+	}
 }

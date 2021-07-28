@@ -1,5 +1,5 @@
 package com.persistent.controller;
 
-public class AdminController {
+public class AdminControl {
 
 }

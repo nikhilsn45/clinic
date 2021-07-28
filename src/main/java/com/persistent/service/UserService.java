@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.persistent.dao.UserDao;
-import com.persistent.entities.Doctor;
-import com.persistent.entities.User;
+import com.persistent.entities.DoctorInfo;
+import com.persistent.entities.UserInfo;
 
 @Service
 public class UserService {
@@ -20,7 +20,7 @@ public class UserService {
 	public UserService() {
 	}
 	
-	public void addUser(User d)
+	public void addUser(UserInfo d)
 	{
 		udao.save(d);
 	}

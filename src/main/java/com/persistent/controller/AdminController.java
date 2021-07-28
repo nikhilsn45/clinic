@@ -12,7 +12,7 @@ public class AdminController {
 		{
 			//@ModelAttribute Doctor d
 			//admin will access the Database to check and verify doctors by contacting DoctorService
-			return "admin";
+			return "admin_home";
 		}
 
 }

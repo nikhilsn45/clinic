@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,16 +8,19 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<sf:form action="/profile" method="get" modelAttribute="uInfo">
+			<button>My Profile</button>
+		</sf:form>
 			
 		<p align="center">
-			Welcome to your profile ${user.f_name} ${user.l_name}!!<br>
+			Welcome to your profile ${uInfo.f_name} ${uInfo.l_name}!!<br>
 			Your details are as follows:<br><br>
 			
-			Your User Name: ${user.user_name}<br><br>
+			Your User Name: ${uInfo.user_name}<br><br>
 			
-			Your Email_Id: ${user.email_id}<br><br>
+			Your Email_Id: ${uInfo.email_id}<br><br>
 			
-			Your Contact Number: ${user.contact_no}<br>
+			Your Contact Number: ${uInfo.contact_no}<br>
 			<br>
 			<br>
 			<br>
@@ -26,11 +30,6 @@
 				<button>Return To Home Page</button>
 			</a>
 		</p>
-		
-		
-		
-		<!-- Status of your appointment will be displayed here.-->
-		<!-- If your appointment gets rejected, you can search for doctors again from below form -->
 	
 		
 		<form action= "/user_search_results" method="post">

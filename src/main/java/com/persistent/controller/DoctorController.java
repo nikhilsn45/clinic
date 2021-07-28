@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.persistent.entities.Doctor;
+import com.persistent.entities.DoctorInfo;
+import com.persistent.entities.User;
+import com.persistent.entities.UserInfo;
 import com.persistent.service.DoctorService;
+import com.persistent.service.UserCreadService;
 
 @Controller
 public class DoctorController {
@@ -17,26 +20,26 @@ public class DoctorController {
 	@Autowired
 	private DoctorService serv;
 	
-	@RequestMapping("/doctor_signup")
-	public String doctor_signup()
-	{
-		return "doctor_signup";
-	}
-
+	@Autowired
+	private UserCreadService creadServ;
+	
 	@RequestMapping(path="/save_doctor", method=RequestMethod.POST)
-	public String save_doctor(@ModelAttribute Doctor d)
+	public String save_doctor(@ModelAttribute DoctorInfo dInfo, @ModelAttribute User u)
 	{
-		serv.addDoctor(d);
-		return "doctor_profile";
+		System.out.println(dInfo);
+		System.out.println(u);
 		
+		serv.addDoctor(dInfo);
+		creadServ.addUser(u);
+		
+		return "redirect:/doctorHome";//"user_home.jsp" called
 	
 	}
 	
-	@RequestMapping("/user_search_results")
-	public String  user_search_results(@RequestParam String type,@RequestParam String state,@RequestParam String city )
+	@RequestMapping(path="/doctorHome", method=RequestMethod.GET)
+	public String doctor_home(@ModelAttribute DoctorInfo d)
 	{
-		// Connect to doctor's Database
-		//retrieve results and display
-		return "user_search_results";
+		return "doctor_home";//"user_home.jsp" called
 	}
+	
 }

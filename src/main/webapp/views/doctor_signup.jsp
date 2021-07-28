@@ -40,6 +40,7 @@
 
 <label for="password">Enter Your Password</label><br>
 <input type="text" id="password" name="password"><br>
+<input type="hidden"  name="type" value="doctor"><br>
 
 <button type="submit">SUBMIT</button>
 <!-- "save_doctor" will be called from DoctorController-->

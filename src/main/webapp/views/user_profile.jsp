@@ -7,14 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-<body>
 <p align="center">
 Welcome to your profile ${user.f_name} ${user.l_name}!!<br>
 Your details are as follows:<br>
 <br>
+Your User Name: ${user.user_name}<br>
+<br>
 Your Email_Id: ${user.email_id}<br>
 <br>
 Your Contact Number: ${user.contact_no}<br>
+<br>
+<br>
+<br>
+<br>
+
+<a href="/home">
+<button>Return To Home Page</button>
+</a>
 </p>
 
 
@@ -39,12 +48,13 @@ Your Contact Number: ${user.contact_no}<br>
 <br>
 <label for="city">Enter Your City</label><br>
 <input type="text" id="city" name="city"><br>
-
-
+<br>
+<br>
+<br>
+<br>
 
 <button type="submit">SEARCH DOCTOR</button>
 <!-- This will be handled by "user_search_results" in Doctor Controller-->
 </form>
-</body>
 </body>
 </html>

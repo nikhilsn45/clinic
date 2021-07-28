@@ -7,8 +7,10 @@ public class Doctor {
 	    @Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private int license_no;
+	    
+	    private String user_name;
 		
-        private String f_name;
+		private String f_name;
 		
 		private String l_name;
 		
@@ -25,10 +27,11 @@ public class Doctor {
 		public Doctor() {
 		}
 		
-		public Doctor(int license_no, String f_name, String l_name, String speciality, String contact_no, String state,
-				String city, String password) {
+		public Doctor(int license_no, String user_name, String f_name, String l_name, String speciality,
+				String contact_no, String state, String city, String password) {
 			super();
 			this.license_no = license_no;
+			this.user_name = user_name;
 			this.f_name = f_name;
 			this.l_name = l_name;
 			this.speciality = speciality;
@@ -37,7 +40,6 @@ public class Doctor {
 			this.city = city;
 			this.password = password;
 		}
-
 
 
 		public int getLicense_no() {
@@ -113,6 +115,17 @@ public class Doctor {
 			this.state = state;
 		}
 		
+
+        public String getUser_name() {
+			return user_name;
+		}
+
+
+		public void setUser_name(String user_name) {
+			this.user_name = user_name;
+		}
+
+
 
 		
 		

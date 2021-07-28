@@ -7,9 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 <form action="/save_user" method =post>
-<label for="id">Enter Your Id</label><br>
-<input type="text" id="id" name="id"><br>
+<!--label for="id">Enter Your Id</label--><br>
+<!--input type="text" id="id" name="id"--><br>
+
+<label for="user_name">Enter Your User Name which you will use for login</label><br>
+<input type="text" id="user_name" name="user_name"><br>
 
 <label for="f_name">Enter Your First_Name</label><br>
 <input type="text" id="f_name" name="f_name"><br>
@@ -30,5 +34,10 @@
 <button type="submit">SIGNUP</button>
 <!-- "save_user" will be called from UserController-->
 </form>
+<a href="/home">
+<button>Return To Home Page</button>
+</a>
+</div>
+
 </body>
 </html>

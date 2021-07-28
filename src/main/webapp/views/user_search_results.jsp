@@ -13,12 +13,17 @@
 
 A list of all Doctors with reviews are listed here.
 
-After clicking on Doctors name, you will be taken to doctor's profile.
+After clicking on Doctor's name, you will be taken to doctor's profile.
 You can click on the <b>REQUEST FOR APPOINTMENT</b> button to request for that Doctor's appointment.
 Your request will be sent to that Doctor, if the Doctor accepts the appointment, it will be displayed on your profile.
 
-
-
+<br>
+<br>
+<br>
+<br>
+<a href="/home">
+<button>Return To Home Page</button>
+</a>
 
 
 </p>

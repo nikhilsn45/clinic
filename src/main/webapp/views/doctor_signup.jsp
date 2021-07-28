@@ -8,12 +8,17 @@
 </head>
 <body>
 <p align=center >
-<b>Welcome!! User</b>
+<b>Welcome Doctor!!</b>
 </p>
+<div align="center">
 <form action= "/save_doctor" method="post">
 
 <label for="license_no">Enter License Number</label><br>
 <input type="text" id="license_no" name="license_no"><br>
+
+<label for="user_name">Enter Your User Name which you will use for login</label><br>
+<input type="text" id="user_name" name="user_name"><br>
+
 
 <label for="f_name">Enter Your First_Name</label><br>
 <input type="text" id="f_name" name="f_name"><br>
@@ -40,5 +45,13 @@
 <!-- "save_doctor" will be called from DoctorController-->
 
 </form>
+<br>
+<br>
+<br>
+<br>
+<a href="/home">
+<button>Return To Home Page</button>
+</a>
+</div>
 </body>
 </html>

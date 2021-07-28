@@ -8,5 +8,8 @@
 </head>
 <body>
 All doctors List with accept and reject button will be here.
+<a href="/home">
+<button>Return To Home Page</button>
+</a>
 </body>
 </html>

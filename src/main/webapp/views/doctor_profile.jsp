@@ -8,10 +8,12 @@
 </head>
 <body>
 <p align="center">
-Welcome to your profile ${doctor.fname} ${doctor.lname}!!<br>
+Welcome to your profile ${doctor.f_name} ${doctor.l_name}!!<br>
 Your details are as follows:<br>
 <br>
-Your License Number: ${doctor.licence_no}<br>
+Your License Number: ${doctor.license_no}<br>
+<br>
+Your User Name: ${doctor.user_name}<br>
 <br>
 Your Speciality: ${doctor.speciality}<br>
 <br>
@@ -21,7 +23,12 @@ Your State: ${doctor.state}<br>
 <br>
 Your City: ${doctor.city}<br>
 <br>
-
+<br>
+<br>
+<br>
+<a href="/home">
+<button>Return To Home Page</button>
+</a>
 <!-- Doctor's Reviews and handling appointment requests by users part will displayed here -->
 <!--When User makes an appointment request for the doctor, Doctor will be able to see here and either accept or reject the request -->
 </p>

@@ -1,5 +1,7 @@
 package com.persistent.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,8 +29,9 @@ public class DoctorController {
 	public String save_doctor(@ModelAttribute Doctor d)
 	{
 		serv.addDoctor(d);
-		
 		return "doctor_profile";
+		
+	
 	}
 	
 	@RequestMapping("/user_search_results")

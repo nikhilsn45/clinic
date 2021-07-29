@@ -16,7 +16,7 @@ public class DoctorInfo {
 		
 		private String l_name;
 		
-        private String speciality;
+        private String specialization;
 		
 		private String contact_no;
 		
@@ -27,7 +27,7 @@ public class DoctorInfo {
 		public DoctorInfo() {
 		}
 
-		public DoctorInfo(int id, String license_no, String user_name, String f_name, String l_name, String speciality,
+		public DoctorInfo(int id, String license_no, String user_name, String f_name, String l_name, String specialization,
 				String contact_no, String state, String city) {
 			super();
 			this.id = id;
@@ -35,7 +35,7 @@ public class DoctorInfo {
 			this.user_name = user_name;
 			this.f_name = f_name;
 			this.l_name = l_name;
-			this.speciality = speciality;
+			this.specialization = specialization;
 			this.contact_no = contact_no;
 			this.state = state;
 			this.city = city;
@@ -81,12 +81,12 @@ public class DoctorInfo {
 			this.l_name = l_name;
 		}
 
-		public String getSpeciality() {
-			return speciality;
+		public String getSpecialization() {
+			return specialization;
 		}
 
-		public void setSpeciality(String speciality) {
-			this.speciality = speciality;
+		public void setSpecialization(String specialization) {
+			this.specialization = specialization;
 		}
 
 		public String getContact_no() {
@@ -116,7 +116,7 @@ public class DoctorInfo {
 		@Override
 		public String toString() {
 			return "DoctorInfo [id=" + id + ", license_no=" + license_no + ", user_name=" + user_name + ", f_name="
-					+ f_name + ", l_name=" + l_name + ", speciality=" + speciality + ", contact_no=" + contact_no
+					+ f_name + ", l_name=" + l_name + ", specialization=" + specialization + ", contact_no=" + contact_no
 					+ ", state=" + state + ", city=" + city + "]";
 		}
 				

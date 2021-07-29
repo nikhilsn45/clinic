@@ -26,8 +26,8 @@
 <label for="l_name">Enter Your Last_Name</label><br>
 <input type="text" id="l_name" name="l_name"><br>
 
-<label for="speciality">Enter Your Speciality</label><br>
-<input type="text" id="speciality" name="speciality"><br>
+<label for="specialization">Enter Your specialization</label><br>
+<input type="text" id="specialization" name="specialization"><br>
 
 <label for="contact_no">Enter Your Contact Number</label><br>
 <input type="text" id="contact_no" name="contact_no"><br>

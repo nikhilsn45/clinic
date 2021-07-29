@@ -8,20 +8,20 @@
 </head>
 <body>
 <p align="center">
-Welcome to your profile ${doctor.f_name} ${doctor.l_name}!!<br>
+Welcome to your profile ${doc.f_name} ${doc.l_name}!!<br>
 Your details are as follows:<br>
 <br>
-Your License Number: ${doctor.license_no}<br>
+Your License Number: ${doc.license_no}<br>
 <br>
-Your User Name: ${doctor.user_name}<br>
+Your User Name: ${doc.user_name}<br>
 <br>
-Your Speciality: ${doctor.speciality}<br>
+Your specialization: ${doc.specialization}<br>
 <br>
-Your Contact Number: ${doctor.contact_no}<br>
+Your Contact Number: ${doc.contact_no}<br>
 <br>
-Your State: ${doctor.state}<br>
+Your State: ${doc.state}<br>
 <br>
-Your City: ${doctor.city}<br>
+Your City: ${doc.city}<br>
 <br>
 <br>
 <br>
@@ -29,8 +29,8 @@ Your City: ${doctor.city}<br>
 <a href="/home">
 <button>Return To Home Page</button>
 </a>
-<!-- Doctor's Reviews and handling appointment requests by users part will displayed here -->
-<!--When User makes an appointment request for the doctor, Doctor will be able to see here and either accept or reject the request -->
+<!-- doc's Reviews and handling appointment requests by users part will displayed here -->
+<!--When User makes an appointment request for the doc, doc will be able to see here and either accept or reject the request -->
 </p>
 </body>
 </html>

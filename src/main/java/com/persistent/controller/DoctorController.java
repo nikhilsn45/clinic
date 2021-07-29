@@ -5,13 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.persistent.entities.DoctorInfo;
 import com.persistent.entities.User;
-import com.persistent.entities.UserInfo;
 import com.persistent.service.DoctorService;
-import com.persistent.service.UserCreadService;
+import com.persistent.service.UserService;
 
 @Controller
 public class DoctorController {
@@ -21,7 +18,7 @@ public class DoctorController {
 	private DoctorService serv;
 	
 	@Autowired
-	private UserCreadService creadServ;
+	private UserService creadServ;
 	
 	@RequestMapping(path="/save_doctor", method=RequestMethod.POST)
 	public String save_doctor(@ModelAttribute DoctorInfo dInfo, @ModelAttribute User u)
@@ -32,13 +29,14 @@ public class DoctorController {
 		serv.addDoctor(dInfo);
 		creadServ.addUser(u);
 		
-		return "redirect:/doctorHome";//"user_home.jsp" called
+		return "redirect:/home";
 	
 	}
 	
-	@RequestMapping(path="/doctorHome", method=RequestMethod.GET)
+	@RequestMapping(path="/doctor_home", method=RequestMethod.GET)
 	public String doctor_home(@ModelAttribute DoctorInfo d)
 	{
+		
 		return "doctor_home";//"user_home.jsp" called
 	}
 	

@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class UserInfo {
+public class Patient {
 	
 	        @Id
 			@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,19 +20,36 @@ public class UserInfo {
 			
 	        private String email_id;
 	        
-            private String contact_no;
-			
-			public UserInfo() {
-			}
-
-			public UserInfo(int id, String user_name, String f_name, String l_name, String email_id, String contact_no) {
+	        private String gender;
+	        
+	        private int age;
+	        
+	        private String city;
+	        
+	        private String state;
+	        
+	        private String contact_no;
+	        
+            public Patient(int id, String user_name, String f_name, String l_name, String email_id, String gender,
+					int age, String city, String state, String contact_no) {
+				super();
 				this.id = id;
 				this.user_name = user_name;
 				this.f_name = f_name;
 				this.l_name = l_name;
 				this.email_id = email_id;
+				this.gender = gender;
+				this.age = age;
+				this.city = city;
+				this.state = state;
 				this.contact_no = contact_no;
+            }
+            
+			
+			public Patient() {
 			}
+
+			
 
 			public int getId() {
 				return id;
@@ -82,10 +99,52 @@ public class UserInfo {
 				this.user_name = user_name;
 			}
 
+			public String getGender() {
+				return gender;
+			}
+
+
+			public void setGender(String gender) {
+				this.gender = gender;
+			}
+
+
+			public int getAge() {
+				return age;
+			}
+
+
+			public void setAge(int age) {
+				this.age = age;
+			}
+
+
+			public String getCity() {
+				return city;
+			}
+
+
+			public void setCity(String city) {
+				this.city = city;
+			}
+
+
+			public String getState() {
+				return state;
+			}
+
+
+			public void setState(String state) {
+				this.state = state;
+			}
+
+
 			@Override
 			public String toString() {
 				return "UserInfo [id=" + id + ", user_name=" + user_name + ", f_name=" + f_name + ", l_name=" + l_name
 						+ ", email_id=" + email_id + ", contact_no=" + contact_no + "]";
 			}
+			
+			
 
 }

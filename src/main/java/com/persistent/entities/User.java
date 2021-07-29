@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class User {  //User can be a doctor or a patient
 
 	@Id
-	private String user_name;
+	private String user_name;  //user_name of patient or doctor should be unique
 	private String password,type;
 
 	public User() {}

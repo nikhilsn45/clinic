@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.persistent.dao.DoctorDao;
 import com.persistent.entities.DoctorInfo;
 
@@ -48,10 +46,16 @@ public class DoctorService {
 		
 		return dao.findById(id);
 	}
-	//Call to Custom Queries  Dao Implementations
+	
+	public DoctorInfo findDoctorByUser_Name(String un)
+	{
+		
+		return dao.findByUser_Name(un);
+	}
+	
+	
+	public List<DoctorInfo> findBySpecializationAndStateAndCity(String specialization, String state, String city) {
 
-	public List<DoctorInfo> findBySpecialityAndStateAndCity(String speciality, String state, String city) {
-		// TODO Auto-generated method stub
-		return dao.findBySpecialityOrStateAndCity(speciality,state,city);
+		return dao.findBySpecializationOrStateAndCity(specialization,state,city);
 	}
 }

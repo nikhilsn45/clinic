@@ -18,10 +18,20 @@
 </a><br>
 
 
-<b>User Signup</b>
-<a href="user_signup">
+<b>Patient Signup</b>
+<a href="/patient_signup">
 <!-- "user_signup" will be called from UserController-->
-<button>User Signup</button>
+<button>Patient Signup</button>
+</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+ALREADY REGISTERED? <a href="/login">
+<button>LOGIN</button>
 </a>
 </p>
 </body>

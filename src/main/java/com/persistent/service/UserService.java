@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.persistent.dao.UserDao;
-import com.persistent.entities.DoctorInfo;
-import com.persistent.entities.UserInfo;
+import com.persistent.entities.User;
 
 @Service
 public class UserService {
@@ -20,9 +19,14 @@ public class UserService {
 	public UserService() {
 	}
 	
-	public void addUser(UserInfo d)
+	public void addUser(User u)
 	{
-		udao.save(d);
+		udao.save(u);
+	}
+	
+	public User getUserByUser_NameAndPassword(String un, String p)
+	{
+		return udao.findUserByUser_NameAndPassword(un,p);
 	}
 
 	

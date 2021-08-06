@@ -2,11 +2,12 @@ package com.persistent.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+import com.persistent.entities.Address;
 import com.persistent.entities.Patient;
 
-public interface PatientDao extends CrudRepository<Patient,Integer>{
-	
-	Patient findByUserName(String un);
+@Repository
+public interface AddressDao extends CrudRepository<Address,Integer>{
 
 }

@@ -9,8 +9,6 @@
 <body>
 <div align="center">
 <form action="/save_user" method =post>
-<!--label for="id">Enter Your Id</label--><br>
-<!--input type="text" id="id" name="id"--><br>
 
 <label for="user_name">Enter Your User Name which you will use for login</label><br>
 <input type="text" id="user_name" name="user_name"><br>
@@ -29,6 +27,7 @@
 
 <label for="password">Enter Your Password</label><br>
 <input type="text" id="password" name="password"><br>
+<input type="hidden"  name="type" value="user"><br>
 
 
 <button type="submit">SIGNUP</button>

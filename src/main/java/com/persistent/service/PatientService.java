@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.persistent.dao.PatientDao;
 import com.persistent.entities.Patient;
+import com.persistent.entities.Person;
 
 @Service
 public class PatientService {
@@ -25,10 +26,10 @@ public class PatientService {
 	}
 
 	
-	public Patient findPatientByUser_Name(String un)
+	public Patient findPatientByUserName(String un)
 	{
 		
-		return pdao.findByUser_Name(un);
+		return pdao.findByUserName(un);
 	}
 	
 	

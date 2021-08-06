@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient Registration</title>
+<link th:href="@{/css/mainpreg.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+
+<style>
+.signin {
+  
+  text-align: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 align="center">Patient Registration</h1>
+<br><br>
+<div id="doc" align="center">
+Are you a Doctor?   <a class="btn" href="/doctor_signup">Register Here</a>
+
+</div>
+<br><br>
+
+<form action="/save_patient" method="post" align="center">
+ <fieldset id="field" align="center">
+  <!--<legend align="center">Patient Information:</legend><br><br>-->
+  <br><br>
+  <table align="center">
+  <tr>
+  <td><label for="userName">Username:</label>
+  <td><input type="text" id="userName" name="userName" required>
+  </tr>
+	<tr>
+  <td><label for="fName">First name:</label>
+  <td><input type="text" id="fName" name="fName" required>
+  </tr>
+	<tr>
+  <td><label for="lName">Last name:</label>
+  <td><input type="text" id="lName" name="lName">
+  </tr>
+	<tr>
+  <td><label for="emailId">Email:</label>
+  <td><input type="email" id="emailId" name="emailId" required>
+  </tr>
+	<tr>
+  <td><label for="mobile">Phone Number:</label>
+  <td><input type="text" id="contactNo" name="contactNo" required>
+  </tr>
+  <tr>
+  <td><label for="gender">Gender:</label>
+  <td><input type="text" id="gender" name="gender" required>
+  </tr>
+	<tr>
+  <td><label for="age">Age:</label>
+  <td><input type="number" id="age" name="age" required>
+  </tr>
+  <tr>
+  <td><label for="city">City:</label>
+  <td><input type="text" id="city" name="city" required>
+  </tr>
+  <tr>
+  <td><label for="state">State:</label>
+  <td><input type="text" id="state" name="state" required>
+  </tr>
+  <tr>
+  <td><label for="password">Password:</label>
+  <td><input type="text" id="password" name="password" required>
+  </tr>
+  
+  <input type="hidden"  name="type" value="patient"><br>
+  <tr>
+  <td><label> </label></td>
+  <td><input type="submit" value="Register" id="registerbtn"></td></tr>
+  </table>
+ </fieldset>
+ 
+</form>
+<br>
+<div class="signin">
+	<p>Already have an account?<a href="/">Sign in</ a></p>
+	</div>
+<div style="height: 50px;"></div>
+
+</body>
+</html>

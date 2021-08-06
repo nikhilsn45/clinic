@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor Registration</title>
+
+<script type="text/javascript"></script>
+<style>
+
+body{
+	
+	background: linear-gradient(to right, cornflowerblue, powderblue,mediumseagreen);
+	font-family: 'Jost', sans-serif;
+	color: #5c4b51;
+}
+
+a{
+	color:crimson;
+}
+.container{
+	
+	width:670px;
+	margin:auto;
+	height:1020px;
+	background-color:#F0F8FF;
+	font-family: 'Jost', sans-serif;
+}
+
+
+label{
+	margin-left:20px;
+}
+h1{
+	text-align:center;
+	margin:auto;
+}
+input[type=text], input[type=password] {
+  width: 87%;
+  padding: 15px;
+  margin: 2px 0 19px 20px;
+  display: inline-block;
+  border: none;
+  background-color: #ddd;
+}
+.active{
+	background-color:#04AA6D;
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 22px;
+}
+.registerbtn
+{
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 15px 10px;
+  margin:15px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  height:50px;
+  opacity: 0.9;
+  text-align:center;
+}
+.registerbtn:hover {
+  opacity:1;
+  
+}
+.s1
+{
+	background-color:#F0F8FF;
+	width:670px;
+	margin:auto;
+}
+.signin {
+  
+  text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+
+<br>
+<h1 style="text-align:center;">Doctor Registration</h1>
+<br>
+<h4 style="text-align:center;"><a href="/patient_signup" style="color:crimson;">Not a doctor?</a></h4>
+<form action="/save_doctor" method="post">
+	<div class="container">
+		<br>
+		<label for="userName"><b>Username</b></label>
+		<br>
+		<input type="text" placeholder="Enter First Name" name="userName" id="userName" required>
+		<br>
+		<label for="fName"><b>First Name</b></label>
+		<br>
+		<input type="text" placeholder="Enter First Name" name="fName" id="fName" required>
+		<br>
+		<label for="lName"><b>Last Name</b></label>
+		<br>
+		<input type="text" placeholder="Enter Last Name" name="lName" id="lName" required>
+		<br>
+		<label for="speciality"><b>Specialization</b></label>
+		<br>
+		<input type="text" placeholder="Enter Speciality" name="speciality" id="speciality" required>
+		<br>
+		<label for="phone"><b>Phone No</b></label>
+		<br>
+         <input type="text" placeholder="Enter Phone no." name="contactNo" id="contactNo" required>
+		<br>
+		<label for="license"><b>Medical License No.</b></label>
+		<br>
+		<input type="text" placeholder="Enter Medical License no." name="licenseNo" id="licenseNo" required>
+		<br>
+		
+		<label for="city"><b>City</b></label>
+		<br>
+         <input type="text" placeholder="Enter City" name="city" id="city" required>
+		<br>
+		
+		<label for="state"><b>State</b></label>
+		<br>
+         <input type="text" placeholder="Enter State" name="state" id="state" required>
+		<br>
+		
+		<label for="psw"><b>Password</b></label>
+		<br>
+        <input type="password" placeholder="Enter Password" name="password" id="password" required>
+		<br>
+		<input type="hidden"  name="type" value="doctor"><br>
+		
+        </div>
+       
+        <div class="s1" align="center">
+        <button type="submit" class="registerbtn" th:onclick="demo()">Register</button>
+		</div>
+	<div class="signin">
+	<p>Already have an account?<a href="/">Sign in</ a></p>
+	</div>
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin</title>
+
+<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+hr{
+	color:black;
+}
+.topnavi a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavi a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnavi a.active {
+  background-color: darkcyan;
+  color: ghostwhite;
+}
+body{
+	background-color: #f7fffa !important;
+	font-family: 'Jost', sans-serif;
+}
+.wrapper{
+	
+	width: 70%;
+	margin: auto;
+	margin-top: 35px;
+}
+table{
+	text-align: center;
+	border:none;
+	
+}
+#PatientsList{
+	background-color:mediumseagreen;
+	width:30%;
+	height:40px;
+	border-radius:7px;
+}
+#DList
+{
+	background-color:mediumseagreen;
+	width:30%;
+	height:40px;
+	border-radius:7px;
+}
+#DoctorsList
+{
+	background-color:mediumseagreen;
+	width:30%;
+	height:40px;
+	border-radius:7px;
+}
+#btn-accept{
+	background-color: mediumseagreen;
+	color: white;
+}
+#btn-reject{
+	background-color: red;
+	color: white;
+}
+
+</style>
+</head>
+<body>
+
+<div>
+	<div style=" height: 50px;"></div>
+	<div class="topnavi" style="margin-left: 50px;">
+  <a class="active" href="admin">Home</a>
+  <a href="about">About</a>
+  <a href="patientreg">Register as Patient</a>
+  <a href="doctorreg">Register as Doctor</a>
+  <a href="login" style="margin-left: 700px;" >Logout</a>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<h2 style="text-align:center;"><b>Admin Page</b></h2>
+<div class="wrapper" align="center">
+	
+	<h4 style="text-align:left;"><b>Pending Doctor Verifications</b></h4>  
+	<button type="button" id="DList" class="DList">Show Doctors List</button>
+	<button type="button" id="Hbtn1" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>
+	<br>
+	<br>
+	<table class="table" style="border:none !important;">
+	<thead>
+    <tr>
+        <th>Doctor Name</th>
+        <th>Specialization</th>
+ 		<th>Hospital Name</th>     
+        <th>Accept Verification</th>
+        <th>Reject Verification</th>
+    </tr>
+	</thead>
+    <tbody id="myTable">
+        
+    </tbody>
+</table>
+<br>
+<hr>
+<h4 style="text-align:left;"><b>Just Verified Doctors</b></h4>  
+<table class="table " style="border:none !important;">
+	<thead>
+    <tr>
+        <th>Doctor Name</th>
+        <th>Specialization</th>
+        <th>Hospital Name</th>
+    </tr>
+	</thead>
+    <tbody id="appoTable">
+        
+    </tbody>
+</table>
+
+</div>
+<br>
+<hr>
+<div align="center" style="width:70%; margin: auto;">
+	<h4 style="text-align:left;"><b>Patients List</b></h4>
+	
+	<button type="button" id="PatientsList" class="PatientsList">Show Patients List</button>
+	<button type="button" id="Hbtn2" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>
+	<br>
+	<br>
+	<table style="width:100%; " class="table ">
+		<thead>
+		<tr>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>EmailId</th>
+		</tr>
+		</thead>
+		<tbody id="tdata">
+		
+		</tbody>
+	</table>
+</div>
+<hr>
+<div align="center" style="width:70%; margin:auto;">
+	<h4 style="text-align:left;"><b>Registered Doctors List</b></h4>
+	<button type="button" id="DoctorsList" class="DoctorsList">Show Doctors List</button>
+	<button type="button" id="Hbtn3" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>
+	<br>
+	<br>
+	<table style="width:100%;" class="table ">
+		<thead>
+		<tr>
+		<th>Name</th>
+		<th>Specialization</th>
+		<th>Hospital Name</th>
+		</tr>
+		</thead>
+		<tbody id="docdata">
+		
+		</tbody>
+	</table>
+</div>
+
+
+
+
+<script>
+	var myArray = [
+	    {'name':'Dr.Jake', 'spec':'neuro', 'hospital':'Sahyadri'},
+	    {'name':'Dr.Molly', 'spec':'ent', 'hospital':'Jehangir'},
+	    {'name':'Dr.Paul', 'spec':'gynac', 'hospital':'KEM'},
+	    {'name':'Dr.Joey', 'spec':'neuro', 'hospital':'KK'},
+	    {'name':'Dr.Ted', 'spec':'gynac', 'hospital':'Poona'},
+	    {'name':'Dr.Erik', 'spec':'neuro', 'hospital':'Ruby'},
+	];
+	var data1=[{'fname':'Joey','lname':'Tribbiani','email':'joeyt@gmail.com'},
+		{'fname':'Dough','lname':'Judy','email':'rosa@gmail.com'},
+		{'fname':'Ted','lname':'Mosby','email':'tm@gmail.com'},
+		{'fname':'Daisy','lname':'Dale','email':'dd@gmail.com'},
+		{'fname':'Freddy','lname':'Jose','email':'fj@gmail.com'}];
+	
+	
+	
+	var appRow=[]
+	
+	buildTable(myArray)
+	
+	
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].name}</td>
+							<td>${data[i].spec}</td>
+							<td>${data[i].hospital}</td>
+							<td><button type="button" id ="btn-accept" class="btn btn-sm px-3">Accept</button></td>
+							<td><button type="button" id = "btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button></td>
+					 </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+	
+	
+	function addAppointment(name,spec,hospital)
+	{
+		var appo_accept = document.getElementById('appoTable')
+
+		
+			var row = `<tr>
+							<td>${name}</td>
+							<td>${spec}</td>
+							<td>${hospital}</td>
+					 </tr>`
+			appo_accept.innerHTML += row
+
+
+	}
+	
+	buildTable1(data1)
+	function buildTable1(data){
+		var table = document.getElementById('tdata')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].fname}</td>
+							<td>${data[i].lname}</td>
+							<td>${data[i].email}</td>
+							
+					 </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+	
+	//----------------------------------------------------------
+	buildTable2(myArray)
+	function buildTable2(data){
+		var table = document.getElementById('docdata')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].name}</td>
+							<td>${data[i].spec}</td>
+							<td>${data[i].hospital}</td>
+					 </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+	//------------------------------------------------------------------
+	$(document).ready(function($)
+	{
+	$(document).on('click',"#btn-reject", function(e)
+	{
+		var r = $(this).closest('tr').remove();
+	}
+	);
+	
+	$(document).on('click',"#btn-accept", function(e)
+	{
+		
+		var row = $(this).closest('tr');
+		var col1 = row.find("td:eq(0)").text();
+		var col2 = row.find("td:eq(1)").text();
+		var col3 = row.find("td:eq(2)").text();
+		
+		addAppointment(col1,col2,col3);
+		//console.log(row);
+		row.remove();
+		
+	});
+	
+	$("#tdata").hide();
+	$("#PatientsList").click(function(e){
+		e.preventDefault();
+		$("#tdata").show();
+		commit();
+	});
+	
+	$("#docdata").hide();
+	$("#DoctorsList").click(function(e){
+		e.preventDefault();
+		$("#docdata").show();
+		commit();
+	});
+	
+	$("#myTable").hide();
+	$("#DList").click(function(e){
+		e.preventDefault();
+		$("#myTable").show();
+		commit();
+	});
+	
+	$("#Hbtn1").click(function(){
+		$("#myTable").hide();
+	});
+	
+	$("#Hbtn2").click(function(){
+		$("#tdata").hide();
+	});
+	
+	$("#Hbtn3").click(function(){
+		$("#docdata").hide();
+	});
+});
+	
+	
+
+</script>
+</body>
+</html>

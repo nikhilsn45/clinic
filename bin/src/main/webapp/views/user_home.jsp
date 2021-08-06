@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,24 +8,19 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<sf:form action="/profile" method="get" modelAttribute="uInfo">
+			<button>My Profile</button>
+		</sf:form>
 			
 		<p align="center">
-			Welcome to your profile ${patient.f_name} ${patient.l_name}!!<br>
+			Welcome to your profile ${uInfo.f_name} ${uInfo.l_name}!!<br>
 			Your details are as follows:<br><br>
 			
-			Your User_Name: ${patient.user_name}<br><br>
+			Your User Name: ${uInfo.user_name}<br><br>
 			
-			Your Email_Id: ${patient.email_id}<br><br>
+			Your Email_Id: ${uInfo.email_id}<br><br>
 			
-			Your Age: ${patient.age}<br>
-			
-			Your Gender: ${patient.gender}<br><br>
-			
-			Your City: ${patient.city}<br><br>
-			
-			Your State: ${patient.state}<br><br>
-			
-			
+			Your Contact Number: ${uInfo.contact_no}<br>
 			<br>
 			<br>
 			<br>
@@ -34,14 +30,9 @@
 				<button>Return To Home Page</button>
 			</a>
 		</p>
-		
-		
-		
-		<!-- Status of your appointment will be displayed here.-->
-		<!-- If your appointment gets rejected, you can search for doctors again from below form -->
 	
 		
-		<form action= "/patient_search_results" method="post">
+		<form action= "/user_search_results" method="post">
 		
 			<label for="type">Enter the type of Doctor:</label><br>
 			<input type="" id="type" name="type"><br><br>
@@ -52,7 +43,7 @@
 			<input type="text" id="city" name="city"><br><br>
 			
 			<button type="submit">SEARCH DOCTOR</button>
-
+		<!-- This will be handled by "user_search_results" in Doctor Controller-->
 		</form>
 		
 		<div id="searchResultList">

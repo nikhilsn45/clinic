@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.persistent.entities.DoctorInfo;
+import com.persistent.entities.Doctor;
 import com.persistent.entities.Patient;
 import com.persistent.entities.User;
 import com.persistent.service.DoctorService;
@@ -28,18 +28,18 @@ public class HomeController {
 	public HomeController() {
 	}
 
-	@RequestMapping({"/","/home"})//  src/main/webapp/views/home.jsp will be called
+	@RequestMapping("/")//  src/main/webapp/views/home.jsp will be called
 	public String home()
 	{
 		return "mainpage";
 	}
 	
 	
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String login()
 	{
 		return "login";
-	}
+	}*/
 	
 	@RequestMapping("/doctor_signup")
 	public String doctor_signup()
@@ -53,21 +53,17 @@ public class HomeController {
 		return "patient_signup";
 	}
 	
-	
-	
-	
-	
-	@RequestMapping("/login_user")
+	@RequestMapping("/home")
 	public String login_user(@ModelAttribute User u,Model m)
 	{
-		
-		if((userv.getUserByUser_NameAndPassword(u.getUser_name(), u.getPassword()))!=null)
+		System.out.println("entered");
+		if(userv.getUserByUserNameAndPassword(u.getUserName(), u.getPassword()) != null)
 		{
 			System.out.println(u);
 			if((u.getType()).equals("doctor")) 
 			{
 				System.out.println("Doctor Service Called");
-				DoctorInfo d1 =dserv.findDoctorByUser_Name(u.getUser_name());
+				Doctor d1 =dserv.findDoctorByUserName(u.getUserName());
 				if(d1!= null) {
 					System.out.println(d1);
 					m.addAttribute("doc", d1);
@@ -83,7 +79,7 @@ public class HomeController {
 				if((u.getType()).equals("patient"))
 				{
 					System.out.println("Patient Service Called");
-					Patient p1 =pserv.findPatientByUser_Name(u.getUser_name());
+					Patient p1 =pserv.findPatientByUserName(u.getUserName());
 					if(p1 != null) {
 						System.out.println(p1);
 						m.addAttribute("pat", p1);
@@ -98,27 +94,11 @@ public class HomeController {
 		     }
 		
 		}
-		else
+		else {
 			return "error";
+		}
 		
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public DoctorService getDserv() {
 		return dserv;

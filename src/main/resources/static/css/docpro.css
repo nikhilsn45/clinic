@@ -1,0 +1,128 @@
+body{
+	background-color: #f7fffa !important;
+}
+thead{
+	background-color: darkcyan !important ;
+	color: white !important ;
+}
+table{
+	text-align: center;
+	
+}
+hr{
+	background-color: #414744 !important;
+	width: 1000px;
+	height:1px !important;
+}
+
+.topnavi a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavi a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnavi a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+#btn-accept{
+	background-color: mediumseagreen;
+	color: white;
+}
+.wrapper{
+	width: 80% !important;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.emp-profile{
+	width:80%;
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    border: 2px solid mediumseagreen;
+    background:white;
+    
+  
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color:darkcyan;
+}
+
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid darkcyan;
+}
+.profile-work{
+    padding: 5%;
+    margin-top: -15%;
+}
+.profile-work p{
+   
+    color: darkslategrey;
+    font-weight: 600;
+    
+    
+}
+
+.profile-work ul{
+    list-style: none;
+    font-weight: 600;
+    
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: darkslategray;
+}
+
+#foot{
+	height: 200px;
+}
+.pro{
+	margin-left: 90px !important;
+	margin-top: 50px;
+	margin-right: 200px;
+}
+
+

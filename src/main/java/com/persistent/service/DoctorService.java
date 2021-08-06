@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.persistent.dao.DoctorDao;
-import com.persistent.entities.DoctorInfo;
+import com.persistent.entities.Doctor;
 
 
 @Service
@@ -26,36 +26,36 @@ public class DoctorService {
 		dao.deleteById(id);
 	}
 	
-	public void addDoctor(DoctorInfo d)
+	public void addDoctor(Doctor d)
 	{
 		dao.save(d);
 	}
 	
-	public void addDoctors(List<DoctorInfo> l)
+	public void addDoctors(List<Doctor> l)
 	{
 		dao.saveAll(l);
 	}
 	
-	public void updateDoctor(DoctorInfo d)
+	public void updateDoctor(Doctor d)
 	{
 		dao.save(d);
 	}
 	
-	public DoctorInfo findDoctorById(int id)
+	public Doctor findDoctorById(int id)
 	{
 		
-		return dao.findById(id);
+		return null;//dao.findById(id);
 	}
 	
-	public DoctorInfo findDoctorByUser_Name(String un)
+	public Doctor findDoctorByUserName(String un)
 	{
 		
-		return dao.findByUser_Name(un);
+		return dao.findByUserName(un);
 	}
 	
 	
-	public List<DoctorInfo> findBySpecializationAndStateAndCity(String specialization, String state, String city) {
+	public List<Doctor> findBySpecialityAndAddress(String specialization, String state, String city) {
 
-		return dao.findBySpecializationOrStateAndCity(specialization,state,city);
+		return dao.findBySpecialityAndAddress_CityAndAddress_State(specialization,city,state);
 	}
 }

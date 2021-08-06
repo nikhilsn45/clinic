@@ -7,24 +7,24 @@ import javax.persistence.Id;
 public class User {  //User can be a doctor or a patient
 
 	@Id
-	private String user_name;  //user_name of patient or doctor should be unique
+	private String userName;  //user_name of patient or doctor should be unique
+	
 	private String password,type;
 
 	public User() {}
 	
-	public User(String user_name, String password, String type) {
-		super();
-		this.user_name = user_name;
+	public User(String userName, String password, String type) {
+		this.userName = userName;
 		this.password = password;
 		this.type = type;
 	}
 
-	public String getUser_name() {
-		return user_name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -45,7 +45,7 @@ public class User {  //User can be a doctor or a patient
 
 	@Override
 	public String toString() {
-		return "User [user_name=" + user_name + ", password=" + password + ", type=" + type + "]";
+		return "User [userName=" + userName + ", password=" + password + ", type=" + type + "]";
 	}
 	
 	

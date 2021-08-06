@@ -1,0 +1,141 @@
+
+<!-- %@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+
+		<title>Patient Home</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link th:href="@{/css/patient_home.css}" rel="stylesheet">
+		<style>
+			body{background-color: #f7fffa; font-family: 'Jost', sans-serif;}
+			.topnavi a {
+  				float: left;
+  				color: black;
+  				text-align: center;
+  				padding: 14px 16px;
+  				text-decoration: none;
+  				font-size: 17px;
+				}
+
+			.topnavi a:hover {
+ 				background-color: #ddd;
+  				color: black;
+				}
+
+			.topnavi a.active {
+  				background-color: darkcyan;
+  				color: ghostwhite;
+				}
+			#sampleForm{
+				background-color:darkcyan;
+				color:white;
+				border:none;
+				width:20%;
+				text-align:center;
+				height:45px;
+			}	
+				
+		</style>
+	</head>
+	<body>
+	<div style=" height: 40px;"></div>
+	<div style="background-color: black;">
+		<div class="topnavi" style="margin-left: 50px;">
+  			<a class="active" href="patienthome">Home</a>
+  			<a href="about">About</a>
+  			<a href="doctorreg">Register as Doctor</a>
+  			<a href="login" style="margin-left: 1000px;" >Logout</a>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div align=center>
+		<br>
+		<br>
+		<br>
+		<div style="border:3px solid darkcyan; width:80%; border-radius:10px;">
+		<p align="center">
+			<b>Welcome  </b><span th:text="${pat.fName}"></span>  <span th:text="${pat.lName}"></span>  .....<br>
+			<br>
+			
+			<b>User Name:</b><span th:text="${pat.userName}"></span> <br><br>
+			
+			<b>Email_Id:</b><span th:text="${pat.emailId}"></span> <br><br>
+			
+			<b>Contact Number:</b><span th:text=" ${pat.contactNo}"></span><br>
+			
+			</p>
+		</div>
+		<br>
+		
+	  </div>
+
+	  <div align=center>
+		<form id="searchform">
+			<h2><b>Search Doctors?</b></h2>
+
+			<label for="type">Enter the type of Doctor:</label><br>
+			<input type="text" id="type" name="type"><br><br>
+			<!-- A drop down list of Cardiologist, Dentist, Physician,Gynecologist, Pediatrician,Psychiatrist,Veterinarian etc   -->
+			
+			<label for="state">Enter Your State</label><br>
+			<input type="text" id="state" name="state"><br><br>
+			
+
+			<label for="city">Enter Your City</label><br>
+
+			<input type="text" id="city" name="city"><br><br>
+			
+			<button id="sampleForm" type="submit">SEARCH DOCTOR</button>
+		<!-- This will be handled by "user_search_results" in Doctor Controller-->
+		</form>
+
+	 </div>
+
+		<div id="searchResultList">
+			<ul class ="listgroup">
+			
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+		$(document).ready(function() {
+		    $("#searchform").submit(
+		        function(event) {
+		        	event.preventDefault();
+		        	var d = { type : $('#type').val(), state : $('#state').val(), city : $('#city').val() };
+		            
+		         $.ajax({
+		        	 	type : "POST",
+						url : "search",
+						data : d,
+						success : function(data) {
+							var result = "";
+							$("#searchResultList").html('');
+		                    $.each(data, function (id, doctor) {
+		                        result += '<form id=\"doctor\" action=\"/doctor/'+ doctor.userName + '\" method=\"get\">'+
+		                        '<b>Doctor     : </b>' + doctor.fName + ' ' + doctor.lName + '<br/>' +
+			                    	'<b>Speciality : </b>' + doctor.speciality + '<br/>' +
+			                    	'<b>Contact    : </b>' + doctor.contactNo + '<br/>' +
+		                        	'<b>state      : </b>' + doctor.state + '<br/>' +
+		                            '<b> city      : </b>' + doctor.city + '<br/>'+
+		                            '<button type="submit">CHECKOUT DOCTOR</button> <br/>'+
+		                            '</form><br><br><br/>';
+
+		                    });
+
+							$("#searchResultList").html(result);
+							
+		                },
+		                error : function(xhr, status, error) {
+		                	alert("alerting");
+		                    alert(xhr.responseText);
+		                }
+		            });
+		        });
+		    });
+		</script>
+	</body>
+</html>

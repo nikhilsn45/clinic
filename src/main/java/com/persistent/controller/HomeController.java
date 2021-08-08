@@ -53,6 +53,12 @@ public class HomeController {
 		return "patient_signup";
 	}
 	
+	@RequestMapping("/about")
+	public String about()
+	{
+		return "about";
+	}
+	
 	@RequestMapping("/home")
 	public String login_user(@ModelAttribute User u,Model m)
 	{

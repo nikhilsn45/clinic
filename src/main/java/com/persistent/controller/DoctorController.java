@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.persistent.dto.DoctorDto;
 import com.persistent.entities.Address;
 import com.persistent.entities.Doctor;
+import com.persistent.entities.Patient;
 import com.persistent.entities.User;
 import com.persistent.service.DoctorService;
 import com.persistent.service.UserService;
@@ -45,7 +46,7 @@ public class DoctorController {
 		return "doctor_home";//"user_home.jsp" called
 	}*/
 	
-	@RequestMapping(path="/doctor/{username}", method=RequestMethod.GET)
+	@RequestMapping(path=("/doctor/{username}"), method=RequestMethod.GET)
 	public String doctor_info(@PathVariable String username,Model model)
 	{
 		System.out.println(username);
@@ -57,5 +58,15 @@ public class DoctorController {
 		model.addAttribute("doc",new DoctorDto(doc));
 		return "doctor_info";//"user_home.jsp" called
 	}
+	
+//	@RequestMapping(path="/profile", method=RequestMethod.GET)
+//	public String user_profile(@ModelAttribute DoctorDto d)
+//	{
+//		System.out.println(d);
+//		
+//		return "doctor_info";
+//	}
+	
+	
 	
 }

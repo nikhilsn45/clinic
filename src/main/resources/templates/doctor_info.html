@@ -31,6 +31,21 @@
   background-color: darkcyan;
   color: ghostwhite;
 }
+
+hr{
+	background-color: #414744 !important;
+	width: 1160px;
+	margin-left: 150px;
+	
+	height:1px !important;
+	
+}
+#showReviews{
+	margin-left: 160px;
+	font-size: 18px;
+	
+	
+}
 </style>
 </head>
 <body>
@@ -38,9 +53,8 @@
 <div style="background-color: black;">
 	<div class="topnavi" style="margin-left: 50px;">
   <a class="active" href="docprofile">Home</a>
-  <a href="about">About</a>
-  <a href="patientreg">Register as Patient</a>
-  <a href="/" style="margin-left: 1000px;" >Logout</a>
+  
+  <a href="/" style="margin-left: 1200px;" >Logout</a>
 	</div>
 </div>
 
@@ -49,13 +63,13 @@
 <h4 style="margin-left: 50px;">Profile</h4>  
 </div>
 
-<div class="container emp-profile" style="width: 100%;">
+<div class="container emp-profile" style="width: 1000px;">
 
             <form method="post">
                 <div class="row">
                     <div class="col-md-5">
                         <div class="profile-img">
-                            <img src="/Thymeleafdemo1/src/main/resources/static/images/stan-lee.jpg" alt=""/>
+                            <img src="/images/stan-lee.jpg" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -80,6 +94,7 @@
                     <div class="col-md-5">
                     
                         <div class="profile-work">
+                        <div style="height: 90px;"></div>
                             <h5>Bio</h5>
                             
 	                            <p> i am hid ja db h av jkaj bkjbjm j agsikjhbanvikjah cuhc cu guhc </p>
@@ -155,115 +170,70 @@
             </form>           
         </div>
 
- <hr>
-<div class="wrapper">
-	
-	<h4 class="h3head">Pending Appointments</h4>  
-	<br><br>
-	<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Patient Name</th>
-        <th>Age</th>
-        <th>Appointment Time</th>
-        <th>Accept Appointment</th>
-        <th>Reject Appointment</th>
-    </tr>
-	</thead>
-    <tbody id="myTable">
-        
-    </tbody>
-</table>
-<br><hr><br>
+ <hr align="center">
+ <br>
 
-<h4 class="h3head">Accepted Appointments</h4>  
-  <br><br>
-<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Patient Name</th>
-        <th>Age</th>
-        <th>Appointment Time</th>
-    </tr>
-	</thead>
-    <tbody id="appoTable">
-        
-    </tbody>
-</table>
+	<div class="rate" style="margin-left: 140px;">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+  </div>
+   <br><br>
+   
+   <h4 style="margin-left: 160px;">Reviews</h4>
+   <br><hr align="center"><br>
+   
+   <!--<form action="/action_page.php">
+	<label for="review">Add a review</label><br>
+	<textarea id="review" name="review" rows="4" cols="50" placeholder="Write a review">
+	  
+	  </textarea>
+	  <br><br>
+	  <input type="submit" value="Submit" id="reviewbtn">
+	</form>-->
+ 
+   <div id="showReviews"></div>
+   
+   
+  
 
-</div>
 <div id="foot"></div>
 <script>
 	var myArray = [
-	    {'name':'Jake', 'age':'32', 'time':'11 am'},
-	    {'name':'Molly', 'age':'32', 'time':'12:30 pm'},
-	    {'name':'Paul', 'age':'25', 'time':'12:45 pm'},
-	    {'name':'Joey', 'age':'27', 'time':'1:20 pm'},
-	    {'name':'Ted', 'age':'31', 'time':'4 pm'},
-	    {'name':'Erik', 'age':'22', 'time':'5:30 pm'},
+	    {'name':'Jake', 'review':'very good'},
+	    {'name':'Molly', 'review':'excellent'},
+	    {'name':'Paul', 'review':'perfect'},
+	    
 	]
-	var appRow=[]
 	
-	buildTable(myArray)
+		
+	displayReviews(myArray);
 
-
-
-	function buildTable(data){
-		var table = document.getElementById('myTable')
-
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].age}</td>
-							<td>${data[i].time}</td>
-							<td><button type="button" id ="btn-accept" class="btn btn-sm px-3">Accept</button></td>
-							<td><button type="button" id = "btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button></td>
-					 </tr>`
-			table.innerHTML += row
-
+	function displayReviews(data){
+		var re = document.getElementById('showReviews')
+	
+		for (var i = 0; i < myArray.length ; i++){
+			var div = document.createElement("div");
+			var h5 = document.createElement("h5");
+			var br = document.createElement('br');
+			h5.innerHTML = data[i].name
+			div.innerHTML = data[i].review ;
+			re.appendChild(h5);
+			re.appendChild(div);
+			re.appendChild(br);
 
 		}
 	}
 	
-	function addAppointment(name,age,time)
-	{
-		var appo_accept = document.getElementById('appoTable')
-
-		
-			var row = `<tr>
-							<td>${name}</td>
-							<td>${age}</td>
-							<td>${time}</td>
-					 </tr>`
-			appo_accept.innerHTML += row
-
-
-	}
 	
-	
-	$(document).ready(function($)
-	{
-	$(document).on('click',"#btn-reject", function(e)
-	{
-		var r = $(this).closest('tr').remove();
-	}
-	);
-	
-	$(document).on('click',"#btn-accept", function(e)
-	{
-		
-		var row = $(this).closest('tr');
-		var col1 = row.find("td:eq(0)").text();
-		var col2 = row.find("td:eq(1)").text();
-		var col3 = row.find("td:eq(2)").text();
-		
-		addAppointment(col1,col2,col3);
-		//console.log(row);
-		row.remove();
-		
-	}
-	);
-});
+
 </script>
 </body>
 </html>

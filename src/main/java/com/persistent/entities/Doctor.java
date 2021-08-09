@@ -11,6 +11,17 @@ public class Doctor extends Person {
 		private String licenseNo;
 		
         private String speciality;
+        
+        //private String University_name;
+        
+        //private int experience;
+        
+        //private String Organisation_name;
+        
+        //private String phone_num;
+        
+        //private int consultation_fee;
+        
 
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "addressId", referencedColumnName = "id")

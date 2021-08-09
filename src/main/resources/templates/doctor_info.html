@@ -97,7 +97,10 @@ hr{
                         <div style="height: 90px;"></div>
                             <h5>Bio</h5>
                             
-	                            <p> i am hid ja db h av jkaj bkjbjm j agsikjhbanvikjah cuhc cu guhc </p>
+	                            <p> I am DR.<span th:text="${doc.fName}"></span>  <span th:text="${doc.lName}"></span>
+	                            I have a specialization in <span th:text="${doc.speciality}"></span> and an experience of 10 years.
+	                            </p>
+                        	
                         	
                             
                         </div>
@@ -169,6 +172,48 @@ hr{
                 </div>
             </form>           
         </div>
+ <br>
+ <br> 
+ <br>     
+<hr align="center">
+<br>
+<div align="center">
+<h1>Book an Appointment</h1>
+<form action="/book_slot" method="post">
+  <label for="cars">Choose a slot:</label>
+  <select name="timing" id="cars">
+    <option value="9:00-9:30">9:00-9:30</option>
+    <option value="9:30-10:00">9:30-10:00</option>
+    <option value="10:00-10:30">10:00-10:30</option>
+    <option value="10:30-11:00">10:30-11:00</option>
+    <option value="11:00-11:30">11:00-11:30</option>
+    <option value="11:30-12:00">11:30-12:00</option>
+    <option value="1:00-1:30">1:00-1:30</option>
+    <option value="1:30-2:00">1:30-2:00</option>
+    <option value="2:00-2:30">2:00-2:30</option>
+    <option value="2:30-3:00">2:30-3:00</option>
+    <option value="3:00-3:30">3:00-3:30</option>
+    <option value="3:30-4:00">3:30-4:00</option>
+  </select>
+  
+  
+  <br>
+  <input type="hidden" value="pending" name="status">
+  <input type="hidden" value="kavitha44Suresh" name="doctorUserName"><!--th:value="${doc.userName}"-->
+  <input type="hidden" value="ankita77kumari" name="patientUserName"><!--th:value="${pat.userName}"-->
+  
+  <button type="submit">REQUEST APPOINTMENT</button>
+</form>
+
+
+
+</div>
+<br>
+<br>
+<br>
+
+
+
 
  <hr align="center">
  <br>

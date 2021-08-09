@@ -4,27 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.persistent.dto.DoctorDto;
 import com.persistent.dto.PatientDto;
-import com.persistent.entities.Address;
 import com.persistent.entities.Doctor;
-import com.persistent.entities.User;
-import com.persistent.entities.Patient;
 import com.persistent.entities.Respond;
+import com.persistent.entities.User;
 import com.persistent.service.DoctorService;
-import com.persistent.service.UserService;
 import com.persistent.service.PatientService;
+import com.persistent.service.UserService;
 
 @Controller
 public class PatientController {
@@ -50,16 +44,8 @@ public class PatientController {
 		return "redirect:/";//redirected to user dashboard
 	}
 	
-	/*@RequestMapping(path="/profile", method=RequestMethod.GET)
-	public String user_profile(@ModelAttribute Patient uInfo)
-	{
-		System.out.println(uInfo);
-		return "patient_home";
-	}*/
-	
-	
-	
-	@PostMapping("/search")
+
+		@PostMapping("/search")
     public @ResponseBody List<DoctorDto> user_search_results(Respond t) {
 
         //getuser filtered list from database

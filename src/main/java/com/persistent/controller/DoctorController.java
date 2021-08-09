@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.persistent.dto.DoctorDto;
-import com.persistent.entities.Address;
+import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.Patient;
 import com.persistent.entities.User;
+import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
+import com.persistent.service.PatientService;
 import com.persistent.service.UserService;
 
 @Controller
@@ -24,7 +26,13 @@ public class DoctorController {
 	private DoctorService docService;
 	
 	@Autowired
+	private PatientService pserv;
+	
+	@Autowired
 	private UserService creadServ;
+	
+	@Autowired
+	private AppointmentService appserv;
 	
 	@RequestMapping(path="/save_doctor", method=RequestMethod.POST)
 	public String save_doctor(@ModelAttribute DoctorDto dInfo, @ModelAttribute User u)
@@ -40,12 +48,6 @@ public class DoctorController {
 	
 	}
 	
-	/*@RequestMapping(path="/doctor_home", method=RequestMethod.GET)
-	public String doctor_home(@ModelAttribute Doctor d)
-	{
-		return "doctor_home";//"user_home.jsp" called
-	}*/
-	
 	@RequestMapping(path=("/doctor/{username}"), method=RequestMethod.GET)
 	public String doctor_info(@PathVariable String username,Model model)
 	{
@@ -56,17 +58,22 @@ public class DoctorController {
 		System.out.println(doc);
 		
 		model.addAttribute("doc",new DoctorDto(doc));
-		return "doctor_info";//"user_home.jsp" called
+		return "doctor_info";
 	}
 	
-//	@RequestMapping(path="/profile", method=RequestMethod.GET)
-//	public String user_profile(@ModelAttribute DoctorDto d)
-//	{
-//		System.out.println(d);
-//		
-//		return "doctor_info";
-//	}
 	
+	@RequestMapping(path=("/book_slot"), method=RequestMethod.POST)
+	public String book_slot(@ModelAttribute Appointment app,Model m)
+	{
+		appserv.addAppointment(app);// saved an appointment in Appointment Table
+		Doctor d=docService.findDoctorByUserName(app.getDoctorUserName());//To display required doctor's details
+		Patient p=pserv.findPatientByUserName(app.getPatientUserName());//To display required patient's details
+		m.addAttribute("doc",d);
+		m.addAttribute("pat",p);
+		
+		return "book_response";
+	}
 	
+//@RequestParam String doctorUserName,@RequestParam String status,@RequestParam String patientUserName,@RequestParam String timing,	
 	
 }

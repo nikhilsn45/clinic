@@ -10,9 +10,9 @@ public interface AppointmentDao extends CrudRepository<Appointment,Integer>{
 	
 	public Appointment findById(int id);
 	
-	public List<Appointment> findByDoctorUserNameAndStatus(int docun, String status);
+	//public List<Appointment> findByDoctorUserNameAndStatus(int docun, String status);
 	
-	public List<Appointment> findByPatientUserNameAndStatus(int patientun, String status);
+	//public List<Appointment> findByPatientUserNameAndStatus(int patientun, String status);
 
 
 }

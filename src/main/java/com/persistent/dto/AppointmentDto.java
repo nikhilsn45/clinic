@@ -1,10 +1,9 @@
 package com.persistent.dto;
 
-import org.modelmapper.ModelMapper;
-
-import com.persistent.entities.Appointment;
-
 public class AppointmentDto {
+	
+	
+	private String date;
 	
     private String timing;
     
@@ -18,15 +17,22 @@ public class AppointmentDto {
 		super();
 	}
 
-	public AppointmentDto(String timing, String status, String doctorUserName, String patientUserName) {
+	public AppointmentDto(String date, String timing, String status, String doctorUserName, String patientUserName) {
 		super();
+		this.date = date;
 		this.timing = timing;
 		this.status = status;
 		this.doctorUserName = doctorUserName;
 		this.patientUserName = patientUserName;
 	}
 
+	public String getDate() {
+		return date;
+	}
 
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public String getTiming() {
 		return timing;
@@ -59,19 +65,5 @@ public class AppointmentDto {
 	public void setPatientUserName(String patientUserName) {
 		this.patientUserName = patientUserName;
 	}
-
-	public Appointment convertToEntity()
-    {
-    	ModelMapper m=new ModelMapper();
-    	Appointment app=m.map(this,Appointment.class);
-    	return app;
-    }
-	
-	public AppointmentDto convertToDto(Appointment a)
-    {
-    	ModelMapper m=new ModelMapper();
-    	AppointmentDto appdto=m.map(a,AppointmentDto.class);
-    	return appdto;
-    }
 
 }

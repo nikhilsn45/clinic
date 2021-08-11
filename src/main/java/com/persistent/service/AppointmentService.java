@@ -24,6 +24,11 @@ public class AppointmentService {
 		return adao.findById(id);
 	}
 	
+	public List<Appointment> getAllAppointment(String username)
+	{
+		return adao.findByPat_userName(username);
+	}
+	
 	/*public List<Appointment> getAppointmentByDocIdAndStatus(int docId, String status)
 	{
 		return adao.findByDocIdAndStatus(docId,status);   //to get all pending or accepted appointments list

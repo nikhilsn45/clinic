@@ -57,11 +57,7 @@ hr{
   <a href="/" style="margin-left: 1200px;" >Logout</a>
 	</div>
 </div>
-
 <br><br>
-<div class="pro">
-<h4 style="margin-left: 50px;">Profile</h4>  
-</div>
 
 <div class="container emp-profile" style="width: 1000px;">
 
@@ -109,14 +105,6 @@ hr{
                     <div class="col-md-5">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <!--  div class="row">
-                                            <div class="col-md-6">
-                                                <label>Doctor Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${doc.id}"></span></p>
-                                            </div>
-                                        </div-->
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
@@ -179,9 +167,9 @@ hr{
 <br>
 <div align="center">
 <h1>Book an Appointment</h1>
-<form action="/book_slot" method="post">
-  <label for="cars">Choose a slot:</label>
-  <select name="timing" id="cars">
+<form id="book">
+  <label for="slots">Choose a slot:</label>
+  <select name="timing" id="slots">
     <option value="9:00-9:30">9:00-9:30</option>
     <option value="9:30-10:00">9:30-10:00</option>
     <option value="10:00-10:30">10:00-10:30</option>
@@ -198,9 +186,8 @@ hr{
   
   
   <br>
-  <input type="hidden" value="pending" name="status">
-  <input type="hidden" value="kavitha44Suresh" name="doctorUserName"><!--th:value="${doc.userName}"-->
-  <input type="hidden" value="ankita77kumari" name="patientUserName"><!--th:value="${pat.userName}"-->
+  <input type="hidden" value="pending" id="status" name="status">
+  <input type="hidden" th:value="${doc.userName}" id="docuser" name="docuser">
   
   <button type="submit">REQUEST APPOINTMENT</button>
 </form>
@@ -218,7 +205,8 @@ hr{
  <hr align="center">
  <br>
 
-	<div class="rate" style="margin-left: 140px;">
+  <div class="rate" style="margin-left: 140px;">
+  
     <input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
     <input type="radio" id="star4" name="rate" value="4" />
@@ -229,6 +217,7 @@ hr{
     <label for="star2" title="text">2 stars</label>
     <input type="radio" id="star1" name="rate" value="1" />
     <label for="star1" title="text">1 star</label>
+    
   </div>
    <br><br>
    
@@ -278,6 +267,28 @@ hr{
 	}
 	
 	
+	$(document).ready(function() {
+	    $("#book").submit(
+	        function(event) {
+	        	event.preventDefault();
+	        	var d = { timing : $('#slots').val(), status : $('#status').val(), doc : $('#docuser').val() };
+	            
+	         $.ajax({
+	        	 	type : "POST",
+					url : "book_slot",
+					data : d,
+					success : function(data) {
+
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("alerting");
+	                    alert(xhr.responseText);
+	                }
+	            });
+	        });
+	    });
 
 </script>
 </body>

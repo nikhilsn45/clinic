@@ -24,12 +24,19 @@ public class UserService {
 		udao.save(u);
 	}
 	
-	public User getUserByUserNameAndPassword(String un, String p)
+	/*public User getUserByUserNameAndPassword(String un, String p)
 	{
 		return udao.findUserByUserNameAndPassword(un,p);
+	}*/
+	
+	public User getUserByUserName(String un) {
+		return udao.findUserByUserName(un);
 	}
 
-	
+	public String checkPasswordForUserName(String un) {
+		User u = getUserByUserName(un);
+		return u.getPassword();
+	}
 	
 	
 

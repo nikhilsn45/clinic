@@ -20,6 +20,7 @@ import com.persistent.dto.PatientDto;
 import com.persistent.entities.Address;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.User;
+import com.persistent.exceptions.NoDoctorFoundException;
 import com.persistent.entities.Patient;
 import com.persistent.entities.Respond;
 import com.persistent.service.DoctorService;
@@ -70,6 +71,8 @@ public class PatientController {
 			doctors.add(new DoctorDto(doctor));
 		}
 		System.out.println(doctors);
+		if(doctors.size() == 0)
+			throw new NoDoctorFoundException("There are no doctors of this speciality in your area!!");
         //List<DoctorInfo> users = Arrays.asList(new DoctorInfo(),new DoctorInfo());
         return doctors;
     }

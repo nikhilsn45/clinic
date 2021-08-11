@@ -11,8 +11,10 @@ table{
 }
 hr{
 	background-color: #414744 !important;
-	width: 1000px;
+	width: 1160px;
+
 	height:1px !important;
+	
 }
 
 .topnavi a {
@@ -39,7 +41,7 @@ hr{
 	color: white;
 }
 .wrapper{
-	width: 80% !important;
+	width: 75% !important;
 	margin: auto;
 	margin-top: 50px;
 }
@@ -47,7 +49,7 @@ hr{
 .emp-profile{
 	width:80%;
     padding: 3%;
-    margin-top: 3%;
+    margin-top: 2%;
     margin-bottom: 3%;
     border-radius: 0.5rem;
     border: 2px solid mediumseagreen;
@@ -59,8 +61,9 @@ hr{
     text-align: center;
 }
 .profile-img img{
-    width: 70%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
+   
 }
 .profile-img .file {
     position: relative;
@@ -121,8 +124,50 @@ hr{
 }
 .pro{
 	margin-left: 90px !important;
-	margin-top: 50px;
+	margin-top: 30px;
 	margin-right: 200px;
+}
+
+/*rating*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
 }
 
 

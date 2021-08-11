@@ -35,80 +35,29 @@
 </head>
 <body>
 <div style=" height: 40px;"></div>
-<div style="background-color: black;">
-	<div class="topnavi" style="margin-left: 50px;">
-	<a class="active" href="#" onclick="">Home</a>
-    <a href="\about">About</a>
-  <!--<a href="patientreg">Register as Patient</a>-->
-    <a href="mainpage" style="margin-left: 1120px;" >Logout</a>
-	</div>
+<div style="margin : auto; background-color: black;">
+		<div class="topnavi" style="margin-left: 100px; margin-right: 100px;">
+  			<a class="active">Profile</a>
+  			<a href="/about">About</a>
+  			<a href="/" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
+		</div>
 </div>
-
 <br><br>
-<div class="pro">
-<h5 style="margin-left: 50px; color:black;">Profile</h5>  
-</div>
+
 
 <div class="container emp-profile" style="width: 1000px;">
 
             <form method="post">
                 <div class="row">
                     <div class="col-md-5">
-                        <div class="profile-img">
-                            <img src="/images/stan-lee.jpg" alt=""/>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="profile-head">
-                                    <h5>
-                                        Dr. <span th:text="${doc.fName}"></span>  <span th:text="${doc.lName}"></span>
-                                    </h5>
-                                    <h6>
-                                        <span th:text="${doc.speciality}"></span>
-                                    </h6>
-                                    
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                   
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                    
-                        <div class="profile-work">
-                        <div style="height: 90px;"></div>
-                            <h5>Bio</h5>
-                            
-	                           <p> I am DR.<span th:text="${doc.fName}"></span>  <span th:text="${doc.lName}"></span>
-	                            I have a specialization in <span th:text="${doc.speciality}"></span> and an experience of 10 years.
-	                            </p>
-                        	
-                            
-                        </div>
-                    
-                    </div>
-                    <div class="col-md-5">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Doctor Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${doc.id}"></span></p>
-                                            </div>
-                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><span th:text="${doc.fName}"></span> <span th:text="${doc.lName}"></span></p>
+                                                <p><span th:text="${pat.fName}"></span> <span th:text="${pat.lName}"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -116,41 +65,50 @@
                                                 <label>Contact Number</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><span th:text="${doc.contactNo}"></span></p>
+                                                <p><span th:text="${pat.contactNo}"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>License</label>
+                                                <label>Gender</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><span th:text="${doc.licenseNo}"></span></span></p>
+                                                <p><span th:text="${pat.gender}"></span></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Age</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><span th:text="${doc.speciality}"></span></p>
+                                                <p><span th:text="${pat.age}"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Works at</label>
+                                                <label>Email ID</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>City Hospital</p>
+                                                <p><span th:text="${pat.emailId}"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Hospital Number</label>
+                                                <label>City</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>9876767676</p>
+                                                <p><span th:text="${pat.city}"></span></p>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>State</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${pat.state}"></span></p>
+                                            </div>
+                                        </div>
+                                        
                             </div>
                           
                         </div>
@@ -168,15 +126,21 @@
 	<table class="table table-striped">
 	<thead>
     <tr>
-        <th>Patient Name</th>
-        <th>Age</th>
+        <th>Doctor Name</th>
+        <th>Contact</th>
         <th>Appointment Time</th>
-        <th>Accept Appointment</th>
-        <th>Reject Appointment</th>
+        <th>Address</th>
+        <th>Status</th>
     </tr>
 	</thead>
     <tbody id="myTable">
-        
+		<tr th:each="appoint: ${appoints}">
+			<td th:text="${appoint.fName}" />
+		    <td th:text="${appoint.contact}" />
+		    <td th:text="${appoint.timing}" />
+		    <td th:text="${appoint.address}" />
+		    <td th:text="${appoint.status}" />
+		</tr>
     </tbody>
 </table>
 <br><hr><br>
@@ -186,20 +150,28 @@
 <table class="table table-striped">
 	<thead>
     <tr>
-        <th>Patient Name</th>
-        <th>Age</th>
+        <th>Doctor Name</th>
+        <th>Contact</th>
         <th>Appointment Time</th>
+        <th>Address</th>
+        <th>Status</th>
     </tr>
 	</thead>
-    <tbody id="appoTable">
-        
+    <tbody id="myTable">
+		<tr th:each="appoint: ${appointsAccept}">
+			<td th:text="${appoint.fName}" />
+		    <td th:text="${appoint.contact}" />
+		    <td th:text="${appoint.timing}" />
+		    <td th:text="${appoint.address}" />
+		    <td th:text="${appoint.status}" />
+		</tr>
     </tbody>
 </table>
 
 </div>
 <div id="foot"></div>
 <script>
-	var myArray = [
+	/*var myArray = [
 	    {'name':'Jake', 'age':'32', 'time':'11 am'},
 	    {'name':'Molly', 'age':'32', 'time':'12:30 pm'},
 	    {'name':'Paul', 'age':'25', 'time':'12:45 pm'},
@@ -268,7 +240,7 @@
 		
 	}
 	);
-});
+});*/
 </script>
 </body>
 </html>

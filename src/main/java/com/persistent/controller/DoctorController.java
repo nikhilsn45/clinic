@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.persistent.dto.AppointmentDto;
 import com.persistent.dto.DoctorDto;
-import com.persistent.entities.Address;
+import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
+import com.persistent.entities.Patient;
 import com.persistent.entities.User;
+import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
+import com.persistent.service.PatientService;
 import com.persistent.service.UserService;
 
 @Controller
@@ -23,7 +28,13 @@ public class DoctorController {
 	private DoctorService docService;
 	
 	@Autowired
+	private PatientService pserv;
+	
+	@Autowired
 	private UserService creadServ;
+	
+	@Autowired
+	private AppointmentService appserv;
 	
 	@RequestMapping(path="/save_doctor", method=RequestMethod.POST)
 	public String save_doctor(@ModelAttribute DoctorDto dInfo, @ModelAttribute User u)
@@ -39,23 +50,6 @@ public class DoctorController {
 	
 	}
 	
-	/*@RequestMapping(path="/doctor_home", method=RequestMethod.GET)
-	public String doctor_home(@ModelAttribute Doctor d)
-	{
-		return "doctor_home";//"user_home.jsp" called
-	}*/
-	
-	@RequestMapping(path="/doctor/{username}", method=RequestMethod.GET)
-	public String doctor_info(@PathVariable String username,Model model)
-	{
-		System.out.println(username);
-		Doctor doc = docService.findDoctorByUserName(username);
-
-		System.out.println("*******************\n\n\n");
-		System.out.println(doc);
-		
-		model.addAttribute("doc",new DoctorDto(doc));
-		return "doctor_info";//"user_home.jsp" called
-	}
+//@RequestParam String doctorUserName,@RequestParam String status,@RequestParam String patientUserName,@RequestParam String timing,	
 	
 }

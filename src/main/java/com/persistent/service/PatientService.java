@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.persistent.dao.PatientDao;
 import com.persistent.entities.Patient;
-import com.persistent.entities.Person;
 
 @Service
 public class PatientService {

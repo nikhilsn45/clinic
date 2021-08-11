@@ -31,18 +31,12 @@ public class HomeController {
 	public HomeController() {
 	}
 
-	@RequestMapping("/")//  src/main/webapp/views/home.jsp will be called
+	@RequestMapping("/")
 	public String home()
 	{
 		return "mainpage";
 	}
 	
-	
-	/*@RequestMapping("/login")
-	public String login()
-	{
-		return "login";
-	}*/
 	
 	@RequestMapping("/doctor_signup")
 	public String doctor_signup()
@@ -54,6 +48,12 @@ public class HomeController {
 	public String user_signup()
 	{
 		return "patient_signup";
+	}
+	
+	@RequestMapping("/about")
+	public String about()
+	{
+		return "about";
 	}
 	
 	@RequestMapping("/home")

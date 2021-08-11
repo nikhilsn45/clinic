@@ -33,7 +33,7 @@ public class Doctor extends Person {
 			this.id = id;
 			this.licenseNo = licenseNo;
 			this.speciality = speciality;
-			address = address2;
+			this.address = address2;
 		}
 
 		public Doctor() {

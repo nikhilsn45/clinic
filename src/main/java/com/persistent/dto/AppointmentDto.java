@@ -10,20 +10,15 @@ public class AppointmentDto {
     
     private String status;
     
-    private String doctorUserName;
-    
-    private String patientUserName;
-    
     public AppointmentDto() {
 		super();
 	}
 
-	public AppointmentDto(String timing, String status, String doctorUserName, String patientUserName) {
+	public AppointmentDto(String timing, String status) {
 		super();
 		this.timing = timing;
 		this.status = status;
-		this.doctorUserName = doctorUserName;
-		this.patientUserName = patientUserName;
+		
 	}
 
 
@@ -44,34 +39,11 @@ public class AppointmentDto {
 		this.status = status;
 	}
 
-	public String getDoctorUserName() {
-		return doctorUserName;
-	}
-
-	public void setDoctorUserName(String doctorUserName) {
-		this.doctorUserName = doctorUserName;
-	}
-
-	public String getPatientUserName() {
-		return patientUserName;
-	}
-
-	public void setPatientUserName(String patientUserName) {
-		this.patientUserName = patientUserName;
-	}
-
 	public Appointment convertToEntity()
     {
     	ModelMapper m=new ModelMapper();
     	Appointment app=m.map(this,Appointment.class);
     	return app;
-    }
-	
-	public AppointmentDto convertToDto(Appointment a)
-    {
-    	ModelMapper m=new ModelMapper();
-    	AppointmentDto appdto=m.map(a,AppointmentDto.class);
-    	return appdto;
     }
 
 }

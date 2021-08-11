@@ -8,6 +8,11 @@
 		<title>Patient Home</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link th:href="@{/css/patient_home.css}" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<style>
 			body{background-color: #f7fffa; font-family: 'Jost', sans-serif;}
 			.topnavi a {
@@ -28,6 +33,7 @@
   				background-color: darkcyan;
   				color: ghostwhite;
 				}
+				
 			#sampleForm{
 				background-color:darkcyan;
 				color:white;
@@ -35,61 +41,48 @@
 				width:20%;
 				text-align:center;
 				height:45px;
+				border-radius: 8px;
 			}	
 				
 		</style>
 	</head>
 	<body>
 	<div style=" height: 40px;"></div>
-	<div style="background-color: black;">
-		<div class="topnavi" style="margin-left: 50px;">
-  			<a class="active" href="patienthome">Home</a>
-  			<a href="about">About</a>
-  			<a href="doctorreg">Register as Doctor</a>
-  			<a href="mainpage" style="margin-left: 1000px;" >Logout</a>
+	<div style="margin : auto; background-color: black;">
+		<div class="topnavi" style="margin-left: 100px; margin-right: 100px;">
+  			<a class="active" th:href="@{/profile/__${pat.userName}__}">Profile</a>
+  			<a href="/about">About</a>
+  			<a href="/" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
 		</div>
 	</div>
 	<br>
 	<br>
-	<div align=center>
-		<br>
-		<br>
-		<br>
-		<div style="border:3px solid darkcyan; width:80%; border-radius:10px;">
-		<p align="center">
-			<b>Welcome  </b><span th:text="${pat.fName}"></span>  <span th:text="${pat.lName}"></span>  .....<br>
-			<br>
-			
-			<b>User Name:</b><span th:text="${pat.userName}"></span> <br><br>
-			
-			<b>Email_Id:</b><span th:text="${pat.emailId}"></span> <br><br>
-			
-			<b>Contact Number:</b><span th:text=" ${pat.contactNo}"></span><br>
-			
-			</p>
+	<!--div align=center>
+		<div style="width:80%;">
+		<p align="center" style="size: 100px;">
+			<h3><b>Welcome  </b><span th:text="${pat.fName}"></span>  <span th:text="${pat.lName}"></span>  .....<br></h3>
+		</p>
 		</div>
 		<br>
-		
-	  </div>
+	</div-->
+	
 
 	  <div align=center>
-		<form id="searchform">
+		<form id="searchform" style="background-color: silver; margin: 10px; padding: 25px;">
 			<h2><b>Search Doctors?</b></h2>
-
-			<label for="type">Enter the type of Doctor:</label><br>
-			<input type="text" id="type" name="type"><br><br>
-			<!-- A drop down list of Cardiologist, Dentist, Physician,Gynecologist, Pediatrician,Psychiatrist,Veterinarian etc   -->
 			
-			<label for="state">Enter Your State</label><br>
-			<input type="text" id="state" name="state"><br><br>
-			
-
-			<label for="city">Enter Your City</label><br>
-
-			<input type="text" id="city" name="city"><br><br>
+			<div>				
+				<label for="type">Enter the type of Doctor:</label><br>
+				<input type="text" id="type" name="type"><br><br>
+				
+				<label for="city">Enter Your City</label><br>
+				<input type="text" id="city" name="city"><br><br>
+				
+				<label for="state">Enter Your State</label><br>
+				<input type="text" id="state" name="state"><br><br>
+			</div>
 			
 			<button id="sampleForm" type="submit">SEARCH DOCTOR</button>
-		<!-- This will be handled by "user_search_results" in Doctor Controller-->
 		</form>
 
 	 </div>

@@ -1,5 +1,7 @@
 package com.persistent.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ import com.persistent.service.UserService;
 
 @Controller
 public class HomeController {
+	
+	Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	private DoctorService dserv;
@@ -62,16 +66,22 @@ public class HomeController {
 		//if(userv.getUserByUserNameAndPassword(u.getUserName(), u.getPassword()) == null)
 			//throw new UserNotFoundException(u.getUserName() + " not found in database!!!");
 
-		if(userv.getUserByUserName(u.getUserName()) == null)
+		if(userv.getUserByUserName(u.getUserName()) == null) {
+			logger.error("Username not found in database");
 			throw new UserNotFoundException(u.getUserName() + " not found in database!!!");
-		else if(!(userv.checkPasswordForUserName(u.getUserName()).equals(u.getPassword())))
+		}
+		else if(!(userv.checkPasswordForUserName(u.getUserName()).equals(u.getPassword()))) {
+			logger.error("Incorrect Password!!");
 			throw new IncorrectPasswordException("Incorrect Password!!");
+		}
 		
-		System.out.println("entered");
+		logger.info("User logged in");
+		//System.out.println("entered");
 		System.out.println(u);
 		if((u.getType()).equals("doctor")) 
 		{
-			System.out.println("Doctor Service Called");
+			logger.info("Doctor Service called");
+			//System.out.println("Doctor Service Called");
 			Doctor d1 =dserv.findDoctorByUserName(u.getUserName());
 			if(d1!= null) {
 				System.out.println(d1);
@@ -79,15 +89,17 @@ public class HomeController {
 				return "doctor_home";
 				
 			}
-			else 
+			else {
+				logger.error("There are no details for this doctor in the database");
 				throw new DetailsNotFoundException("There are no details for this doctor in the database");
-				
+			}
 		}
 		else
 		{
 			if((u.getType()).equals("patient"))
 			{
-				System.out.println("Patient Service Called");
+				logger.info("Patient service called");
+				//System.out.println("Patient Service Called");
 				Patient p1 =pserv.findPatientByUserName(u.getUserName());
 				if(p1 != null) {
 					System.out.println(p1);
@@ -95,8 +107,10 @@ public class HomeController {
 					return "patient_home";
 						
 				}
-				else 
+				else {
+					logger.error("There are no details for this patient in the database");
 					throw new DetailsNotFoundException("There are no details for this patient in the database");
+				}
 			}
 			else
 				return "error";

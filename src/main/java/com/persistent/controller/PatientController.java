@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.jasper.tagplugins.jstl.core.If;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +37,8 @@ import com.persistent.service.UserService;
 @Controller
 public class PatientController {
 	
+	Logger logger = LoggerFactory.getLogger(PatientController.class);
+	
 	@Autowired
 	private PatientService serv;
 	
@@ -49,12 +53,14 @@ public class PatientController {
 
 	@RequestMapping(path="/save_patient", method=RequestMethod.POST)
 	public String save_patient(@ModelAttribute PatientDto uInfo,@ModelAttribute User u)
-	{
+	{	
+		logger.trace("Save patient method called");
 		System.out.println(uInfo);
 		System.out.println(u);
 
 		serv.addPatient(uInfo.conToPatient());
 		creadServ.addUser(u);
+		logger.info("Patient saved to database");
         
 		return "redirect:/";//redirected to user dashboard
 	}
@@ -62,6 +68,7 @@ public class PatientController {
 	@RequestMapping(path="/profile/{username}", method=RequestMethod.GET)
 	public String user_profile(@PathVariable String username, Model model)
 	{
+		logger.info("User reached his/her profile page");
 		System.out.println(username);
 		List<Appointment> appoints= appServ.getAllAppointment(username);
 		List<Map<String,String>> maps = new ArrayList<Map<String,String>>();
@@ -86,6 +93,7 @@ public class PatientController {
 		model.addAttribute("pat",new PatientDto(serv.findPatientByUserName(username)));
 		model.addAttribute("appoints", maps);
 		model.addAttribute("appointsAccept", mapsaccepted);
+		logger.trace("The user details and the appointment details are sent to the patient_profile html page");
 		return "patient_profile";
 	}
 
@@ -99,16 +107,20 @@ public class PatientController {
 		for (Doctor doctor : d) {
 			doctors.add(new DoctorDto(doctor));
 		}
+		logger.info("Doctor search called based on the speciality and address");
 		System.out.println(doctors);
-		if(doctors.size() == 0)
+		if(doctors.size() == 0) {
+			logger.error("There are no doctors of this speciality in the given area!!");
 			throw new NoDoctorFoundException("There are no doctors of this speciality in your area!!");
+		}
         //List<DoctorInfo> users = Arrays.asList(new DoctorInfo(),new DoctorInfo());
         return doctors;
     }
 		
 		@RequestMapping(path=("/doctor/{username}"), method=RequestMethod.GET)
 		public String doctor_info(@ModelAttribute("pat") PatientDto pat,@PathVariable String username,Model model)
-		{
+		{	
+			logger.info("Checkout doctor function called");
 			System.out.println(username);
 			Doctor doc = docServ.findDoctorByUserName(username);
 
@@ -123,7 +135,8 @@ public class PatientController {
 
 		@RequestMapping(path=("/doctor/book_slot"), method=RequestMethod.POST)
 		public @ResponseBody String book_slot(AppointAJAX appoint)
-		{
+		{	
+			logger.info("Slot booking function called");
 			System.out.println(appoint.getDoc());
 			
 			Doctor d = docServ.findDoctorByUserName(appoint.getDoc());//To display required doctor's details
@@ -135,6 +148,7 @@ public class PatientController {
 			ap.setPat(p);
 			
 			appServ.addAppointment(ap);// saved an appointment in Appointment Table
+			logger.info("Appointment details saved in database");
 			
 			return "Your Appointment is booked";
 		}

@@ -23,6 +23,7 @@ import com.persistent.dto.PatientDto;
 import com.persistent.entities.AppointAJAX;
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
+import com.persistent.entities.FeedBack;
 import com.persistent.entities.Patient;
 import com.persistent.entities.SearchAJAX;
 import com.persistent.entities.User;
@@ -63,17 +64,19 @@ public class PatientController {
 	{
 		System.out.println(username);
 		List<Appointment> appoints= appServ.getAllAppointment(username);
-		List<Map<String,String>> maps = new ArrayList<Map<String,String>>();
-		List<Map<String,String>> mapsaccepted = new ArrayList<Map<String,String>>();
+		List<Map<String,Object>> maps = new ArrayList<Map<String,Object>>();
+		List<Map<String,Object>> mapsaccepted = new ArrayList<Map<String,Object>>();
 		
 		for (Iterator iterator = appoints.iterator(); iterator.hasNext();) {
 			Appointment appointment = (Appointment) iterator.next();
-			Map<String,String> map = new HashMap<>();
+			Map<String,Object> map = new HashMap<>();
+			map.put("id", appointment.getId());
 			map.put("timing", appointment.getTiming());
 			map.put("fName", appointment.getDoc().getfName());
 			map.put("contact", appointment.getDoc().getContactNo().toString());
 			map.put("address", appointment.getDoc().getAddress().getCity() + ", " + appointment.getDoc().getAddress().getState());
 			map.put("status", appointment.getStatus());
+			map.put("feed", appointment.getFeed());
 			if(appointment.getStatus().equals("pending"))
 				maps.add(map);
 			else
@@ -108,12 +111,18 @@ public class PatientController {
 		{
 			System.out.println(username);
 			Doctor doc = docServ.findDoctorByUserName(username);
-
+			List<Appointment> list = appServ.getAllAptHaveFeedForDoctor(username);
+			Float avg = appServ.getAvgRating(username);
+			
 			System.out.println("*******************\n\n\n");
 			System.out.println(model.getAttribute("pat"));
 			System.out.println(doc);
+			System.out.println(list);
+			System.out.println(avg);
 			
 			model.addAttribute("doc",new DoctorDto(doc));
+			model.addAttribute("appointments",list);
+			model.addAttribute("avg",avg);
 			return "doctor_info";
 		}
 		
@@ -134,6 +143,24 @@ public class PatientController {
 			appServ.addAppointment(ap);// saved an appointment in Appointment Table
 			
 			return "Your Appointment is booked";
+		}
+		
+		@RequestMapping(path="/feedback", method=RequestMethod.GET)
+		public String feedback(String id)
+		{
+			return "FeedBack";
+		}
+		
+		@RequestMapping(path="/feedback_submit", method=RequestMethod.POST)
+		public String feedbacksubmit(FeedBack feed, Integer apointment)
+		{
+			Appointment apt = appServ.getAppointment(apointment);
+			apt.setFeed(feed);
+			
+			appServ.addAppointment(apt);
+			System.out.println(apt);
+			System.out.println(feed);
+			return "redirect:/feedback?success";
 		}
 
 }

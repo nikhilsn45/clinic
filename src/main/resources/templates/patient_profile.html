@@ -5,242 +5,209 @@
 <title>Doctor's Profile</title>
 <link th:href="@{/css/docpro.css}" rel="stylesheet">
 <script type="text/javascript" th:src="@{/js/actions.js}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <style>
-	.topnavi a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+.topnavi a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .topnavi a:hover {
-  background-color: #ddd;
-  color: black;
+	background-color: #ddd;
+	color: black;
 }
 
 .topnavi a.active {
-  background-color: darkcyan;
-  color: ghostwhite;
+	background-color: darkcyan;
+	color: ghostwhite;
 }
 </style>
 </head>
 <body>
-<div style=" height: 40px;"></div>
-<div style="margin : auto; background-color: black;">
+	<div style="height: 40px;"></div>
+	<div style="margin: auto; background-color: black;">
 		<div class="topnavi" style="margin-left: 100px; margin-right: 100px;">
-  			<a class="active">Profile</a>
-  			<a href="/about">About</a>
-  			<a href="/" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
+			<a class="active">Profile</a> <a href="/about">About</a> <a href="/"
+				style="color: ghostwhite; border-radius: 10px; background-color: red; margin-left: 1000px;">Logout</a>
 		</div>
-</div>
-<br><br>
-
-
-<div class="container emp-profile" style="width: 1000px;">
-
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.fName}"></span> <span th:text="${pat.lName}"></span></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Contact Number</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.contactNo}"></span></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Gender</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.gender}"></span></span></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Age</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.age}"></span></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email ID</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.emailId}"></span></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>City</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.city}"></span></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>State</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${pat.state}"></span></p>
-                                            </div>
-                                        </div>
-                                        
-                            </div>
-                          
-                        </div>
-                    </div>
-                </div>
-            </form>           
-        </div>
-
- 
-<div class="wrapper">
-	<hr>
+	</div>
 	<br>
-	<h4 class="h3head">Pending Appointments</h4>  
-	<br><br>
-	<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Doctor Name</th>
-        <th>Contact</th>
-        <th>Appointment Time</th>
-        <th>Address</th>
-        <th>Status</th>
-    </tr>
-	</thead>
-    <tbody id="myTable">
-		<tr th:each="appoint: ${appoints}">
-			<td th:text="${appoint.fName}" />
-		    <td th:text="${appoint.contact}" />
-		    <td th:text="${appoint.timing}" />
-		    <td th:text="${appoint.address}" />
-		    <td th:text="${appoint.status}" />
-		</tr>
-    </tbody>
-</table>
-<br><hr><br>
-
-<h4 class="h3head">Accepted Appointments</h4>  
-  <br><br>
-<table class="table table-striped">
-	<thead>
-    <tr>
-        <th>Doctor Name</th>
-        <th>Contact</th>
-        <th>Appointment Time</th>
-        <th>Address</th>
-        <th>Status</th>
-    </tr>
-	</thead>
-    <tbody id="myTable">
-		<tr th:each="appoint: ${appointsAccept}">
-			<td th:text="${appoint.fName}" />
-		    <td th:text="${appoint.contact}" />
-		    <td th:text="${appoint.timing}" />
-		    <td th:text="${appoint.address}" />
-		    <td th:text="${appoint.status}" />
-		</tr>
-    </tbody>
-</table>
-
-</div>
-<div id="foot"></div>
-<script>
-	/*var myArray = [
-	    {'name':'Jake', 'age':'32', 'time':'11 am'},
-	    {'name':'Molly', 'age':'32', 'time':'12:30 pm'},
-	    {'name':'Paul', 'age':'25', 'time':'12:45 pm'},
-	    {'name':'Joey', 'age':'27', 'time':'1:20 pm'},
-	    {'name':'Ted', 'age':'31', 'time':'4 pm'},
-	    {'name':'Erik', 'age':'22', 'time':'5:30 pm'},
-	]
-	var appRow=[]
-	
-	buildTable(myArray)
+	<br>
 
 
+	<div class="container emp-profile" style="width: 1000px;">
 
-	function buildTable(data){
-		var table = document.getElementById('myTable')
+		<form method="post">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="tab-content profile-tab" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel"
+							aria-labelledby="home-tab">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Name</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.fName}"></span> <span
+											th:text="${pat.lName}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Contact Number</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.contactNo}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Gender</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.gender}"></span></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Age</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.age}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Email ID</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.emailId}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>City</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.city}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>State</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${pat.state}"></span>
+									</p>
+								</div>
+							</div>
 
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].age}</td>
-							<td>${data[i].time}</td>
-							<td><button type="button" id ="btn-accept" class="btn btn-sm px-3">Accept</button></td>
-							<td><button type="button" id = "btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button></td>
-					 </tr>`
-			table.innerHTML += row
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 
 
-		}
-	}
-	
-	function addAppointment(name,age,time)
-	{
-		var appo_accept = document.getElementById('appoTable')
+	<div class="wrapper">
+		<hr>
+		<br>
+		<h4 class="h3head">Pending Appointments</h4>
+		<br> <br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Doctor Name</th>
+					<th>Contact</th>
+					<th>Appointment Time</th>
+					<th>Address</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody id="myTable">
+				<tr th:each="appoint: ${appoints}">
+					<td th:text="${appoint.fName}" />
+					<td th:text="${appoint.contact}" />
+					<td th:text="${appoint.timing}" />
+					<td th:text="${appoint.address}" />
+					<td th:text="${appoint.status}" />
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<hr>
+		<br>
 
+		<h4 class="h3head">Accepted Appointments</h4>
+		<br> <br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Doctor Name</th>
+					<th>Contact</th>
+					<th>Appointment Time</th>
+					<th>Address</th>
+					<th>Status</th>
+					<th>Feedback</th>
+				</tr>
+			</thead>
+			<tbody id="myTable">
+				<tr th:each="appoint: ${appointsAccept}">
+					<td th:text="${appoint.fName}" />
+					<td th:text="${appoint.contact}" />
+					<td th:text="${appoint.timing}" />
+					<td th:text="${appoint.address}" />
+					<td th:text="${appoint.status}" />
+					<td th:if="${appoint.feed == null}">
+							<form th:action=@{/feedback} method = "get" >
+									<input type="hidden" name="id" th:value="${appoint.id}"/>
+									<button>Feedback</button>
+							</form>
+					 </td>
+					<td th:if="${appoint.feed != null}">
+							<span  th:text="${appoint.feed.rating} " ></span> / 5
+					 </td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<div id="foot"></div>
+	<script>
 		
-			var row = `<tr>
-							<td>${name}</td>
-							<td>${age}</td>
-							<td>${time}</td>
-					 </tr>`
-			appo_accept.innerHTML += row
-
-
-	}
-	
-	
-	$(document).ready(function($)
-	{
-	$(document).on('click',"#btn-reject", function(e)
-	{
-		var r = $(this).closest('tr').remove();
-	}
-	);
-	
-	$(document).on('click',"#btn-accept", function(e)
-	{
-		
-		var row = $(this).closest('tr');
-		var col1 = row.find("td:eq(0)").text();
-		var col2 = row.find("td:eq(1)").text();
-		var col3 = row.find("td:eq(2)").text();
-		
-		addAppointment(col1,col2,col3);
-		//console.log(row);
-		row.remove();
-		
-	}
-	);
-});*/
-</script>
+	</script>
 </body>
 </html>

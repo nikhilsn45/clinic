@@ -203,11 +203,11 @@ hr{
 
 
  <hr align="center">
- <br>
-
-  <div class="rate" style="margin-left: 140px;">
+ <h4> <span style="margin-left: 160px;">Ratings :  </span> <span th:text="${avg}" ></span> / 5</h4>
+ <hr align="center">
+  <!--div class="rate" style="margin-left: 140px;">
   
-    <input type="radio" id="star5" name="rate" value="5" />
+    <!--input type="radio" id="star5" name="rate" value="5" />
     <label for="star5" title="text">5 stars</label>
     <input type="radio" id="star4" name="rate" value="4" />
     <label for="star4" title="text">4 stars</label>
@@ -217,30 +217,27 @@ hr{
     <label for="star2" title="text">2 stars</label>
     <input type="radio" id="star1" name="rate" value="1" />
     <label for="star1" title="text">1 star</label>
+    <h5><span th:text="${avg}" ></span> / 5</h5>
     
-  </div>
+  </div-->
    <br><br>
    
    <h4 style="margin-left: 160px;">Reviews</h4>
-   <br><hr align="center"><br>
-   
-   <!--<form action="/action_page.php">
-	<label for="review">Add a review</label><br>
-	<textarea id="review" name="review" rows="4" cols="50" placeholder="Write a review">
-	  
-	  </textarea>
-	  <br><br>
-	  <input type="submit" value="Submit" id="reviewbtn">
-	</form>-->
+   <hr align="center"><br>   
  
-   <div id="showReviews"></div>
+   <div id="showReviews">
+  				 <div th:each="appoint: ${appointments}">
+					<h5 th:text="${appoint.pat.fName}" ></h5>
+					<p th:text="${appoint.feed.message}" ></p>
+				</div>
+   </div>
    
    
   
 
 <div id="foot"></div>
 <script>
-	var myArray = [
+	/*var myArray = [
 	    {'name':'Jake', 'review':'very good'},
 	    {'name':'Molly', 'review':'excellent'},
 	    {'name':'Paul', 'review':'perfect'},
@@ -264,7 +261,7 @@ hr{
 			re.appendChild(br);
 
 		}
-	}
+	}*/
 	
 	
 	$(document).ready(function() {
@@ -278,7 +275,7 @@ hr{
 					url : "book_slot",
 					data : d,
 					success : function(data) {
-
+						
 						alert(data);
 						
 	                },

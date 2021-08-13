@@ -1,5 +1,7 @@
 package com.persistent.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,11 @@ public class AppointmentService {
 		adao.save(a);
 	}
 	
+	public void updateAppointment(Appointment a)
+	{
+		adao.save(a);
+	}
+	
 	public Appointment getAppointment(int id)
 	{
 		return adao.findById(id);
@@ -27,6 +34,25 @@ public class AppointmentService {
 	public List<Appointment> getAllAppointment(String username)
 	{
 		return adao.findByPat_userName(username);
+	}
+	
+	public List<Appointment> getAllAptHaveFeedForDoctor(String username)
+	{
+		 List<Appointment> list = adao.findByDoc_userName(username);
+		 List<Appointment> list1 = new ArrayList<Appointment>();
+		 
+		 for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+			Appointment appointment = (Appointment) iterator.next();
+			
+			if(appointment.getFeed ()!= null) {
+				list1.add(appointment);
+			}
+		}
+		return list1;
+	}
+	
+	public Float getAvgRating(String username) {
+		return adao.findByAvgRating(username);
 	}
 	
 	/*public List<Appointment> getAppointmentByDocIdAndStatus(int docId, String status)

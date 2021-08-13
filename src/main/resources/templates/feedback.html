@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor Registration</title>
+
+<script type="text/javascript"></script>
+<style>
+
+body{
+	
+	background: linear-gradient(to right, cornflowerblue, powderblue,mediumseagreen);
+	font-family: 'Jost', sans-serif;
+	color: #5c4b51;
+}
+
+a{
+	color:crimson;
+}
+
+
+label{
+	margin-left:20px;
+}
+h1{
+	text-align:center;
+	margin:auto;
+}
+input[type=text], input[type=password] {
+  width: 87%;
+  padding: 15px;
+  margin: 2px 0 19px 20px;
+  display: inline-block;
+  border: none;
+  background-color: #ddd;
+}
+.container{
+	
+	width:670px;
+	margin:auto;
+	background-color:#F0F8FF;
+	font-family: 'Jost', sans-serif;
+}
+.active{
+	background-color:#04AA6D;
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 22px;
+}
+.registerbtn
+{
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 15px 10px;
+  margin:15px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  height:50px;
+  opacity: 0.9;
+  text-align:center;
+}
+.registerbtn:hover {
+  opacity:1;
+  
+}
+.s1
+{
+	background-color:#F0F8FF;
+	width:670px;
+	margin:auto;
+}
+.signin {
+  
+  text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+
+<br>
+<h1 style="text-align:center;">Feedback</h1>
+<br>
+
+<form action="/feedback_submit" method="post">
+	<div class="container">
+		<br>
+		<label for="userName"><b>Message</b></label>
+		<br>
+		<input type="text" placeholder="Message" name="message" id="message" required>
+		<br>
+		<label for="rating"><b>Rating : </b></label>
+				    <label class="radio-inline" style="margin-left: 30px;">
+				      <input type="radio" id="rating" name="rating" value="1" checked>1
+				    </label>
+				    <label class="radio-inline" style="margin-left: 30px;">
+				      <input type="radio" id="rating" name="rating" value="2">2
+				    </label>
+				    <label class="radio-inline" style="margin-left: 30px;">
+				      <input type="radio" id="rating" name="rating" value="3">3
+				    </label>
+				    <label class="radio-inline" style="margin-left: 30px;">
+				      <input type="radio" id="rating" name="rating" value="4">4
+				    </label>
+				    <label class="radio-inline" style="margin-left: 30px;">
+				      <input type="radio" id="rating" name="rating" value="5">5
+				    </label>
+		<br>
+		<input type="hidden" name="apointment" th:value="${param.id}">
+		
+		<div class="s1" align="center">
+        <button type="submit" class="registerbtn" >Register</button>
+		</div>
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -12,28 +12,35 @@ public class Doctor extends Person {
 		
         private String speciality;
         
-        //private String University_name;
+        private String university_name;
         
-        //private int experience;
+        private Integer experience;
         
-        //private String Organisation_name;
+        private String organisation_name;
         
-        //private String phone_num;
+        private Integer consultation_fee;
         
-        //private int consultation_fee;
+        private String verification;
         
 
         @OneToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "addressId", referencedColumnName = "id")
         private Address address;
 
-		public Doctor(String userName, String fName, String lName, String contactNo, int id,
-				String licenseNo, String speciality, Address address2) {
+		
+		public Doctor(String userName, String fName, String lName, String contactNo, int id, String licenseNo,
+				String speciality, String university_name, Integer experience, String organisation_name,
+				Integer consultation_fee, String verification, Address address) {
 			super(userName, fName, lName, contactNo);
 			this.id = id;
 			this.licenseNo = licenseNo;
 			this.speciality = speciality;
-			this.address = address2;
+			this.university_name = university_name;
+			this.experience = experience;
+			this.organisation_name = organisation_name;
+			this.consultation_fee = consultation_fee;
+			this.verification = verification;
+			this.address = address;
 		}
 
 		public Doctor() {
@@ -72,12 +79,56 @@ public class Doctor extends Person {
 		public void setAddress(Address address) {
 			this.address = address;
 		}
+		
+		public String getUniversity_name() {
+			return university_name;
+		}
+
+		public void setUniversity_name(String university_name) {
+			this.university_name = university_name;
+		}
+
+		public Integer getExperience() {
+			return experience;
+		}
+
+		public void setExperience(Integer experience) {
+			this.experience = experience;
+		}
+
+		public String getOrganisation_name() {
+			return organisation_name;
+		}
+
+		public void setOrganisation_name(String organisation_name) {
+			this.organisation_name = organisation_name;
+		}
+
+		public Integer getConsultation_fee() {
+			return consultation_fee;
+		}
+
+		public void setConsultation_fee(Integer consultation_fee) {
+			this.consultation_fee = consultation_fee;
+		}
+
+		public String getVerification() {
+			return verification;
+		}
+
+		public void setVerification(String verification) {
+			this.verification = verification;
+		}
 
 		@Override
 		public String toString() {
-			return "Doctor [id=" + id + ", licenseNo=" + licenseNo + ", speciality=" + speciality + ", address="
+			return "Doctor [id=" + id + ", licenseNo=" + licenseNo + ", speciality=" + speciality + ", university_name="
+					+ university_name + ", experience=" + experience + ", organisation_name=" + organisation_name
+					+ ", consultation_fee=" + consultation_fee + ", verification=" + verification + ", address="
 					+ address + "]";
 		}
+
+				
         
         
 }

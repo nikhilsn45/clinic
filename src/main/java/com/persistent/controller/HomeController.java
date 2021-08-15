@@ -1,14 +1,26 @@
 package com.persistent.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.Patient;
-import com.persistent.entities.User;
+import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
 import com.persistent.service.PatientService;
 import com.persistent.service.UserService;
@@ -25,26 +37,16 @@ public class HomeController {
 	@Autowired
 	private UserService userv;
 	
+	@Autowired
+	private AppointmentService appServ;
+	
 	public HomeController() {
 	}
-
-	@RequestMapping("/")
-	public String home()
+	
+	@RequestMapping("/login")
+	public String login(HttpServletRequest request)
 	{
 		return "mainpage";
-	}
-	
-	
-	@RequestMapping("/doctor_signup")
-	public String doctor_signup()
-	{
-		return "doctor_signup";
-	}
-	
-	@RequestMapping("/patient_signup")
-	public String user_signup()
-	{
-		return "patient_signup";
 	}
 	
 	@RequestMapping("/about")
@@ -53,51 +55,19 @@ public class HomeController {
 		return "about";
 	}
 	
-	@RequestMapping("/home")
-	public String login_user(@ModelAttribute User u,Model m)
-	{
-		System.out.println("entered");
-		if(userv.getUserByUserNameAndPassword(u.getUserName(), u.getPassword()) != null)
-		{
-			System.out.println(u);
-			if((u.getType()).equals("doctor")) 
-			{
-				System.out.println("Doctor Service Called");
-				Doctor d1 =dserv.findDoctorByUserName(u.getUserName());
-				if(d1!= null) {
-					System.out.println(d1);
-					m.addAttribute("doc", d1);
-					return "doctor_home";
-					
-				}
-				else 
-					return "error";
-				
+	@RequestMapping("/")
+	public String defaultAfterLogin(HttpServletRequest request) {
+
+		 Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 User user = (User) authentication;
+		 
+		 System.out.println("cread " + user.getAuthorities());
+	        
+		 if (user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_doctor"))) {
+			 return "redirect:/doctor_home";
 			}
-			else
-			{
-				if((u.getType()).equals("patient"))
-				{
-					System.out.println("Patient Service Called");
-					Patient p1 =pserv.findPatientByUserName(u.getUserName());
-					if(p1 != null) {
-						System.out.println(p1);
-						m.addAttribute("pat", p1);
-						return "patient_home";
-						
-					}
-					else 
-						return "error";
-				}
-				else
-					return "error";
-		     }
-		
-		}
-		else {
-			return "error";
-		}
-		
+		 return "redirect:/patient_home";
+	        
 	}
 	
 	public DoctorService getDserv() {

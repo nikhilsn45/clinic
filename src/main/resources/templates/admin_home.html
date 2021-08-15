@@ -84,11 +84,8 @@ table{
 <div>
 	<div style=" height: 50px;"></div>
 	<div class="topnavi" style="margin-left: 50px;">
-  <a class="active" href="admin">Home</a>
-  <a href="about">About</a>
-  <a href="patientreg">Register as Patient</a>
-  <a href="doctorreg">Register as Doctor</a>
-  <a href="login" style="margin-left: 700px;" >Logout</a>
+  <a class="active" href="#">Home</a>
+  <a th:href="@{/login}" style="margin-left: 700px;" >Logout</a>
 	</div>
 </div>
 <br>
@@ -98,37 +95,74 @@ table{
 <div class="wrapper" align="center">
 	
 	<h4 style="text-align:left;"><b>Pending Doctor Verifications</b></h4>  
-	<button type="button" id="DList" class="DList">Show Doctors List</button>
-	<button type="button" id="Hbtn1" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>
+	<!--  <button type="button" id="DList" class="DList">Show Doctors List</button>
+	<button type="button" id="Hbtn1" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>-->
 	<br>
 	<br>
 	<table class="table" style="border:none !important;">
 	<thead>
     <tr>
         <th>Doctor Name</th>
+        <th>License Number</th>
         <th>Specialization</th>
- 		<th>Hospital Name</th>     
+        <th>University Name</th>
+ 		<th>Hospital Name</th>
+ 		<th>Consultation Fee</th> 
         <th>Accept Verification</th>
         <th>Reject Verification</th>
     </tr>
 	</thead>
     <tbody id="myTable">
-        
+     <tr th:each="adoc:${docpend}">
+        <td th:text=${adoc.userName}/>
+        <td th:text="${adoc.fName}+ ${adoc.lName}"/>
+		<td th:text="${adoc.licenseNo}"/>
+		<td th:text=${adoc.speciality} />
+		<td th:text=${adoc.university_name}/>
+		<td th:text=${adoc.organisation_name} />
+		<td th:text=${adoc.consultation_fee} />
+		
+		<td>
+		<form id="accept" method = "post" >
+			<input type="hidden" name="appid" id="appid" th:value="${adoc.userName}"/>
+		<button type="submit" id ="btn-accept" class="btn btn-sm px-3">Verify</button>
+		 </form>
+		</td>
+		<td>
+		 <form id="reject" method ="post">
+			<input type="hidden" name="appid" id="appid" th:value="${adoc.userName}"/>
+		<button type="submit" id ="btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button>
+		 </form>
+	    </td>
     </tbody>
 </table>
 <br>
 <hr>
-<h4 style="text-align:left;"><b>Just Verified Doctors</b></h4>  
+<h4 style="text-align:left;"><b>Verified Doctors</b></h4>  
 <table class="table " style="border:none !important;">
 	<thead>
     <tr>
         <th>Doctor Name</th>
+        <th>License Number</th>
         <th>Specialization</th>
-        <th>Hospital Name</th>
+        <th>University Name</th>
+ 		<th>Hospital Name</th>
+ 		<th>Consultation Fee</th> 
+ 		<th>Verification</th> 
+ 		
     </tr>
 	</thead>
     <tbody id="appoTable">
-        
+      <tr th:each="adoc:${docacce}">
+        <td th:text="${adoc.fName}+${adoc.lName}"/>
+		<td th:text="${adoc.licenseNo}"/>
+		<td th:text=${adoc.speciality} />
+		<td th:text=${adoc.university_name}/>
+		<td th:text=${adoc.organisation_name} />
+		<td th:text=${adoc.consultation_fee} />
+		<td th:text=${adoc.verification} />
+		
+		</tr>  
     </tbody>
 </table>
 
@@ -136,143 +170,123 @@ table{
 <br>
 <hr>
 <div align="center" style="width:70%; margin: auto;">
-	<h4 style="text-align:left;"><b>Patients List</b></h4>
+	<h4 style="text-align:left;"><b>Registered Patients List</b></h4>
 	
-	<button type="button" id="PatientsList" class="PatientsList">Show Patients List</button>
-	<button type="button" id="Hbtn2" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>
+	<!--<button type="button" id="PatientsList" class="PatientsList">Show Patients List</button>
+	<button type="button" id="Hbtn2" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>-->
 	<br>
 	<br>
 	<table style="width:100%; " class="table ">
 		<thead>
 		<tr>
-		<th>FirstName</th>
-		<th>LastName</th>
-		<th>EmailId</th>
+        <th>Patient Name</th>
+        <th>Email</th>
+        <th>Contact Number</th> 
+        <th>Age</th>
+        <th>State</th>
+ 		<th>City</th>
+ 		
 		</tr>
 		</thead>
 		<tbody id="tdata">
-		
-		</tbody>
-	</table>
-</div>
-<hr>
-<div align="center" style="width:70%; margin:auto;">
-	<h4 style="text-align:left;"><b>Registered Doctors List</b></h4>
-	<button type="button" id="DoctorsList" class="DoctorsList">Show Doctors List</button>
-	<button type="button" id="Hbtn3" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>
-	<br>
-	<br>
-	<table style="width:100%;" class="table ">
-		<thead>
-		<tr>
-		<th>Name</th>
-		<th>Specialization</th>
-		<th>Hospital Name</th>
-		</tr>
-		</thead>
-		<tbody id="docdata">
-		
+		<tr th:each="appoint:${patList}">
+      
+		<td th:text="${appoint.fName} + ${appoint.lName}"/>
+		<td th:text="${appoint.emailId}"/>
+		<td th:text="${appoint.contactNo}"/>
+		<td th:text="${appoint.age}"/>
+		<td th:text="${appoint.state}"/>
+		<td th:text="${appoint.city}"/>
+	 </tr>
 		</tbody>
 	</table>
 </div>
 
+
+<hr>
+
+<div class="wrapper">
+	<hr>
+	<br>
+	<h4 class="h3head">All Appointments</h4>  
+	<br><br>
+	<table class="table table-striped">
+	<thead>
+    <tr> 
+        <th>Doctor Name</th>
+        <th>Doctor Address</th>
+        <th>Doctor Contact</th>
+        <th>Patient Name</th>     
+        <th>Patient Address</th>
+        <th>Patient Contact</th>
+        <th>Appointment Time</th>
+        <th>Appointment Status</th>
+    </tr>
+	</thead>
+    <tr th:each="appoint:${appList}">
+      
+		<td th:text="${appoint.docname}"/>
+		<td th:text="${appoint.docaddress}"/>
+		<td th:text="${appoint.doccontact}"/>
+		<td th:text="${appoint.patname}"/>
+		<td th:text="${appoint.pataddress}"/>
+		<td th:text="${appoint.patcontact}"/>
+		<td th:text="${appoint.timing}"/>
+		<td th:text="${appoint.status}"/>
+	 </tr>
+</table>
+<br><hr><br>
+
+</div>
+<div id="foot"></div>
 
 
 
 <script>
-	var myArray = [
-	    {'name':'Dr.Jake', 'spec':'neuro', 'hospital':'Sahyadri'},
-	    {'name':'Dr.Molly', 'spec':'ent', 'hospital':'Jehangir'},
-	    {'name':'Dr.Paul', 'spec':'gynac', 'hospital':'KEM'},
-	    {'name':'Dr.Joey', 'spec':'neuro', 'hospital':'KK'},
-	    {'name':'Dr.Ted', 'spec':'gynac', 'hospital':'Poona'},
-	    {'name':'Dr.Erik', 'spec':'neuro', 'hospital':'Ruby'},
-	];
-	var data1=[{'fname':'Joey','lname':'Tribbiani','email':'joeyt@gmail.com'},
-		{'fname':'Dough','lname':'Judy','email':'rosa@gmail.com'},
-		{'fname':'Ted','lname':'Mosby','email':'tm@gmail.com'},
-		{'fname':'Daisy','lname':'Dale','email':'dd@gmail.com'},
-		{'fname':'Freddy','lname':'Jose','email':'fj@gmail.com'}];
 	
-	
-	
-	var appRow=[]
-	
-	buildTable(myArray)
-	
-	
-
-	function buildTable(data){
-		var table = document.getElementById('myTable')
-
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].spec}</td>
-							<td>${data[i].hospital}</td>
-							<td><button type="button" id ="btn-accept" class="btn btn-sm px-3">Accept</button></td>
-							<td><button type="button" id = "btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button></td>
-					 </tr>`
-			table.innerHTML += row
-
-
-		}
-	}
-	
-	
-	function addAppointment(name,spec,hospital)
+	function addDoctor(id,name,license,spec,univ,hospital,consultationFee,verification)
 	{
 		var appo_accept = document.getElementById('appoTable')
 
 		
 			var row = `<tr>
+				            <td>${id}</td>
 							<td>${name}</td>
+							<td>${license}</td>
 							<td>${spec}</td>
+							<td>${univ}</td>
 							<td>${hospital}</td>
+							<td>${consultationFee}</td>
+							<td>${verification}</td>
 					 </tr>`
 			appo_accept.innerHTML += row
 
 
 	}
-	
-	buildTable1(data1)
-	function buildTable1(data){
-		var table = document.getElementById('tdata')
-
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${data[i].fname}</td>
-							<td>${data[i].lname}</td>
-							<td>${data[i].email}</td>
-							
-					 </tr>`
-			table.innerHTML += row
-
-
-		}
-	}
-	
-	//----------------------------------------------------------
-	buildTable2(myArray)
-	function buildTable2(data){
-		var table = document.getElementById('docdata')
-
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].spec}</td>
-							<td>${data[i].hospital}</td>
-					 </tr>`
-			table.innerHTML += row
-
-
-		}
-	}
-	//------------------------------------------------------------------
 	$(document).ready(function($)
 	{
-	$(document).on('click',"#btn-reject", function(e)
-	{
+	$(document).on('click',"#btn-reject", function(e){
+		
+		e.preventDefault();
+		var docId={req : $('#appid').val()};
+			 $.ajax({
+	        	 	type : "POST",
+					url : "reject_doctor",
+					data : docId,
+					success : function(data) {
+						
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("Some Error Occured");
+	                    alert(xhr.responseText);
+	                }
+	            });
+		
+		
+		
+		
 		var r = $(this).closest('tr').remove();
 	}
 	);
@@ -280,18 +294,40 @@ table{
 	$(document).on('click',"#btn-accept", function(e)
 	{
 		
+		e.preventDefault();
+		var docId={req : $('#appid').val()};
+			 $.ajax({
+	        	 	type : "POST",
+					url : "verify_doctor",
+					data : docId,
+					success : function(data) {
+						
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("Some Error Occured");
+	                    alert(xhr.responseText);
+	                }
+	            });
+		
 		var row = $(this).closest('tr');
 		var col1 = row.find("td:eq(0)").text();
 		var col2 = row.find("td:eq(1)").text();
 		var col3 = row.find("td:eq(2)").text();
+		var col4 = row.find("td:eq(3)").text();
+		var col5 = row.find("td:eq(4)").text();
+		var col6 = row.find("td:eq(5)").text();
+		var col7 = row.find("td:eq(6)").text();
+		var col8 = row.find("td:eq(7)").text();
 		
-		addAppointment(col1,col2,col3);
+		addDoctor(col1,col2,col3,col4,col5,col6,col7,col8);
 		//console.log(row);
 		row.remove();
 		
 	});
 	
-	$("#tdata").hide();
+	/*$("#tdata").hide();
 	$("#PatientsList").click(function(e){
 		e.preventDefault();
 		$("#tdata").show();
@@ -322,8 +358,12 @@ table{
 	
 	$("#Hbtn3").click(function(){
 		$("#docdata").hide();
-	});
+	});*/
 });
+
+
+
+
 	
 	
 

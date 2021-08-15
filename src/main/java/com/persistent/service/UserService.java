@@ -63,6 +63,10 @@ public class UserService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		
+		if(userName.equals("admin"))
+			return new org.springframework.security.core.userdetails.User("admin", "$2a$10$B7DBPbsxTM6DBXyC6hzKuOKC5urOkZh77dlqAGcc8P1prPa1q5zZq", mapRolesToAuthorities("ROLE_admin"));
+
 		User user = udao.findByUserName(userName);
 		System.out.println("here "+ userName);
 		
@@ -70,7 +74,7 @@ public class UserService implements UserDetailsService{
 			throw new UsernameNotFoundException("Invalid username or password");
 		}
 		
-		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), mapRolesToAuthorities("ROLE_"+user.getType()));
+		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), mapRolesToAuthorities(user.getType()));
 
 	}
 

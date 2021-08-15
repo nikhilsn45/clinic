@@ -66,7 +66,9 @@ public class HomeController {
 		 if (user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_doctor"))) {
 			 return "redirect:/doctor_home";
 			}
-		 return "redirect:/patient_home";
+		 else if(user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_admin")))
+			 return "redirect:/admin";
+		return "redirect:/patient_home";
 	        
 	}
 	

@@ -28,7 +28,7 @@ import com.persistent.dto.PatientDto;
 import com.persistent.entities.AppointAJAX;
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
-
+import com.persistent.exceptions.DuplicateUserFoundException;
 import com.persistent.exceptions.NoDoctorFoundException;
 
 import com.persistent.entities.FeedBack;
@@ -71,6 +71,12 @@ public class PatientController {
 	{	
 		System.out.println(uInfo);
 		System.out.println(u);
+		
+		Patient p = serv.findPatientByUserName(u.getUserName());
+		if(p != null) {
+			logger.error("Username already exists in the database!!");
+			throw new DuplicateUserFoundException("Username already exists in database. Try with a different username.");
+		}
 
 		serv.addPatient(uInfo.conToPatient());
 		creadServ.addUser(u);

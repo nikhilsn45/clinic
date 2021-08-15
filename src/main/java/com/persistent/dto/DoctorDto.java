@@ -1,32 +1,49 @@
 package com.persistent.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import com.persistent.entities.Address;
 import com.persistent.entities.Doctor;
 
 public class DoctorDto {
-
+	
+	@NotBlank
 	private String userName;
 	
+	@NotBlank
+	@Size(min = 2, max = 20, message = "Name should be 2-20 characters long")
     private String fName;
 	
+	@NotBlank
+	@Size(min = 2, max = 20, message = "Name should be 2-20 characters long")
 	private String lName;
     
+	@NotBlank
     private String contactNo;
     
+	@NotBlank
     private String licenseNo;
 	
+	@NotBlank
     private String speciality;
     
+	@NotBlank
     private String city;
     
+	@NotBlank
     private String state;
-    
+	
+	@NotBlank
     private String university_name;
     
+	@NotBlank
     private Integer experience;
     
+	@NotBlank
     private String organisation_name;
     
+	@NotBlank
     private Integer consultation_fee;
     
     private String verification;

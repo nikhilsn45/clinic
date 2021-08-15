@@ -2,14 +2,22 @@ package com.persistent.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {  //User can be a doctor or a patient
 
 	@Id
+	@NotBlank
 	private String userName;  //user_name of patient or doctor should be unique
 	
-	private String password,type;
+	@NotBlank
+	@Size(min = 2, max = 20, message = "Password should be 2-20 characters long")
+	private String password;
+	
+	@NotBlank
+	private String type;
 
 	public User() {}
 	

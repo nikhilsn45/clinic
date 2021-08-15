@@ -10,13 +10,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,11 +53,8 @@ public class DoctorController {
 	}
 
 	@RequestMapping(path="/doctor_signup", method=RequestMethod.POST)
-	public String save_doctor(Model model,@Valid @ModelAttribute DoctorDto dInfo,  @ModelAttribute User u, BindingResult results)
+	public String save_doctor(@ModelAttribute DoctorDto dInfo,  @ModelAttribute User u)
 	{
-		
-		if(results.hasErrors())
-			return "doctor_signup";
 		
 		System.out.println(dInfo);
 		System.out.println(u);

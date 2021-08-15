@@ -62,13 +62,13 @@ public class PatientController {
 	@RequestMapping("/patient_signup")
 	public String user_signup()
 	{
+		logger.trace("Patient signup page called.");
 		return "patient_signup";
 	}
 
 	@RequestMapping(path="/patient_signup", method=RequestMethod.POST)
 	public String save_patient(@ModelAttribute PatientDto uInfo,@ModelAttribute User u)
 	{	
-		logger.trace("Save patient method called");
 		System.out.println(uInfo);
 		System.out.println(u);
 
@@ -84,6 +84,7 @@ public class PatientController {
 	@RequestMapping("/patient_home")
 	public String patHome(Model model)
 	{
+		logger.info("Patient logged in.");
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
 		
@@ -102,7 +103,9 @@ public class PatientController {
 		List<Appointment> appoints= appServ.getAllAppointment(username);
 		List<Map<String,Object>> maps = new ArrayList<Map<String,Object>>();
 		List<Map<String,Object>> mapsaccepted = new ArrayList<Map<String,Object>>();
-
+		
+		logger.trace("Appointment list is filtered based on status.");
+		
 		for (Iterator iterator = appoints.iterator(); iterator.hasNext();) {
 			Appointment appointment = (Appointment) iterator.next();
 			Map<String,Object> map = new HashMap<>();
@@ -124,7 +127,6 @@ public class PatientController {
 		model.addAttribute("pat",new PatientDto(serv.findPatientByUserName(username)));
 		model.addAttribute("appoints", maps);
 		model.addAttribute("appointsAccept", mapsaccepted);
-		logger.trace("The user details and the appointment details are sent to the patient_profile html page");
 		return "patient_profile";
 	}
 
@@ -177,11 +179,12 @@ public class PatientController {
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
 			
-		logger.info("Slot booking function called");
+		System.out.println(user);
+		logger.trace("Slot booking function called");
 		System.out.println(appoint.getDoc());
 			
 		Doctor d = docServ.findDoctorByUserName(appoint.getDoc());//To display required doctor's details
-		Patient p = serv.findPatientByUserName("uday");//To display required patient's details
+		Patient p = serv.findPatientByUserName(user.getUsername());//To display required patient's details
 			
 			
 		Appointment ap = new AppointmentDto(appoint.getTiming(),appoint.getStatus()).convertToEntity();
@@ -189,7 +192,7 @@ public class PatientController {
 		ap.setPat(p);
 			
 		appServ.addAppointment(ap);// saved an appointment in Appointment Table
-		logger.info("Appointment details saved in database");
+		logger.trace("Request for appointment has been sent.");
 			
 		return "Request for appointment has been sent!";
 	}
@@ -197,6 +200,7 @@ public class PatientController {
 	@RequestMapping(path="/feedback", method=RequestMethod.GET)
 	public String feedback(String id)
 	{
+		logger.info("Feedback page called.");
 		return "FeedBack";
 	}
 
@@ -209,6 +213,7 @@ public class PatientController {
 		appServ.addAppointment(apt);
 		System.out.println(apt);
 		System.out.println(feed);
+		logger.info("Feedback submitted.");
 		return "redirect:/feedback?success";
 	}
 

@@ -5,6 +5,8 @@ import java.util.Collection;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,12 +16,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.persistent.controller.HomeController;
 import com.persistent.dao.UserDao;
 import com.persistent.entities.User;
 
 @Service
 @Transactional
 public class UserService implements UserDetailsService{
+	
+	Logger logger = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
 	private UserDao udao;
@@ -40,10 +45,10 @@ public class UserService implements UserDetailsService{
 		udao.save(u);
 	}
 	
-	public User getUserByUserNameAndPassword(String un, String p)
+	/*public User getUserByUserNameAndPassword(String un, String p)
 	{
 		return udao.findUserByUserNameAndPassword(un,p);
-	}
+	}*/
 	
 	/*public User getUserByUserName(String un) {
 		return udao.findUserByUserName(un);
@@ -64,16 +69,21 @@ public class UserService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		
-		if(userName.equals("admin"))
+		if(userName.equals("admin")) {
+			logger.trace("Admin is trying to log in.");
 			return new org.springframework.security.core.userdetails.User("admin", "$2a$10$B7DBPbsxTM6DBXyC6hzKuOKC5urOkZh77dlqAGcc8P1prPa1q5zZq", mapRolesToAuthorities("ROLE_admin"));
-
+		}
+			
 		User user = udao.findByUserName(userName);
 		System.out.println("here "+ userName);
+		logger.trace("User is trying to log in.");
 		
 		if(user==null) {
+			logger.error("Invalid username or password!!");
 			throw new UsernameNotFoundException("Invalid username or password");
 		}
 		
+		logger.trace("Returns the user details.");
 		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(), mapRolesToAuthorities(user.getType()));
 
 	}

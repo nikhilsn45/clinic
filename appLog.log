@@ -1,1 +1,628 @@
 2021-08-15 10:11:52,467 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h8m17s728ms537µs400ns).
+2021-08-15 15:12:06,217 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 2068 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 15:12:06,222 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 15:12:07,959 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 15:12:08,067 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 90 ms. Found 5 JPA repository interfaces.
+2021-08-15 15:12:09,313 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 15:12:09,332 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 15:12:09,333 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 15:12:09,850 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 15:12:09,867 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 15:12:09,867 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3564 ms
+2021-08-15 15:12:10,196 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 15:12:10,265 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 15:12:10,441 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 15:12:11,898 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 15:12:11,934 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 15:12:13,535 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 15:12:13,635 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 15:12:29,568 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 15:12:29,672 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 15:12:29,944 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 15:12:35,697 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4edde05c, org.springframework.security.web.context.SecurityContextPersistenceFilter@28b68067, org.springframework.security.web.header.HeaderWriterFilter@339cde4b, org.springframework.security.web.authentication.logout.LogoutFilter@5b80b41d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@52c27d53, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@acb1c9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32fd5bc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2911db81, org.springframework.security.web.session.SessionManagementFilter@f0381f0, org.springframework.security.web.access.ExceptionTranslationFilter@70ad0854, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@46290193]
+2021-08-15 15:12:38,363 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 15:12:38,388 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 32.801 seconds (JVM running for 33.903)
+2021-08-15 15:12:47,619 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 15:12:47,620 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 15:12:47,624 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 3 ms
+2021-08-15 15:13:13,119 [WARN] org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder [http-nio-8088-exec-5] Encoded password does not look like BCrypt
+2021-08-15 15:13:29,643 [WARN] org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder [http-nio-8088-exec-4] Encoded password does not look like BCrypt
+2021-08-15 15:13:39,257 [WARN] org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder [http-nio-8088-exec-8] Encoded password does not look like BCrypt
+2021-08-15 15:13:46,612 [WARN] org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder [http-nio-8088-exec-2] Encoded password does not look like BCrypt
+2021-08-15 15:17:29,611 [WARN] org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder [http-nio-8088-exec-4] Encoded password does not look like BCrypt
+2021-08-15 15:23:38,598 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-4] Save doctor method called
+2021-08-15 15:23:39,106 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] Doctor saved to database
+2021-08-15 15:26:42,248 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 28912 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 15:26:42,251 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 15:26:43,228 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 15:26:43,331 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 86 ms. Found 5 JPA repository interfaces.
+2021-08-15 15:26:44,158 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 15:26:44,174 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 15:26:44,175 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 15:26:44,501 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 15:26:44,517 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 15:26:44,518 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2186 ms
+2021-08-15 15:26:44,789 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 15:26:44,864 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 15:26:45,037 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 15:26:45,173 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 15:26:45,179 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 15:26:45,406 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 15:26:45,427 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 15:26:46,461 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 15:26:46,480 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 15:26:46,583 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 15:26:47,370 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fb42c1c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1774c4e2, org.springframework.security.web.header.HeaderWriterFilter@60c8909a, org.springframework.security.web.authentication.logout.LogoutFilter@4229b92c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5da2966, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d8d671b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37cc6017, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4edde05c, org.springframework.security.web.session.SessionManagementFilter@76208b80, org.springframework.security.web.access.ExceptionTranslationFilter@6bfdaed7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64381526]
+2021-08-15 15:26:47,915 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 15:26:47,924 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 6.315 seconds (JVM running for 6.813)
+2021-08-15 15:26:56,610 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 15:26:56,611 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 15:26:56,613 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 2 ms
+2021-08-15 15:29:23,290 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 31688 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 15:29:23,295 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 15:29:24,347 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 15:29:24,458 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 89 ms. Found 5 JPA repository interfaces.
+2021-08-15 15:29:25,368 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 15:29:25,381 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 15:29:25,382 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 15:29:25,693 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 15:29:25,714 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 15:29:25,714 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2330 ms
+2021-08-15 15:29:25,991 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 15:29:26,043 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 15:29:26,197 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 15:29:26,308 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 15:29:26,315 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 15:29:26,529 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 15:29:26,551 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 15:29:27,488 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 15:29:27,495 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 15:29:27,566 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 15:29:28,332 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2911db81, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d8d671b, org.springframework.security.web.header.HeaderWriterFilter@60c8909a, org.springframework.security.web.authentication.logout.LogoutFilter@66e218d8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ca7619f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19540247, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7512a9a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fce1069, org.springframework.security.web.session.SessionManagementFilter@76208b80, org.springframework.security.web.access.ExceptionTranslationFilter@6bfdaed7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ad7a305]
+2021-08-15 15:29:28,865 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 15:29:28,878 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 6.183 seconds (JVM running for 6.889)
+2021-08-15 15:29:37,823 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 15:29:37,824 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 15:29:37,827 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 2 ms
+2021-08-15 15:30:31,219 [WARN] org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder [http-nio-8088-exec-9] Encoded password does not look like BCrypt
+2021-08-15 15:31:39,267 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-8] Save patient method called
+2021-08-15 15:31:39,746 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Patient saved to database
+2021-08-15 15:37:25,918 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] User reached his/her profile page
+2021-08-15 15:37:25,935 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-4] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 15:54:17,740 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 30516 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 15:54:17,746 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 15:54:19,025 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 15:54:19,173 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 124 ms. Found 5 JPA repository interfaces.
+2021-08-15 15:54:20,299 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 15:54:20,319 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 15:54:20,319 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 15:54:20,738 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 15:54:20,759 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 15:54:20,759 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2908 ms
+2021-08-15 15:54:21,117 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 15:54:21,202 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 15:54:21,420 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 15:54:21,563 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 15:54:21,569 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 15:54:21,982 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 15:54:22,028 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 15:54:23,234 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 15:54:23,255 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 15:54:23,431 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 15:54:24,312 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d84b088, org.springframework.security.web.context.SecurityContextPersistenceFilter@2245ccaa, org.springframework.security.web.header.HeaderWriterFilter@641e67fa, org.springframework.security.web.authentication.logout.LogoutFilter@339cde4b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3fb1948c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f36e806, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7aef21bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69c0bae6, org.springframework.security.web.session.SessionManagementFilter@6cb43fd3, org.springframework.security.web.access.ExceptionTranslationFilter@29174dfe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3370be55]
+2021-08-15 15:54:24,924 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 15:54:24,937 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 8.417 seconds (JVM running for 9.198)
+2021-08-15 15:54:31,074 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 15:54:31,075 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 15:54:31,084 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 8 ms
+2021-08-15 16:02:03,531 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 16972 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:02:03,534 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:02:04,650 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:02:04,770 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 103 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:02:05,748 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:02:05,765 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:02:05,766 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:02:06,135 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:02:06,149 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:02:06,149 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2506 ms
+2021-08-15 16:02:06,480 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:02:06,546 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:02:06,763 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:02:06,949 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:02:06,954 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:02:07,200 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:02:07,225 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:02:08,581 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:02:08,603 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:02:08,788 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:02:09,735 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dfd157b, org.springframework.security.web.context.SecurityContextPersistenceFilter@138a952f, org.springframework.security.web.header.HeaderWriterFilter@44a98a23, org.springframework.security.web.authentication.logout.LogoutFilter@7fcbc336, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5759edff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6bfdaed7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d8d671b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64381526, org.springframework.security.web.session.SessionManagementFilter@e3275d3, org.springframework.security.web.access.ExceptionTranslationFilter@345540f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ba1f425]
+2021-08-15 16:02:10,382 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:02:10,401 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 7.524 seconds (JVM running for 8.113)
+2021-08-15 16:02:16,308 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:02:16,308 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:02:16,312 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 3 ms
+2021-08-15 16:02:32,646 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] Admin page called
+2021-08-15 16:06:54,118 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 25192 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:06:54,121 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:06:55,265 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:06:55,390 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 105 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:06:56,517 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:06:56,537 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:06:56,538 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:06:56,938 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:06:56,957 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:06:56,957 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2755 ms
+2021-08-15 16:06:57,331 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:06:57,416 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:06:57,651 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:06:57,824 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:06:57,829 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:06:58,102 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:06:58,130 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:07:07,783 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:07:07,808 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:07:07,993 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:07:08,933 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f69e2d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@77d58f3a, org.springframework.security.web.header.HeaderWriterFilter@76b019c4, org.springframework.security.web.authentication.logout.LogoutFilter@23e0c200, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@747e8659, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@738ed8f5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18bc1064, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@147097ad, org.springframework.security.web.session.SessionManagementFilter@32ddcca, org.springframework.security.web.access.ExceptionTranslationFilter@2ef1fc8a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@673605ef]
+2021-08-15 16:07:09,534 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:07:09,549 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 16.691 seconds (JVM running for 17.364)
+2021-08-15 16:07:19,068 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:07:19,069 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:07:19,072 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 3 ms
+2021-08-15 16:07:46,535 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-10] Save doctor method called
+2021-08-15 16:07:47,494 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-10] Doctor saved to database
+2021-08-15 16:08:23,524 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-9] Save patient method called
+2021-08-15 16:08:23,855 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Patient saved to database
+2021-08-15 16:09:52,550 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 30808 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:09:52,555 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:09:53,691 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:09:53,805 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 98 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:09:54,794 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:09:54,816 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:09:54,817 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:09:55,203 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:09:55,216 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:09:55,217 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2562 ms
+2021-08-15 16:09:55,540 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:09:55,621 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:09:55,819 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:09:55,974 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:09:55,983 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:09:56,210 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:09:56,233 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:09:57,391 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:09:57,402 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:09:57,564 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:09:58,535 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4edde05c, org.springframework.security.web.context.SecurityContextPersistenceFilter@f0381f0, org.springframework.security.web.header.HeaderWriterFilter@70ad0854, org.springframework.security.web.authentication.logout.LogoutFilter@47c356e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@52c27d53, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28b68067, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3fcc7f5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2911db81, org.springframework.security.web.session.SessionManagementFilter@339cde4b, org.springframework.security.web.access.ExceptionTranslationFilter@272c5abd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@46290193]
+2021-08-15 16:09:59,155 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:09:59,170 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 7.728 seconds (JVM running for 8.423)
+2021-08-15 16:10:09,037 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:10:09,038 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:10:09,040 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 2 ms
+2021-08-15 16:10:17,161 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Admin page called
+2021-08-15 16:10:55,709 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-3] Doctor search called based on the speciality and address
+2021-08-15 16:10:55,710 [ERROR] com.persistent.controller.PatientController [http-nio-8088-exec-3] There are no doctors of this speciality in the given area!!
+2021-08-15 16:11:42,563 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] Admin page called
+2021-08-15 16:12:10,381 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] Doctor search called based on the speciality and address
+2021-08-15 16:12:15,437 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-5] Checkout doctor function called
+2021-08-15 16:12:30,438 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] Slot booking function called
+2021-08-15 16:12:31,017 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] Appointment details saved in database
+2021-08-15 16:12:44,180 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] User reached his/her profile page
+2021-08-15 16:12:44,195 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-6] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 16:13:32,464 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 31472 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:13:32,469 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:13:33,755 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:13:33,902 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 122 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:13:35,269 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:13:35,288 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:13:35,289 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:13:35,704 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:13:35,726 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:13:35,726 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3156 ms
+2021-08-15 16:13:36,121 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:13:36,192 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:13:36,428 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:13:36,623 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:13:36,630 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:13:36,906 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:13:36,938 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:13:38,296 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:13:38,309 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:13:38,403 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:13:39,423 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43b2e7db, org.springframework.security.web.context.SecurityContextPersistenceFilter@28515443, org.springframework.security.web.header.HeaderWriterFilter@25d23478, org.springframework.security.web.authentication.logout.LogoutFilter@6aa792, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@10508ba6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1820f274, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3450bd13, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46d51d5e, org.springframework.security.web.session.SessionManagementFilter@39c1e7b7, org.springframework.security.web.access.ExceptionTranslationFilter@51e1e058, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@525b9df4]
+2021-08-15 16:13:40,067 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:13:40,083 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 8.611 seconds (JVM running for 9.87)
+2021-08-15 16:13:46,877 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:13:46,878 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:13:46,883 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 5 ms
+2021-08-15 16:24:11,520 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 5868 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:24:11,523 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:24:12,315 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:24:12,388 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 63 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:24:13,087 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:24:13,099 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:24:13,099 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:24:13,349 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:24:13,362 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:24:13,363 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1789 ms
+2021-08-15 16:24:13,571 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:24:13,622 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:24:13,763 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:24:13,863 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:24:13,867 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:24:14,035 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:24:14,048 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:24:14,732 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:24:14,739 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:24:14,790 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:24:15,419 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fb42c1c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d8d671b, org.springframework.security.web.header.HeaderWriterFilter@60c8909a, org.springframework.security.web.authentication.logout.LogoutFilter@66e218d8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5da2966, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19540247, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7512a9a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4edde05c, org.springframework.security.web.session.SessionManagementFilter@76208b80, org.springframework.security.web.access.ExceptionTranslationFilter@6bfdaed7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64381526]
+2021-08-15 16:24:15,865 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:24:15,875 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 4.762 seconds (JVM running for 5.198)
+2021-08-15 16:24:25,027 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:24:25,028 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:24:25,029 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 1 ms
+2021-08-15 16:24:46,205 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] Admin page called
+2021-08-15 16:28:29,492 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 27468 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:28:29,494 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:28:30,416 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:28:30,491 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:28:31,184 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:28:31,198 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:28:31,199 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:28:31,446 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:28:31,456 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:28:31,456 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1919 ms
+2021-08-15 16:28:31,697 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:28:31,748 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:28:31,899 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:28:32,019 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:28:32,023 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:28:32,222 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:28:32,239 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:28:32,931 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:28:32,937 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:28:32,980 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:28:33,586 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55315a00, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ab39942, org.springframework.security.web.header.HeaderWriterFilter@4b5f022f, org.springframework.security.web.authentication.logout.LogoutFilter@33a7331, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3794b7b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@de40aa1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c78f456, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4942e6af, org.springframework.security.web.session.SessionManagementFilter@49f41c2e, org.springframework.security.web.access.ExceptionTranslationFilter@1bb51492, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@495f7ca4]
+2021-08-15 16:28:34,009 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:28:34,017 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 4.912 seconds (JVM running for 5.329)
+2021-08-15 16:28:44,497 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:28:44,497 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:28:44,498 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 1 ms
+2021-08-15 16:28:56,128 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-7] Admin page called
+2021-08-15 16:29:17,908 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 25308 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:29:17,912 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:29:18,668 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:29:18,754 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 74 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:29:19,455 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:29:19,468 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:29:19,468 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:29:19,689 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:29:19,704 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:29:19,705 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1738 ms
+2021-08-15 16:29:19,922 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:29:19,982 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:29:20,111 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:29:20,213 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:29:20,218 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:29:20,375 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:29:20,396 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:29:21,053 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:29:21,060 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:29:21,116 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:29:21,755 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d2be319, org.springframework.security.web.context.SecurityContextPersistenceFilter@e3275d3, org.springframework.security.web.header.HeaderWriterFilter@345540f9, org.springframework.security.web.authentication.logout.LogoutFilter@6be2b567, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@11577ab8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@138a952f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1774c4e2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35d3202b, org.springframework.security.web.session.SessionManagementFilter@44a98a23, org.springframework.security.web.access.ExceptionTranslationFilter@50d4775b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c2edbe7]
+2021-08-15 16:29:22,203 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:29:22,212 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 4.691 seconds (JVM running for 5.125)
+2021-08-15 16:29:39,282 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:29:39,282 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:29:39,283 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 1 ms
+2021-08-15 16:29:49,002 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] Admin page called
+2021-08-15 16:29:56,399 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] Admin page called
+2021-08-15 16:30:05,123 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 8888 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:30:05,126 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:30:06,070 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:30:06,163 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 79 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:30:06,984 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:30:07,001 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:30:07,002 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:30:07,269 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:30:07,282 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:30:07,282 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2096 ms
+2021-08-15 16:30:07,533 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:30:07,602 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:30:07,734 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:30:07,832 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:30:07,837 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:30:08,061 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:30:08,076 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:30:08,744 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:30:08,750 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:30:08,802 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:30:09,483 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ca7619f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1774c4e2, org.springframework.security.web.header.HeaderWriterFilter@60c8909a, org.springframework.security.web.authentication.logout.LogoutFilter@4229b92c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2fc435e9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d8d671b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37cc6017, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b71af0d, org.springframework.security.web.session.SessionManagementFilter@76208b80, org.springframework.security.web.access.ExceptionTranslationFilter@6bfdaed7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35d3202b]
+2021-08-15 16:30:09,983 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:30:09,996 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 5.321 seconds (JVM running for 5.842)
+2021-08-15 16:30:16,931 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:30:16,931 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-3] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:30:16,932 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-3] Completed initialization in 1 ms
+2021-08-15 16:37:18,738 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 31948 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 16:37:18,740 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 16:37:19,582 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 16:37:19,666 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 67 ms. Found 5 JPA repository interfaces.
+2021-08-15 16:37:20,420 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 16:37:20,436 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 16:37:20,437 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 16:37:20,694 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 16:37:20,706 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 16:37:20,707 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1910 ms
+2021-08-15 16:37:20,952 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 16:37:21,031 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 16:37:21,203 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 16:37:21,330 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 16:37:21,335 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 16:37:21,551 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 16:37:21,573 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 16:37:22,428 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 16:37:22,437 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 16:37:22,499 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 16:37:23,188 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73fe7483, org.springframework.security.web.context.SecurityContextPersistenceFilter@642614b7, org.springframework.security.web.header.HeaderWriterFilter@57fc6759, org.springframework.security.web.authentication.logout.LogoutFilter@3fcc7f5c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2c2edbe7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37344d31, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@272c5abd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11577ab8, org.springframework.security.web.session.SessionManagementFilter@7aef21bb, org.springframework.security.web.access.ExceptionTranslationFilter@3e18e693, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5eb041b5]
+2021-08-15 16:37:23,689 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 16:37:23,698 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 5.367 seconds (JVM running for 5.753)
+2021-08-15 16:37:31,634 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 16:37:31,635 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 16:37:31,638 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 3 ms
+2021-08-15 16:37:51,784 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Doctor search called based on the speciality and address
+2021-08-15 16:37:54,034 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] Checkout doctor function called
+2021-08-15 16:38:30,692 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-10] Doctor search called based on the speciality and address
+2021-08-15 16:38:32,002 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] Checkout doctor function called
+2021-08-15 16:38:36,018 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] Slot booking function called
+2021-08-15 16:38:36,170 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] Appointment details saved in database
+2021-08-15 17:03:00,560 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 21052 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 17:03:00,564 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 17:03:01,393 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 17:03:01,496 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 85 ms. Found 5 JPA repository interfaces.
+2021-08-15 17:03:02,232 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 17:03:02,246 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 17:03:02,247 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 17:03:02,548 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 17:03:02,562 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 17:03:02,562 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1944 ms
+2021-08-15 17:03:02,816 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 17:03:02,876 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 17:03:03,036 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 17:03:03,139 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 17:03:03,142 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 17:03:03,325 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 17:03:03,340 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 17:03:09,999 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 17:03:10,005 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 17:03:10,052 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 17:03:10,691 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31940d6b, org.springframework.security.web.context.SecurityContextPersistenceFilter@1002b06d, org.springframework.security.web.header.HeaderWriterFilter@68f264bf, org.springframework.security.web.authentication.logout.LogoutFilter@1bb51492, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5af641d3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5008559a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23e0c200, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64cdc310, org.springframework.security.web.session.SessionManagementFilter@f5f8de2, org.springframework.security.web.access.ExceptionTranslationFilter@18bc1064, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45375bdf]
+2021-08-15 17:03:11,160 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 17:03:11,168 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 11.006 seconds (JVM running for 11.456)
+2021-08-15 17:03:21,519 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 17:03:21,520 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 17:03:21,522 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 2 ms
+2021-08-15 17:03:52,877 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-2] Save patient method called
+2021-08-15 17:03:53,187 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] Patient saved to database
+2021-08-15 17:04:20,942 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-1] Save doctor method called
+2021-08-15 17:04:22,296 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] Doctor saved to database
+2021-08-15 17:04:39,686 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Admin page called
+2021-08-15 17:05:03,457 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Doctor search called based on the speciality and address
+2021-08-15 17:05:06,575 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Checkout doctor function called
+2021-08-15 17:05:12,096 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-5] Slot booking function called
+2021-08-15 17:05:12,192 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-5] Appointment details saved in database
+2021-08-15 17:05:17,614 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] User reached his/her profile page
+2021-08-15 17:05:17,620 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-6] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 17:09:18,659 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 29368 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 17:09:18,662 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 17:09:19,510 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 17:09:19,602 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 78 ms. Found 5 JPA repository interfaces.
+2021-08-15 17:09:20,337 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 17:09:20,350 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 17:09:20,350 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 17:09:20,585 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 17:09:20,600 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 17:09:20,600 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1877 ms
+2021-08-15 17:09:20,807 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 17:09:20,871 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 17:09:21,050 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 17:09:21,258 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 17:09:21,270 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 17:09:21,490 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 17:09:21,555 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 17:09:22,409 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 17:09:22,415 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 17:09:22,456 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 17:09:23,081 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13b4ee4e, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e18e693, org.springframework.security.web.header.HeaderWriterFilter@6f36e806, org.springframework.security.web.authentication.logout.LogoutFilter@acb1c9c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@220f6a3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57fc6759, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@107ebdad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f55a864, org.springframework.security.web.session.SessionManagementFilter@4c24c40a, org.springframework.security.web.access.ExceptionTranslationFilter@2245ccaa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c39193f]
+2021-08-15 17:09:23,541 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 17:09:23,554 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 5.284 seconds (JVM running for 5.766)
+2021-08-15 17:09:29,235 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 17:09:29,235 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 17:09:29,236 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 1 ms
+2021-08-15 17:09:48,320 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] Doctor search called based on the speciality and address
+2021-08-15 17:09:55,025 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-5] Checkout doctor function called
+2021-08-15 17:10:00,231 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Slot booking function called
+2021-08-15 17:10:00,570 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Appointment details saved in database
+2021-08-15 17:12:41,217 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 1704 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 17:12:41,219 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 17:12:41,995 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 17:12:42,263 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+2021-08-15 17:12:42,972 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 17:12:42,985 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 17:12:42,985 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 17:12:43,341 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 17:12:43,354 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 17:12:43,354 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2085 ms
+2021-08-15 17:12:43,584 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 17:12:43,644 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 17:12:43,764 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 17:12:43,852 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 17:12:43,856 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 17:12:44,071 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 17:12:44,091 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 17:12:45,020 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 17:12:45,029 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 17:12:45,110 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 17:12:45,981 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b71af0d, org.springframework.security.web.context.SecurityContextPersistenceFilter@f0381f0, org.springframework.security.web.header.HeaderWriterFilter@70ad0854, org.springframework.security.web.authentication.logout.LogoutFilter@47c356e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@bf18412, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28b68067, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3fcc7f5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fb42c1c, org.springframework.security.web.session.SessionManagementFilter@339cde4b, org.springframework.security.web.access.ExceptionTranslationFilter@272c5abd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2dfd157b]
+2021-08-15 17:12:46,439 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 17:12:46,446 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 5.703 seconds (JVM running for 6.101)
+2021-08-15 17:12:54,804 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 17:12:54,805 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-3] Initializing Servlet 'dispatcherServlet'
+2021-08-15 17:12:54,806 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-3] Completed initialization in 1 ms
+2021-08-15 17:13:08,118 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Doctor search called based on the speciality and address
+2021-08-15 17:13:10,313 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-3] Checkout doctor function called
+2021-08-15 17:13:14,761 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Slot booking function called
+2021-08-15 17:13:14,877 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Appointment details saved in database
+2021-08-15 17:13:19,465 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] User reached his/her profile page
+2021-08-15 17:13:19,478 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-6] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 17:13:42,096 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-10] User reached his/her profile page
+2021-08-15 17:13:42,105 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-10] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 17:13:56,492 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] User reached his/her profile page
+2021-08-15 17:13:56,503 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-1] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 17:14:12,232 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-3] Doctor search called based on the speciality and address
+2021-08-15 17:14:13,841 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-7] Checkout doctor function called
+2021-08-15 17:17:03,818 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-5] Save doctor method called
+2021-08-15 17:17:04,074 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-5] Doctor saved to database
+2021-08-15 17:46:04,917 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-1] Admin page called
+2021-08-15 17:47:15,658 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] User reached his/her profile page
+2021-08-15 17:47:15,665 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-2] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 17:48:07,711 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 26452 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 17:48:07,713 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 17:48:08,465 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 17:48:08,540 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 64 ms. Found 5 JPA repository interfaces.
+2021-08-15 17:48:09,197 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 17:48:09,208 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 17:48:09,208 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 17:48:09,488 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 17:48:09,499 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 17:48:09,499 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1732 ms
+2021-08-15 17:48:09,714 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 17:48:09,757 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 17:48:09,890 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 17:48:09,977 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 17:48:09,981 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 17:48:10,140 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 17:48:10,156 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 17:48:10,818 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 17:48:10,824 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 17:48:10,876 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 17:48:11,483 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fb42c1c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1774c4e2, org.springframework.security.web.header.HeaderWriterFilter@60c8909a, org.springframework.security.web.authentication.logout.LogoutFilter@4229b92c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5da2966, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d8d671b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37cc6017, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4edde05c, org.springframework.security.web.session.SessionManagementFilter@76208b80, org.springframework.security.web.access.ExceptionTranslationFilter@6bfdaed7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64381526]
+2021-08-15 17:48:11,912 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 17:48:11,922 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 4.602 seconds (JVM running for 5.025)
+2021-08-15 17:48:17,081 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 17:48:17,081 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 17:48:17,082 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 1 ms
+2021-08-15 18:09:57,006 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Doctor search called based on the speciality and address
+2021-08-15 18:09:59,040 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] Checkout doctor function called
+2021-08-15 18:10:01,550 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-7] Slot booking function called
+2021-08-15 18:10:01,893 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-7] Appointment details saved in database
+2021-08-15 18:10:25,873 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-7] User reached his/her profile page
+2021-08-15 18:10:25,886 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-7] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 18:41:25,253 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-3] Admin page called
+2021-08-15 19:40:57,182 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-7] User reached his/her profile page
+2021-08-15 19:40:57,190 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-7] The user details and the appointment details are sent to the patient_profile html page
+2021-08-15 19:41:49,437 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Doctor search called based on the speciality and address
+2021-08-15 19:41:54,533 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] Checkout doctor function called
+2021-08-15 19:42:47,538 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Slot booking function called
+2021-08-15 19:42:47,641 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Appointment details saved in database
+2021-08-15 19:55:42,226 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.2 on LAPTOP-CQIKRG7M with PID 24676 (F:\MINI PROJECT\clinic\target\classes started by munes in F:\MINI PROJECT\clinic)
+2021-08-15 19:55:42,228 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-15 19:55:42,872 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-15 19:55:42,937 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2021-08-15 19:55:43,535 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-15 19:55:43,546 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-15 19:55:43,546 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-15 19:55:43,750 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-15 19:55:43,759 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-15 19:55:43,759 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1484 ms
+2021-08-15 19:55:43,941 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-15 19:55:43,992 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-15 19:55:44,120 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-15 19:55:44,221 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-15 19:55:44,225 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-15 19:55:44,373 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-15 19:55:44,387 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-15 19:55:45,001 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-15 19:55:45,009 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-15 19:55:45,051 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-15 19:55:45,592 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2648aa1b, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c24c40a, org.springframework.security.web.header.HeaderWriterFilter@2245ccaa, org.springframework.security.web.authentication.logout.LogoutFilter@28b68067, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d84b088, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e18e693, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37344d31, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a3333be, org.springframework.security.web.session.SessionManagementFilter@6f36e806, org.springframework.security.web.access.ExceptionTranslationFilter@6cb43fd3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29fc83c5]
+2021-08-15 19:55:45,985 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-15 19:55:45,993 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 4.116 seconds (JVM running for 4.473)
+2021-08-15 19:55:53,370 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-15 19:55:53,370 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-15 19:55:53,371 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 0 ms
+2021-08-15 19:55:53,443 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-2] -----------------------------------------------------------------------------------------
+2021-08-15 19:55:53,443 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-2] Homepage called.
+2021-08-15 19:55:54,290 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-6] -----------------------------------------------------------------------------------------
+2021-08-15 19:55:54,291 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-6] Homepage called.
+2021-08-15 19:56:13,111 [ERROR] com.persistent.service.UserService [http-nio-8088-exec-9] Invalid username or password!!
+2021-08-15 19:56:13,185 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-10] -----------------------------------------------------------------------------------------
+2021-08-15 19:56:13,185 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-10] Homepage called.
+2021-08-15 19:56:54,917 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-3] Patient signup page called.
+2021-08-15 19:57:37,663 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] Patient saved to database
+2021-08-15 19:57:37,670 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-8] Patient signup page called.
+2021-08-15 19:57:59,996 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-10] -----------------------------------------------------------------------------------------
+2021-08-15 19:57:59,996 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-10] Homepage called.
+2021-08-15 19:58:04,667 [TRACE] com.persistent.controller.DoctorController [http-nio-8088-exec-3] Doctor signup page called.
+2021-08-15 19:58:57,372 [INFO] com.persistent.controller.DoctorController [http-nio-8088-exec-5] Doctor saved to database
+2021-08-15 19:58:57,377 [TRACE] com.persistent.controller.DoctorController [http-nio-8088-exec-4] Doctor signup page called.
+2021-08-15 19:59:04,066 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-8] -----------------------------------------------------------------------------------------
+2021-08-15 19:59:04,067 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-8] Homepage called.
+2021-08-15 19:59:14,656 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-1] User authenticated
+2021-08-15 19:59:14,656 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-1] User directed to patient homepage
+2021-08-15 19:59:14,661 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] Patient logged in.
+2021-08-15 19:59:34,068 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-4] User reached his/her profile page
+2021-08-15 19:59:34,079 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-4] Appointment list is filtered based on status.
+2021-08-15 19:59:56,395 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Patient logged in.
+2021-08-15 20:00:20,981 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-10] Doctor search called based on the speciality and address
+2021-08-15 20:00:51,862 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-3] Checkout doctor function called
+2021-08-15 20:01:12,444 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-6] Slot booking function called
+2021-08-15 20:01:12,706 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-6] Request for appointment has been sent.
+2021-08-15 20:01:22,805 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Patient logged in.
+2021-08-15 20:01:29,539 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-1] -----------------------------------------------------------------------------------------
+2021-08-15 20:01:29,540 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-1] Homepage called.
+2021-08-15 20:01:40,718 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] User authenticated
+2021-08-15 20:01:40,718 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] User directed to doctor homepage
+2021-08-15 20:01:40,721 [INFO] com.persistent.controller.DoctorController [http-nio-8088-exec-8] Doctor logged in.
+2021-08-15 20:01:40,724 [TRACE] com.persistent.controller.DoctorController [http-nio-8088-exec-8] Fetching appointments.
+2021-08-15 20:01:40,727 [TRACE] com.persistent.controller.DoctorController [http-nio-8088-exec-8] Filtering appointment list based on status.
+2021-08-15 20:02:04,499 [INFO] com.persistent.controller.DoctorController [http-nio-8088-exec-10] Appointment accepted.
+2021-08-15 20:02:16,659 [INFO] com.persistent.controller.DoctorController [http-nio-8088-exec-1] Appointment rejected.
+2021-08-15 20:02:30,450 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-2] -----------------------------------------------------------------------------------------
+2021-08-15 20:02:30,451 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-2] Homepage called.
+2021-08-15 20:02:36,814 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-6] User authenticated
+2021-08-15 20:02:36,814 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-6] User directed to patient homepage
+2021-08-15 20:02:36,817 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] Patient logged in.
+2021-08-15 20:02:42,228 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-10] User reached his/her profile page
+2021-08-15 20:02:42,235 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-10] Appointment list is filtered based on status.
+2021-08-15 20:03:38,018 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-2] Feedback page called.
+2021-08-15 20:03:43,204 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-5] Feedback submitted.
+2021-08-15 20:03:43,208 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-8] Feedback page called.
+2021-08-15 20:03:48,018 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-6] Feedback page called.
+2021-08-15 20:03:49,376 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-9] User reached his/her profile page
+2021-08-15 20:03:49,385 [TRACE] com.persistent.controller.PatientController [http-nio-8088-exec-9] Appointment list is filtered based on status.
+2021-08-15 20:04:01,457 [INFO] com.persistent.controller.PatientController [http-nio-8088-exec-3] Patient logged in.
+2021-08-15 20:04:06,533 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] -----------------------------------------------------------------------------------------
+2021-08-15 20:04:06,533 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-5] Homepage called.
+2021-08-15 20:04:17,825 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-9] User authenticated
+2021-08-15 20:04:17,826 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-9] User directed to admin homepage
+2021-08-15 20:04:17,829 [INFO] com.persistent.controller.AdminController [http-nio-8088-exec-7] Admin logged in
+2021-08-15 20:04:17,842 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-7] Started filtering doctor's list according to verification status.
+2021-08-15 20:04:17,842 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-7] List of all the registered patients.
+2021-08-15 20:04:17,842 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-7] List of all the appointments.
+2021-08-15 20:04:46,273 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-3] Doctor verified.
+2021-08-15 20:05:13,525 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-2] -----------------------------------------------------------------------------------------
+2021-08-15 20:05:13,525 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-2] Homepage called.
+2021-08-15 20:05:18,492 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-6] User authenticated
+2021-08-15 20:05:18,492 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-6] User directed to admin homepage
+2021-08-15 20:05:18,495 [INFO] com.persistent.controller.AdminController [http-nio-8088-exec-9] Admin logged in
+2021-08-15 20:05:18,502 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-9] Started filtering doctor's list according to verification status.
+2021-08-15 20:05:18,502 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-9] List of all the registered patients.
+2021-08-15 20:05:18,502 [TRACE] com.persistent.controller.AdminController [http-nio-8088-exec-9] List of all the appointments.
+2021-08-15 20:05:24,300 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-10] -----------------------------------------------------------------------------------------
+2021-08-15 20:05:24,300 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-10] Homepage called.
+2021-08-15 20:05:31,008 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] User authenticated
+2021-08-15 20:05:31,008 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] User directed to doctor homepage
+2021-08-15 20:05:31,011 [INFO] com.persistent.controller.DoctorController [http-nio-8088-exec-4] Doctor logged in.
+2021-08-15 20:05:31,013 [TRACE] com.persistent.controller.DoctorController [http-nio-8088-exec-4] Fetching appointments.
+2021-08-15 20:05:31,014 [TRACE] com.persistent.controller.DoctorController [http-nio-8088-exec-4] Filtering appointment list based on status.
+2021-08-15 20:05:37,211 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-10] -----------------------------------------------------------------------------------------
+2021-08-15 20:05:37,211 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-10] Homepage called.

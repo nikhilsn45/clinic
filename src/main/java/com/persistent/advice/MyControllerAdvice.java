@@ -7,27 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.persistent.exceptions.DetailsNotFoundException;
-import com.persistent.exceptions.IncorrectPasswordException;
+
 import com.persistent.exceptions.NoDoctorFoundException;
-import com.persistent.exceptions.UserNotFoundException;
+import com.persistent.exceptions.DuplicateUserFoundException;
 
 @ControllerAdvice
 public class MyControllerAdvice {
 	
-	@ExceptionHandler(UserNotFoundException.class)
-	public ResponseEntity<String> handleUserNotFound(UserNotFoundException e) {
-		return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-	}
-	
-	@ExceptionHandler(DetailsNotFoundException.class)
-	public ResponseEntity<String> handleDetailsNotFound(DetailsNotFoundException e) {
-		return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-	}
-	
-	@ExceptionHandler(IncorrectPasswordException.class)
-	public ResponseEntity<String> handleIncorrectPassword(IncorrectPasswordException e) {
-		return new ResponseEntity<String>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+	@ExceptionHandler(DuplicateUserFoundException.class)
+	public ResponseEntity<String> handleDuplicateUserFound(DuplicateUserFoundException e) {
+		return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(NoDoctorFoundException.class)

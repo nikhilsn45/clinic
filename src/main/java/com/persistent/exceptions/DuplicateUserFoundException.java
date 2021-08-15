@@ -1,10 +1,10 @@
 package com.persistent.exceptions;
 
-public class DetailsNotFoundException extends RuntimeException{
+public class DuplicateUserFoundException extends RuntimeException{
 	
 	private String message;
 
-	public DetailsNotFoundException(String message) {
+	public DuplicateUserFoundException(String message) {
 		this.message = message;
 	}
 
@@ -15,5 +15,5 @@ public class DetailsNotFoundException extends RuntimeException{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 }

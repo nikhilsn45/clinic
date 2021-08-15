@@ -32,7 +32,7 @@ import com.persistent.service.PatientService;
 public class AdminController {
 
 		
-	Logger logger = LoggerFactory.getLogger(PatientController.class);
+	Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	
 	@Autowired
@@ -50,7 +50,7 @@ public class AdminController {
 		public String home(Model m)
 		{
 
-			logger.info("Admin page called");
+			logger.info("Admin logged in");
 			//@ModelAttribute Doctor d
 			//admin will access the Database to check and verify doctors by contacting DoctorService
 
@@ -63,6 +63,7 @@ public class AdminController {
 			List<DoctorDto> docacce = new ArrayList<DoctorDto>();
 			List<PatientDto> patdto = new ArrayList<PatientDto>();
 			
+			logger.trace("Started filtering doctor's list according to verification status.");
 			System.out.println("Started Filtering doctors List");
 			for (Iterator<Doctor> iterator = docList.iterator(); iterator.hasNext();) {
 				Doctor doctor = (Doctor) iterator.next();
@@ -74,6 +75,7 @@ public class AdminController {
 					docacce.add(ddto);
 			}
 			
+			logger.trace("List of all the registered patients.");
 			for (Iterator<Patient> iterator = patList.iterator(); iterator.hasNext();) {
 				Patient patient = (Patient) iterator.next();
 				PatientDto pdto=new PatientDto(patient);
@@ -81,6 +83,7 @@ public class AdminController {
 
 			}
 			
+			logger.trace("List of all the appointments.");
 			for (Iterator<Appointment> iterator = appList.iterator(); iterator.hasNext();) {
 				Appointment appointment = (Appointment) iterator.next();
 				Map<String,Object> map = new HashMap<>();
@@ -112,6 +115,7 @@ public class AdminController {
 			Doctor d=docService.findDoctorByUserName(uq.getReq());
 			d.setVerification("Verified");
 			docService.addDoctor(d);
+			logger.trace("Doctor verified.");
 			return "Verified doctor";
 		}
 		
@@ -121,6 +125,7 @@ public class AdminController {
 			Doctor d=docService.findDoctorByUserName(uq.getReq());
 			d.setVerification("Rejected");
 			docService.addDoctor(d);
+			logger.trace("Doctor rejected.");
 			return "Rejected Verification of doctor";
 		}
 		

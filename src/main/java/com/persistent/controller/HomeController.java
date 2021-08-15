@@ -25,9 +25,8 @@ import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.Patient;
 
-import com.persistent.exceptions.DetailsNotFoundException;
-import com.persistent.exceptions.IncorrectPasswordException;
-import com.persistent.exceptions.UserNotFoundException;
+
+import com.persistent.exceptions.DuplicateUserFoundException;
 
 import com.persistent.service.AppointmentService;
 
@@ -58,12 +57,15 @@ public class HomeController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request)
 	{
+		logger.trace("-----------------------------------------------------------------------------------------");
+		logger.info("Homepage called.");
 		return "mainpage";
 	}
 	
 	@RequestMapping("/about")
 	public String about()
 	{
+		logger.info("About page called");
 		return "about";
 	}
 	
@@ -130,14 +132,19 @@ public class HomeController {
 
 		 Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		 User user = (User) authentication;
+		 logger.trace("User authenticated");
 		 
 		 System.out.println("cread " + user.getAuthorities());
 	        
 		 if (user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_doctor"))) {
+			 logger.trace("User directed to doctor homepage");
 			 return "redirect:/doctor_home";
 			}
-		 else if(user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_admin")))
+		 else if(user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_admin"))) {
+			 logger.trace("User directed to admin homepage");
 			 return "redirect:/admin";
+		 }
+		 logger.trace("User directed to patient homepage");
 		return "redirect:/patient_home";
 	        
 

@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.persistent.dto.DoctorDto;
@@ -23,7 +22,6 @@ import com.persistent.entities.UpdateReq;
 import com.persistent.entities.User;
 import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
-import com.persistent.service.PatientService;
 import com.persistent.service.UserService;
 
 @Controller
@@ -32,9 +30,6 @@ public class DoctorController {
 
 	@Autowired
 	private DoctorService docService;
-
-	@Autowired
-	private PatientService pserv;
 
 	@Autowired
 	private UserService creadServ;

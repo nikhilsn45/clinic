@@ -17,7 +17,6 @@ import com.persistent.dto.PatientDto;
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.Patient;
-import com.persistent.entities.UpdateReq;
 import com.persistent.entities.VerifyReq;
 import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;

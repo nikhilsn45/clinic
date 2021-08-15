@@ -60,10 +60,30 @@
 	<div style="margin : auto; background-color: black;">
 		<div class="topnavi" style="margin-left: 100px; margin-right: 100px;">
   			<a class="active" th:href="@{/profile/__${pat.userName}__}">Profile</a>
+  			<a href="/about">About</a>
   			<a th:href="@{/logout}" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
 		</div>
 	</div>
 	<br>
+	<div align="center">
+		<br>
+		<br>
+		<br>
+		<div style="border:3px solid darkcyan; width:80%; border-radius:10px;">
+		<p align="center">
+			<b>Welcome  </b><span th:text="${pat.fName}"></span>  <span th:text="${pat.lName}"></span>  ...<br>
+			<br>
+			
+			<b>City:</b><span th:text="${pat.city}"></span> <br><br>
+			
+			<b>State:</b><span th:text="${pat.state}"></span> <br><br>
+			
+			<b>Email_Id:</b><span th:text="${pat.emailId}"></span> <br><br>
+			
+			<b>Contact Number:</b><span th:text=" ${pat.contactNo}"></span><br>
+			
+			</p>
+		</div>
 	<br>
 
 	  <div align=center>

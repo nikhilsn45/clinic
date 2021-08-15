@@ -10,8 +10,6 @@
 
 <body>
 
-
-<!--div id="gap" style="height: 50px;"></div>-->
 <br>
 <h4 id="knowmore" align="center"> <a href="http://localhost:8080/about" >Know more about us</a>
 </h4>
@@ -32,22 +30,12 @@
 			<div>
 				<div>
 					<div th:if="${param.error}">
-						<h4 style="color: red;">Wrong creadentials</h4>
+						<h4 style="color: red;">Wrong Credentials</h4>
 					</div>
 				</div>
 			</div>
 
 			<form th:action="@{/login}" method="post">
-		   
-		      <!--  div class="container">
-				    <label class="radio-inline" style="margin-left: 50px;">
-				      <input type="radio" id="type" name="type" value="patient" checked>Patient
-				    </label>
-				    <label class="radio-inline" style="margin-left: 60px;">
-				      <input type="radio" id="type" name="type" value="doctor">Doctor
-				    </label>
-				</div-->
-
 		      <br>
 		      <div class="input_wrap">
 		        <label for="input_text">Username</label>
@@ -70,7 +58,6 @@
 			<div id="ne" text-align="center"> New User? Sign Up here</div>
 			<br>
      	 	<div class="input_wrap1">
-		        <!--<span class="error_msg">Incorrect username or password. Please try again</span>-->
 		        <form action="/patient_signup" style="display: inline-block;">
 		        	<button  id="patient_signin_btn" class="btn btn_su" onclick="">Patient's Sign Up</button>
 		        </form>
@@ -81,10 +68,6 @@
 		        
 		    </div>
 		    <br>
-		    <!--<div class="input_wrap1">
-		        <!--<span class="error_msg">Incorrect username or password. Please try again</span>
-		        
-		    </div>-->
   
   </div>
 </div>

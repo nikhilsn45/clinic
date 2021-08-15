@@ -1,19 +1,36 @@
 package com.persistent.controller;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.Patient;
-import com.persistent.entities.User;
+
 import com.persistent.exceptions.DetailsNotFoundException;
 import com.persistent.exceptions.IncorrectPasswordException;
 import com.persistent.exceptions.UserNotFoundException;
+
+import com.persistent.service.AppointmentService;
+
 import com.persistent.service.DoctorService;
 import com.persistent.service.PatientService;
 import com.persistent.service.UserService;
@@ -32,26 +49,16 @@ public class HomeController {
 	@Autowired
 	private UserService userv;
 	
+	@Autowired
+	private AppointmentService appServ;
+	
 	public HomeController() {
 	}
-
-	@RequestMapping("/")
-	public String home()
+	
+	@RequestMapping("/login")
+	public String login(HttpServletRequest request)
 	{
 		return "mainpage";
-	}
-	
-	
-	@RequestMapping("/doctor_signup")
-	public String doctor_signup()
-	{
-		return "doctor_signup";
-	}
-	
-	@RequestMapping("/patient_signup")
-	public String user_signup()
-	{
-		return "patient_signup";
 	}
 	
 	@RequestMapping("/about")
@@ -60,7 +67,8 @@ public class HomeController {
 		return "about";
 	}
 	
-	@RequestMapping("/home")
+
+	/*@RequestMapping("/home")
 	public String login_user(@ModelAttribute User u,Model m)
 	{	
 		//if(userv.getUserByUserNameAndPassword(u.getUserName(), u.getPassword()) == null)
@@ -114,8 +122,23 @@ public class HomeController {
 			}
 			else
 				return "error";
-		}
+		}*/
 		
+
+	@RequestMapping("/")
+	public String defaultAfterLogin(HttpServletRequest request) {
+
+		 Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 User user = (User) authentication;
+		 
+		 System.out.println("cread " + user.getAuthorities());
+	        
+		 if (user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_doctor"))) {
+			 return "redirect:/doctor_home";
+			}
+		 return "redirect:/patient_home";
+	        
+
 	}
 	
 	public DoctorService getDserv() {

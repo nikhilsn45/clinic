@@ -21,10 +21,22 @@ public class DoctorDto {
     
     private String state;
     
+    private String university_name;
+    
+    private Integer experience;
+    
+    private String organisation_name;
+    
+    private Integer consultation_fee;
+    
+    private String verification;
+    
     public DoctorDto() {}
 
-	public DoctorDto(String userName, String fName, String lName, String contactNo, String licenseNo,
-			String speciality, String city, String state) {
+	
+	
+	public DoctorDto(String userName, String fName, String lName, String contactNo, String licenseNo, String speciality,
+			String city, String state, String university_name, Integer experience, String organisation_name, Integer consultation_fee, String verification) {
 		super();
 		this.userName = userName;
 		this.fName = fName;
@@ -34,8 +46,15 @@ public class DoctorDto {
 		this.speciality = speciality;
 		this.city = city;
 		this.state = state;
+		this.university_name = university_name;
+		this.experience = experience;
+		this.organisation_name = organisation_name;
+		this.consultation_fee = consultation_fee;
+		this.verification = verification;
 	}
-	
+
+
+
 	public DoctorDto(Doctor doc) {
 		super();
 		this.userName = doc.getUserName();
@@ -45,6 +64,11 @@ public class DoctorDto {
 		this.licenseNo = doc.getLicenseNo();
 		this.speciality = doc.getSpeciality();
 		this.city = doc.getAddress().getCity();
+		this.consultation_fee=doc.getConsultation_fee();
+		this.experience=doc.getExperience();
+		this.organisation_name=doc.getOrganisation_name();
+		this.university_name=doc.getUniversity_name();
+		this.verification=doc.getVerification();
 		this.state = doc.getAddress().getState();
 	}
 
@@ -112,13 +136,66 @@ public class DoctorDto {
 		this.state = state;
 	}
 
-	@Override
-	public String toString() {
-		return "DoctorDto [userName=" + userName + ", fName=" + fName + ", lName=" + lName 
-				+ ", contactNo=" + contactNo + ", licenseNo=" + licenseNo + ", speciality=" + speciality + ", city="
-				+ city + ", state=" + state + "]";
+	
+	public String getUniversity_name() {
+		return university_name;
 	}
-    
+
+
+
+	public void setUniversity_name(String university_name) {
+		this.university_name = university_name;
+	}
+
+
+
+	public Integer getExperience() {
+		return experience;
+	}
+
+
+
+	public void setExperience(Integer experience) {
+		this.experience = experience;
+	}
+
+
+
+	public String getOrganisation_name() {
+		return organisation_name;
+	}
+
+
+
+	public void setOrganisation_name(String organisation_name) {
+		this.organisation_name = organisation_name;
+	}
+
+
+	public Integer getConsultation_fee() {
+		return consultation_fee;
+	}
+
+
+
+	public void setConsultation_fee(Integer consultation_fee) {
+		this.consultation_fee = consultation_fee;
+	}
+
+
+
+	public String getVerification() {
+		return verification;
+	}
+
+
+
+	public void setVerification(String verification) {
+		this.verification = verification;
+	}
+
+
+
 	public Doctor conToDoctor() {
 		Address ad = new Address();
 		ad.setCity(this.getCity());
@@ -132,6 +209,11 @@ public class DoctorDto {
 		doc.setContactNo(this.getContactNo());
 		doc.setLicenseNo(this.getLicenseNo());
 		doc.setSpeciality(this.getSpeciality());
+		doc.setConsultation_fee(consultation_fee);
+		doc.setExperience(experience);
+		doc.setOrganisation_name(organisation_name);
+		doc.setUniversity_name(university_name);
+		doc.setVerification(verification);
 		
 		return doc;
 	}

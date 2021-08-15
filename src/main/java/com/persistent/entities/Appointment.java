@@ -25,20 +25,27 @@ public class Appointment {
         @JoinColumn(name = "patientUserName", referencedColumnName = "id")
 	    private Patient pat;
 	    
+	    @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "feedback", referencedColumnName = "id")
+	    private FeedBack feed;
+	    
 
 		public Appointment() {
 			super();
 		}
-	   
-		public Appointment(int id, String timing, String status, Doctor doc, Patient pat) {
+
+
+		public Appointment(int id, String timing, String status, Doctor doc, Patient pat, FeedBack feed) {
 			super();
 			this.id = id;
 			this.timing = timing;
 			this.status = status;
 			this.doc = doc;
 			this.pat = pat;
+			this.feed = feed;
 		}
-		
+
+
 		public int getId() {
 			return id;
 		}
@@ -58,6 +65,7 @@ public class Appointment {
 			this.timing = timing;
 		}
 
+
 		public String getStatus() {
 			return status;
 		}
@@ -72,16 +80,37 @@ public class Appointment {
 			return doc;
 		}
 
+
 		public void setDoc(Doctor doc) {
 			this.doc = doc;
 		}
+
 
 		public Patient getPat() {
 			return pat;
 		}
 
+
 		public void setPat(Patient pat) {
 			this.pat = pat;
-		}   
+		}
+
+
+		public FeedBack getFeed() {
+			return feed;
+		}
+
+
+		public void setFeed(FeedBack feed) {
+			this.feed = feed;
+		}
+
+
+		@Override
+		public String toString() {
+			return "Appointment [id=" + id + ", timing=" + timing + ", status=" + status + ", doc=" + doc + ", pat="
+					+ pat + ", feed=" + feed + "]";
+		}
+	   
 
 }

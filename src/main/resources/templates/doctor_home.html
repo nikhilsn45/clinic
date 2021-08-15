@@ -38,9 +38,7 @@
 <div style="background-color: black;">
 	<div class="topnavi" style="margin-left: 50px;">
 	<a class="active" href="#" onclick="">Home</a>
-    <a href="\about">About</a>
-  <!--<a href="patientreg">Register as Patient</a>-->
-    <a href="mainpage" style="margin-left: 1120px;" >Logout</a>
+    <a th:href="@{/logout}" style="margin-left: 1120px;" >Logout</a>
 	</div>
 </div>
 
@@ -95,14 +93,7 @@
                     <div class="col-md-5">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Doctor Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><span th:text="${doc.id}"></span></p>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
@@ -137,18 +128,36 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Works at</label>
+                                                <label>Experience</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>City Hospital</p>
+                                                <p><span th:text="${doc.experience}"></span></p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Alumini of</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.university_name}"></span></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Hospital Number</label>
+                                                <label>Works at</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>9876767676</p>
+                                                <p><span th:text="${doc.organisation_name}"></span></p>
+                                            </div>
+                                        </div>
+                                        
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Consultation Fee</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.consultation_fee}"></span></p>
                                             </div>
                                         </div>
                             </div>
@@ -167,17 +176,38 @@
 	<br><br>
 	<table class="table table-striped">
 	<thead>
-    <tr>
-        <th>Patient Name</th>
+    <tr> 
+        <th>Patient Name</th>     <!-- appoints -->
+        <th>Contact</th>
         <th>Age</th>
         <th>Appointment Time</th>
+        <th>Address</th>
         <th>Accept Appointment</th>
         <th>Reject Appointment</th>
     </tr>
 	</thead>
-    <tbody id="myTable">
-        
-    </tbody>
+    <tr th:each="appoint:${appoints}">
+      
+		<td th:text="${appoint.name}"/>
+		<td th:text="${appoint.contact}"/>
+		<td th:text="${appoint.age}"/>
+		<td th:text="${appoint.timing}"/>
+		<td th:text="${appoint.address}"/>
+		
+		<td>
+		 <form id="accept" method = "post" >
+			<input type="hidden" name="appid" id="appid" th:value="${appoint.id}"/>
+		<button type="submit" id ="btn-accept" class="btn btn-sm px-3">Accept</button>
+		 </form>
+		</td>
+		
+		<td>
+		 <form id="reject" method ="post">
+			<input type="hidden" name="appid" id="appid" th:value="${appoint.id}"/>
+		<button type="submit" id ="btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button>
+		 </form>
+		</td>
+	 </tr>
 </table>
 <br><hr><br>
 
@@ -186,63 +216,44 @@
 <table class="table table-striped">
 	<thead>
     <tr>
-        <th>Patient Name</th>
-        <th>Age</th>
-        <th>Appointment Time</th>
+       <th>Patient Name</th>    
+       <th>Contact</th>
+       <th>Age</th>
+       <th>Appointment Time</th>
+       <th>Address</th>
     </tr>
 	</thead>
     <tbody id="appoTable">
-        
+    
+    <tr th:each="appoint:${appointsAccept}">
+      
+		<td th:text="${appoint.name}"/>
+		<td th:text="${appoint.contact}"/>
+		<td th:text="${appoint.age}"/>
+		<td th:text="${appoint.timing}"/>
+		<td th:text="${appoint.address}"/>
+	</tr>
+      
     </tbody>
 </table>
 
 </div>
 <div id="foot"></div>
 <script>
-	var myArray = [
-	    {'name':'Jake', 'age':'32', 'time':'11 am'},
-	    {'name':'Molly', 'age':'32', 'time':'12:30 pm'},
-	    {'name':'Paul', 'age':'25', 'time':'12:45 pm'},
-	    {'name':'Joey', 'age':'27', 'time':'1:20 pm'},
-	    {'name':'Ted', 'age':'31', 'time':'4 pm'},
-	    {'name':'Erik', 'age':'22', 'time':'5:30 pm'},
-	]
-	var appRow=[]
 	
-	buildTable(myArray)
-
-
-
-	function buildTable(data){
-		var table = document.getElementById('myTable')
-
-		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
-							<td>${data[i].name}</td>
-							<td>${data[i].age}</td>
-							<td>${data[i].time}</td>
-							<td><button type="button" id ="btn-accept" class="btn btn-sm px-3">Accept</button></td>
-							<td><button type="button" id = "btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button></td>
-					 </tr>`
-			table.innerHTML += row
-
-
-		}
-	}
-	
-	function addAppointment(name,age,time)
+	function addAppointment(name,age,timing,contact,address)
 	{
 		var appo_accept = document.getElementById('appoTable')
 
 		
 			var row = `<tr>
 							<td>${name}</td>
+							<td>${contact}</td>
 							<td>${age}</td>
-							<td>${time}</td>
+							<td>${timing}</td>
+							<td>${address}</td>
 					 </tr>`
 			appo_accept.innerHTML += row
-
-
 	}
 	
 	
@@ -250,21 +261,57 @@
 	{
 	$(document).on('click',"#btn-reject", function(e)
 	{
+		e.preventDefault();
+		var docId={req : $('#appid').val()};
+			 $.ajax({
+	        	 	type : "POST",
+					url : "reject_appo_status",
+					data : docId,
+					success : function(data) {
+						
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("Some Error Occured");
+	                    alert(xhr.responseText);
+	                }
+	            });
+		
+		
+		
 		var r = $(this).closest('tr').remove();
 	}
 	);
 	
 	$(document).on('click',"#btn-accept", function(e)
-	{
-		
-		var row = $(this).closest('tr');
-		var col1 = row.find("td:eq(0)").text();
-		var col2 = row.find("td:eq(1)").text();
-		var col3 = row.find("td:eq(2)").text();
-		
-		addAppointment(col1,col2,col3);
-		//console.log(row);
-		row.remove();
+	{	
+		e.preventDefault();
+		var docId={req : $('#appid').val()};
+			 $.ajax({
+	        	 	type : "POST",
+					url : "accept_appo_status",
+					data : docId,
+					success : function(data) {
+						
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("Some Error Occured");
+	                    alert(xhr.responseText);
+	                }
+	            });
+			    var row = $(this).closest('tr');
+				var col1 = row.find("td:eq(0)").text();
+				var col2 = row.find("td:eq(1)").text();
+				var col3 = row.find("td:eq(2)").text();
+				var col4 = row.find("td:eq(3)").text();
+				var col5 = row.find("td:eq(4)").text();
+				
+				addAppointment(col1,col2,col3,col4,col5);
+				//console.log(row);
+			    row.remove();
 		
 	}
 	);

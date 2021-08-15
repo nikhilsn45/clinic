@@ -6,75 +6,64 @@
 
 <script type="text/javascript"></script>
 <style>
-
-body{
-	
-	background: linear-gradient(to right, cornflowerblue, powderblue,mediumseagreen);
-	font-family: 'Jost', sans-serif;
-	color: #5c4b51;
-}
-
-a{
-	color:crimson;
-}
-.container{
-	
-	width:670px;
-	margin:auto;
-	height:1020px;
-	background-color:#F0F8FF;
-	font-family: 'Jost', sans-serif;
-}
-
-
-label{
-	margin-left:20px;
-}
-h1{
-	text-align:center;
-	margin:auto;
-}
-input[type=text], input[type=password] {
-  width: 87%;
-  padding: 15px;
-  margin: 2px 0 19px 20px;
-  display: inline-block;
-  border: none;
-  background-color: #ddd;
-}
-.active{
-	background-color:#04AA6D;
-}
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 22px;
-}
-.registerbtn
-{
-  background-color: #04AA6D;
-  color: white;
-  padding: 10px 15px 10px;
-  margin:15px;
-  border: none;
-  cursor: pointer;
-  width: 30%;
-  height:50px;
-  opacity: 0.9;
-  text-align:center;
-}
-.registerbtn:hover {
-  opacity:1;
-  
-}
-.s1
-{
-	background-color:#F0F8FF;
-	width:670px;
-	margin:auto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
 .signin {
   
   text-align: center;
+}
+body{
+	font-family: 'Jost', sans-serif ;
+	background: linear-gradient(to right, cornflowerblue, powderblue, mediumseagreen);
+	outline: none;
+  	color: #5c4b51;
+}
+input{
+	height:35px;
+	width: 300px;
+	border: none;
+	background-color:#f0d5f7;
+	border-radius: 3px;
+	margin-bottom: 5px;
+}
+tr{
+	text-align: left;
+}
+fieldset{
+
+  width: 600px;
+  margin:auto;
+  background-color: white;
+  border:none;
+  border-radius: 5px;
+  
+}
+#registerbtn {
+  background-color:darkcyan;
+  color: white;
+  padding: 10px;
+  opacity: 0.9;
+  margin: 8px;
+  border-radius: 3px;
+  font-size: 18px;
+  height: 40px;
+  border: none;
+  }
+#registerbtn:hover{
+	opacity: 1;
+}
+
+legend{
+	font-size: 24px;
+	
+	background-color: white;
+	
+}
+a{
+	color: crimson;
+	
+}
+form{
+	padding-bottom: 10px;
 }
 
 
@@ -93,81 +82,78 @@ hr {
 				</div>
 			</div>
 			
-<h4 style="text-align:center;"><a th:href="@{/patient_signup}" style="color:crimson;">Not a doctor?</a></h4>
+<p style="text-align:center;">Are you a Patient? <a th:href="@{/patient_signup}" style="color:crimson;">Register Here</a></p>
+<br><br>
 <form th:action="@{/doctor_signup}" method="post">
-	<div class="container">
+<fieldset id="field" align="center">
 		<br>
-		<label for="userName"><b>Username</b></label>
-		<br>
-		<input type="text" placeholder="Enter First Name" name="userName" id="userName" required>
-		<br>
-		<label for="fName"><b>First Name</b></label>
-		<br>
-		<input type="text" placeholder="Enter First Name" name="fName" id="fName" required>
-		<br>
-		<label for="lName"><b>Last Name</b></label>
-		<br>
-		<input type="text" placeholder="Enter Last Name" name="lName" id="lName" required>
-		<br>
-		<label for="speciality"><b>Specialization</b></label>
-		<br>
-		<input type="text" placeholder="Enter Speciality" name="speciality" id="speciality" required>
-		<br>
-		<label for="phone"><b>Phone No</b></label>
-		<br>
-         <input type="text" placeholder="Enter Phone no." name="contactNo" id="contactNo" required>
-		<br>
-		<label for="license"><b>Medical License No.</b></label>
-		<br>
-		<input type="text" placeholder="Enter Medical License no." name="licenseNo" id="licenseNo" required>
-		<br>
-		
-		<label for="city"><b>City</b></label>
-		<br>
-         <input type="text" placeholder="Enter City" name="city" id="city" required>
-		<br>
-		
-		<label for="state"><b>State</b></label>
-		<br>
-         <input type="text" placeholder="Enter State" name="state" id="state" required>
-		<br>
-		
-		<label for="university_name"><b>University Name</b></label>
-		<br>
-         <input type="text" placeholder="Enter University Name" name="university_name" id="university_name" required>
-		<br>
-		
-		<label for="organisation_name"><b>Organization Name</b></label>
-		<br>
-         <input type="text" placeholder="Enter Organization Name" name="organisation_name" id="organisation_name" required>
-		<br>
-		<label for="consultation_fee"><b>Consultation Fee</b></label>
-		<br>
-         <input type="text" placeholder="Enter Consultation Fee" name="consultation_fee" id="consultation_fee" required>
-		<br>
-		
-		<label for="experience"><b>Experience</b></label>
-		<br>
-         <input type="text" placeholder="Enter Experience" name="experience" id="experience" required>
-		<br>
-		
-		<label for="psw"><b>Password</b></label>
-		<br>
-        <input type="password" placeholder="Enter Password" name="password" id="password" required>
-		<br>
-		
-		<input type="hidden"  name="type" value="ROLE_doctor"><br>
-		<input type="hidden"  name="verification" value="pending"><br>
-		
-        </div>
-       
-        <div class="s1" align="center">
-        <button type="submit" class="registerbtn" th:onclick="demo()">Register</button>
-		</div>
+		<table align="center">
+			<tr>
+				<td><label for="userName"><b>Username</b></label></td>
+				<td><input type="text" placeholder="Enter User Name" name="userName" id="userName" required></td>
+			</tr>
+			<tr>
+				<td><label for="fName"><b>First Name</b></label></td>
+				<td><input type="text" placeholder="Enter First Name" name="fName" id="fName" required></td>
+			</tr>
+			<tr>
+				<td><label for="lName"><b>Last Name:</b></label></td>
+				<td><input type="text" placeholder="Enter Last Name"  name="lName" id="lName" required></td>
+			</tr>
+			<tr>
+				<td><label for="speciality"><b>Specialization:</b></label></td>
+				<td><input type="text" placeholder="Enter Speciality" name="speciality" id="speciality" required></td>
+			</tr>
+			<tr>
+				<td><label for="phone"><b>Phone No:</b></label></td>
+	         	<td><input type="text" placeholder="Enter Phone no." name="contactNo" id="contactNo" required></td>
+			</tr>
+			<tr>
+				<td><label for="license"><b>Medical License No.</b></label></td>
+				<td><input type="text" placeholder="Enter Medical License no." name="licenseNo" id="licenseNo" required></td>
+			</tr>	
+			<tr>		
+				<td><label for="city"><b>City:</b></label></td>
+	         	<td><input type="text" placeholder="Enter City" name="city" id="city" required></td>
+			</tr>
+			<tr>
+				<td><label for="state"><b>State:</b></label></td>
+	         	<td><input type="text" placeholder="Enter State" name="state" id="state" required></td>
+			</tr>
+			<tr>
+				<td><label for="university_name"><b>University Name</b></label></td>
+	        	<td><input type="text" placeholder="Enter University Name" name="university_name" id="university_name" required></td>
+			</tr>
+			<tr>
+				<td><label for="organisation_name"><b>Organization Name</b></label></td>
+	        	<td><input type="text" placeholder="Enter Organization Name" name="organisation_name" id="organisation_name" required></td>
+			</tr>
+			<tr>
+				<td><label for="consultation_fee"><b>Consultation Fee</b></label></td>
+	        	<td> <input type="text" placeholder="Enter Consultation Fee" name="consultation_fee" id="consultation_fee" required></td>
+			</tr>
+			<tr>
+				<td><label for="experience"><b>Experience</b></label></td>
+	        	<td><input type="experience"  placeholder="Enter Experience" name="experience" id="experience" required></td>
+			</tr>
+			<tr>
+				<td><label for="psw"><b>Password</b></label></td>
+	        	<td><input type="password" placeholder="Enter Password" name="password" id="password" required></td>
+			</tr>
+			<tr>
+  				<td class="s1" align="center"><label> </label></td>
+  				<td ><input type="submit"value="Register" id="registerbtn" th:onclick="demo()"></td>
+  			</tr>
+  			
+			</table>
+			<input type="hidden"  name="type" value="ROLE_doctor"><br>
+		    <input type="hidden"  name="verification" value="pending"><br>
+	</fieldset>
+	<br>	
+	<br>	
 	<div class="signin">
 	<p>Already have an account?<a th:href="@{/login}">Sign in</a></p>
 	</div>
-
 </form>
 
 </body>

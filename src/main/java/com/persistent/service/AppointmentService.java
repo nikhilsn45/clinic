@@ -21,11 +21,6 @@ public class AppointmentService {
 		adao.save(a);
 	}
 	
-	public void updateAppointment(Appointment a)
-	{
-		adao.save(a);
-	}
-	
 	public Appointment getAppointment(int id)
 	{
 		return adao.findById(id);
@@ -65,8 +60,20 @@ public class AppointmentService {
 		return adao.findByPatientIdAndStatus(patientId,status);  //to get the list of status of all requested appointments
 	}*/
 	
+	public void updateAppoStatus(Appointment ap) {
+		adao.save(ap);
+	}
 	
+	public List<Appointment> getAllAppointmentDoc(String username)
+	{
+		return adao.findByDoc_userName(username);
 	
+	}
+	
+	public List<Appointment> getEachAndEveryAppointment()
+	{
+		return adao.getEachAndEveryAppointment();
+	}
 	
 
 }

@@ -22,19 +22,31 @@
       Login
     </div>
     
-		    <form action="/home" method="post">
+			<div>
+				<div>
+					<div th:if="${param.logout}">
+						<h4 style="color: green;">Successfully logged out</h4>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div th:if="${param.error}">
+						<h4 style="color: red;">Wrong creadentials</h4>
+					</div>
+				</div>
+			</div>
+
+			<form th:action="@{/login}" method="post">
 		   
-		      <div class="container">
+		      <!--  div class="container">
 				    <label class="radio-inline" style="margin-left: 50px;">
-				      <input type="radio" name="type" value="patient" checked>Patient
+				      <input type="radio" id="type" name="type" value="patient" checked>Patient
 				    </label>
 				    <label class="radio-inline" style="margin-left: 60px;">
-				      <input type="radio" name="type" value="doctor">Doctor
+				      <input type="radio" id="type" name="type" value="doctor">Doctor
 				    </label>
-				  <!--  <label class="radio-inline" style="margin-left: 30px;">
-				      <input type="radio" name="optradio">Admin
-				    </label>  -->
-				</div>
+				</div-->
 
 		      <br>
 		      <div class="input_wrap">

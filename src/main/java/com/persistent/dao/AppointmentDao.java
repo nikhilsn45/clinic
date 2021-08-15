@@ -18,9 +18,9 @@ public interface AppointmentDao extends CrudRepository<Appointment,Integer>{
 	@Query(value = "select AVG(rating) from Appointment a join Doctor d ON a.doctorUserName = d.id join FeedBack f ON a.feedback = f.id where d.userName =  ?1", nativeQuery = true)
 	public Float findByAvgRating(String username);
 	
-	/*public List<Appointment> findByDoctorUserNameAndStatus(int docun, String status);
+	@Query(value="select * from Appointment",nativeQuery = true)
+	public List<Appointment> getEachAndEveryAppointment();
 	
-	public List<Appointment> findByPatientUserNameAndStatus(int patientun, String status);*/
 
 
 }

@@ -60,8 +60,7 @@
 	<div style="margin : auto; background-color: black;">
 		<div class="topnavi" style="margin-left: 100px; margin-right: 100px;">
   			<a class="active" th:href="@{/profile/__${pat.userName}__}">Profile</a>
-  			<a href="/about">About</a>
-  			<a href="/" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
+  			<a th:href="@{/logout}" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
 		</div>
 	</div>
 	<br>

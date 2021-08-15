@@ -85,8 +85,16 @@ hr {
 <br>
 <h1 style="text-align:center;">Doctor Registration</h1>
 <br>
-<h4 style="text-align:center;"><a href="/patient_signup" style="color:crimson;">Not a doctor?</a></h4>
-<form action="/save_doctor" method="post">
+<div align="center">
+				<div>
+					<div th:if="${param.success}">
+						<h4>Successfully Signed Up</h4>
+					</div>
+				</div>
+			</div>
+			
+<h4 style="text-align:center;"><a th:href="@{/patient_signup}" style="color:crimson;">Not a doctor?</a></h4>
+<form th:action="@{/doctor_signup}" method="post">
 	<div class="container">
 		<br>
 		<label for="userName"><b>Username</b></label>
@@ -124,12 +132,32 @@ hr {
          <input type="text" placeholder="Enter State" name="state" id="state" required>
 		<br>
 		
+		<label for="university_name"><b>University Name</b></label>
+		<br>
+         <input type="text" placeholder="Enter University Name" name="university_name" id="university_name" required>
+		<br>
+		
+		<label for="organisation_name"><b>Organization Name</b></label>
+		<br>
+         <input type="text" placeholder="Enter Organization Name" name="organisation_name" id="organisation_name" required>
+		<br>
+		<label for="consultation_fee"><b>Consultation Fee</b></label>
+		<br>
+         <input type="text" placeholder="Enter Consultation Fee" name="consultation_fee" id="consultation_fee" required>
+		<br>
+		
+		<label for="experience"><b>Experience</b></label>
+		<br>
+         <input type="text" placeholder="Enter Experience" name="experience" id="experience" required>
+		<br>
+		
 		<label for="psw"><b>Password</b></label>
 		<br>
         <input type="password" placeholder="Enter Password" name="password" id="password" required>
 		<br>
 		
-		<!--<input type="hidden"  name="type" value="doctor"><br>-->
+		<input type="hidden"  name="type" value="ROLE_doctor"><br>
+		<input type="hidden"  name="verification" value="pending"><br>
 		
         </div>
        
@@ -137,7 +165,7 @@ hr {
         <button type="submit" class="registerbtn" th:onclick="demo()">Register</button>
 		</div>
 	<div class="signin">
-	<p>Already have an account?<a href="/">Sign in</ a></p>
+	<p>Already have an account?<a th:href="@{/login}">Sign in</ a></p>
 	</div>
 
 </form>

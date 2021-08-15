@@ -30,10 +30,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(
 				"/doctor_signup",
 				"/patient_signup",
-				"/admin",
 				"/js/**",
 				"/css/**",
 				"/images/**").permitAll()
+		.antMatchers("/admin").hasRole("admin")
 		.antMatchers("/doctor_home").hasRole("doctor")
 		.antMatchers("/profile/**").hasRole("patient")
 		.antMatchers("/patient_home").hasRole("patient")

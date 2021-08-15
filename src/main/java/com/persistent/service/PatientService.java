@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.persistent.controller.PatientController;
 import com.persistent.dao.PatientDao;
-import com.persistent.entities.Appointment;
 import com.persistent.entities.Patient;
 
 @Service

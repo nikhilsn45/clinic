@@ -17,9 +17,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
@@ -30,9 +29,9 @@ import com.persistent.exceptions.DuplicateUserFoundException;
 
 import com.persistent.service.AppointmentService;
 
+
 import com.persistent.service.DoctorService;
 import com.persistent.service.PatientService;
-import com.persistent.service.UserService;
 
 @Controller
 public class HomeController {
@@ -44,12 +43,6 @@ public class HomeController {
 	
 	@Autowired
 	private PatientService pserv;
-	
-	@Autowired
-	private UserService userv;
-	
-	@Autowired
-	private AppointmentService appServ;
 	
 	public HomeController() {
 	}

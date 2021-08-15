@@ -43,7 +43,7 @@ public class AppointmentService {
 		 List<Appointment> list = adao.findByDoc_userName(username);
 		 List<Appointment> list1 = new ArrayList<Appointment>();
 		 
-		 for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+		 for (Iterator<Appointment> iterator = list.iterator(); iterator.hasNext();) {
 			Appointment appointment = (Appointment) iterator.next();
 			
 			if(appointment.getFeed ()!= null) {
@@ -57,16 +57,6 @@ public class AppointmentService {
 		logger.trace("Returns average rating of doctor based on feedback ratings.");
 		return adao.findByAvgRating(username);
 	}
-	
-	/*public List<Appointment> getAppointmentByDocIdAndStatus(int docId, String status)
-	{
-		return adao.findByDocIdAndStatus(docId,status);   //to get all pending or accepted appointments list
-	}
-	
-	public List<Appointment> getAppointmentByPatientIdAndStatus(int patientId, String status)
-	{
-		return adao.findByPatientIdAndStatus(patientId,status);  //to get the list of status of all requested appointments
-	}*/
 	
 	public void updateAppoStatus(Appointment ap) {
 		adao.save(ap);

@@ -101,9 +101,9 @@ hr {
 
 						<p>
 							I am DR.<span th:text="${doc.fName}"></span> <span
-								th:text="${doc.lName}"></span> I have a specialization in <span
-								th:text="${doc.speciality}"></span> and an experience of 10
-							years.
+								th:text="${doc.lName}"></span>.I am an alumini of <span th:text="${doc.university_name}"></span>.. I have a specialization in <span
+								th:text="${doc.speciality}"></span> and an experience of <span th:text="${doc.experience}"></span> 
+							years. My workplace is at <span th:text="${doc.city}"></span>,<span th:text="${doc.state}"></span> 
 						</p>
 
 
@@ -270,32 +270,6 @@ hr {
 
 	<div id="foot"></div>
 	<script>
-		/*var myArray = [
-		    {'name':'Jake', 'review':'very good'},
-		    {'name':'Molly', 'review':'excellent'},
-		    {'name':'Paul', 'review':'perfect'},
-		    
-		]
-		
-			
-		displayReviews(myArray);
-
-		function displayReviews(data){
-			var re = document.getElementById('showReviews')
-		
-			for (var i = 0; i < myArray.length ; i++){
-				var div = document.createElement("div");
-				var h5 = document.createElement("h5");
-				var br = document.createElement('br');
-				h5.innerHTML = data[i].name
-				div.innerHTML = data[i].review ;
-				re.appendChild(h5);
-				re.appendChild(div);
-				re.appendChild(br);
-
-			}
-		}*/
-
 		$(document).ready(function() {
 			$("#book").submit(function(event) {
 				event.preventDefault();

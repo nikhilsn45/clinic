@@ -111,8 +111,8 @@ public class PatientController {
 		List<Map<String,Object>> mapsaccepted = new ArrayList<Map<String,Object>>();
 		
 		logger.trace("Appointment list is filtered based on status.");
-		
-		for (Iterator iterator = appoints.iterator(); iterator.hasNext();) {
+
+		for (Iterator<Appointment> iterator = appoints.iterator(); iterator.hasNext();) {
 			Appointment appointment = (Appointment) iterator.next();
 			Map<String,Object> map = new HashMap<>();
 			map.put("id", appointment.getId());

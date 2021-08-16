@@ -70,75 +70,74 @@ form{
 </style>
 </head>
 <body>
-
-<br>
-<h1 style="text-align:center;">Doctor Registration</h1>
-<br>
 <div align="center">
 				<div>
 					<div th:if="${param.success}">
-						<h4>Successfully Signed Up</h4>
+						<h4 style="color:green;">Successfully Signed Up</h4>
 					</div>
 				</div>
 			</div>
 			
+<h1 style="text-align:center;">Doctor Registration</h1>
+           
+			
 <p style="text-align:center;">Are you a Patient? <a th:href="@{/patient_signup}" style="color:crimson;">Register Here</a></p>
-<br><br>
-<form th:action="@{/doctor_signup}" method="post">
+
+<form th:action="@{/doctor_signup}" method="post" align="center">
 <fieldset id="field" align="center">
-		<br>
+		<br><br>
 		<table align="center">
 			<tr>
 				<td><label for="userName"><b>Username</b></label></td>
-				<td><input type="text" placeholder="Enter User Name" name="userName" id="userName" required></td>
+				<td><input type="text" name="userName" id="userName" required></td>
 			</tr>
 			<tr>
 				<td><label for="fName"><b>First Name</b></label></td>
-				<td><input type="text" placeholder="Enter First Name" name="fName" id="fName" required></td>
+				<td><input type="text"  name="fName" id="fName" required></td>
 			</tr>
 			<tr>
 				<td><label for="lName"><b>Last Name:</b></label></td>
-				<td><input type="text" placeholder="Enter Last Name"  name="lName" id="lName" required></td>
+				<td><input type="text"   name="lName" id="lName" required></td>
 			</tr>
 			<tr>
 				<td><label for="speciality"><b>Specialization:</b></label></td>
-				<td><input type="text" placeholder="Enter Speciality" name="speciality" id="speciality" required></td>
+				<td><input type="text"  name="speciality" id="speciality" required></td>
 			</tr>
 			<tr>
 				<td><label for="phone"><b>Phone No:</b></label></td>
-	         	<td><input type="text" placeholder="Enter Phone no." name="contactNo" id="contactNo" required></td>
+	         	<td><input type="text" name="contactNo" id="contactNo" required></td>
 			</tr>
 			<tr>
 				<td><label for="license"><b>Medical License No.</b></label></td>
-				<td><input type="text" placeholder="Enter Medical License no." name="licenseNo" id="licenseNo" required></td>
+				<td><input type="text"  name="licenseNo" id="licenseNo" required></td>
 			</tr>	
 			<tr>		
 				<td><label for="city"><b>City:</b></label></td>
-	         	<td><input type="text" placeholder="Enter City" name="city" id="city" required></td>
+	         	<td><input type="text"  name="city" id="city" required></td>
 			</tr>
 			<tr>
 				<td><label for="state"><b>State:</b></label></td>
-	         	<td><input type="text" placeholder="Enter State" name="state" id="state" required></td>
+	         	<td><input type="text"  name="state" id="state" required></td>
 			</tr>
 			<tr>
 				<td><label for="university_name"><b>University Name</b></label></td>
-	        	<td><input type="text" placeholder="Enter University Name" name="university_name" id="university_name" required></td>
+	        	<td><input type="text"  name="university_name" id="university_name" required></td>
 			</tr>
 			<tr>
 				<td><label for="organisation_name"><b>Organization Name</b></label></td>
-	        	<td><input type="text" placeholder="Enter Organization Name" name="organisation_name" id="organisation_name" required></td>
+	        	<td><input type="text"  name="organisation_name" id="organisation_name" required></td>
 			</tr>
 			<tr>
 				<td><label for="consultation_fee"><b>Consultation Fee</b></label></td>
-	        	<td> <input type="text" placeholder="Enter Consultation Fee" name="consultation_fee" id="consultation_fee" required></td>
+	        	<td> <input type="text"  name="consultation_fee" id="consultation_fee" required></td>
 			</tr>
 			<tr>
 				<td><label for="experience"><b>Experience</b></label></td>
-	        	<td><input type="experience"  placeholder="Enter Experience" name="experience" id="experience" required></td>
+	        	<td><input type="experience"   name="experience" id="experience" required></td>
 			</tr>
 			<tr>
 				<td><label for="psw"><b>Password</b></label></td>
-	        	<td><input type="password" placeholder="Enter Password" name="password" id="password" required></td>
+	        	<td><input type="password"  name="password" id="password" required></td>
 			</tr>
 			<tr>
   				<td class="s1" align="center"><label> </label></td>

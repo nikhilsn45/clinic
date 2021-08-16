@@ -12,6 +12,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -156,6 +157,7 @@ hr {
 										<span th:text="${doc.speciality}"></span>
 									</p>
 								</div>
+							</div>
 								<div class="row">
 									<div class="col-md-6">
 										<label>Experience</label>
@@ -208,14 +210,14 @@ hr {
 	</div>
 	<br>
 	<br>
-	<br>
 	<hr align="center">
 	<br>
 	<div align="center">
 		<h1>Book an Appointment</h1>
+		<br>
 		<form id="book">
 			<label for="slots">Choose a slot:</label> <select name="timing"
-				id="slots">
+				id="slots" style="margin-left: 20px; height: 40px; width: 200px;">
 				<option value="9:00-9:30">9:00-9:30</option>
 				<option value="9:30-10:00">9:30-10:00</option>
 				<option value="10:00-10:30">10:00-10:30</option>
@@ -231,8 +233,8 @@ hr {
 			</select> <br> <input type="hidden" value="pending" id="status"
 				name="status"> <input type="hidden"
 				th:value="${doc.userName}" id="docuser" name="docuser">
-
-			<button type="submit">REQUEST APPOINTMENT</button>
+			<br>
+			<button type="submit" class ="btn" style="background-color: darkcyan; color:white;">REQUEST APPOINTMENT</button>
 		</form>
 
 
@@ -243,13 +245,16 @@ hr {
 	<br>
 
 
-
-
-	<hr align="center">
+	
 	<h4>
 		<span style="margin-left: 160px;">Ratings : </span> <span
 			th:text="${avg}"></span> / 5
+			<b><span id=stars style="margin-left: 40px;"></span></b>
 	</h4>
+	<input type="hidden" id="avrg" name="avrg" th:value="${avg}">
+	<div class="rate" style="margin-left: 140px;">
+		
+	</div>
 	<hr align="center">
 	
 	<br>
@@ -271,6 +276,61 @@ hr {
 
 	<div id="foot"></div>
 	<script>
+	
+	$(document).ready(function($)
+	{
+	var tstar = 5;
+	var rat = document.getElementById("avrg").value;
+	console.log(rat);
+	document.getElementById("stars").innerHTML = displayRating(rat);
+	
+	function displayRating(rat){
+		 rating = Math.round(rat * 2) / 2;
+		  let output = [];
+		
+		  
+		  for (var i = rating; i >= 1; i--)
+		    output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>');
+		
+		  
+		  if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>');
+		
+		  // Fill the empty stars
+		  for (let i = (5 - rating); i >= 1; i--)
+		    output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>');
+		
+		  return output.join('');
+
+		}
+		
+	}
+	);
+		
+		/*var myArray = [
+		    {'name':'Jake', 'review':'very good'},
+		    {'name':'Molly', 'review':'excellent'},
+		    {'name':'Paul', 'review':'perfect'},
+		    
+		]
+		
+			
+		displayReviews(myArray);
+
+		function displayReviews(data){
+			var re = document.getElementById('showReviews')
+		
+			for (var i = 0; i < myArray.length ; i++){
+				var div = document.createElement("div");
+				var h5 = document.createElement("h5");
+				var br = document.createElement('br');
+				h5.innerHTML = data[i].name
+				div.innerHTML = data[i].review ;
+				re.appendChild(h5);
+				re.appendChild(div);
+				re.appendChild(br);
+
+			}
+		}*/
 		$(document).ready(function() {
 			$("#book").submit(function(event) {
 				event.preventDefault();

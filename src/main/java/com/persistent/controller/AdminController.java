@@ -1,5 +1,9 @@
 package com.persistent.controller;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -7,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +29,10 @@ import com.persistent.service.PatientService;
 
 @Controller
 public class AdminController {
+
+		
+	Logger logger = LoggerFactory.getLogger(AdminController.class);
+
 	
 	@Autowired
 	private DoctorService docService;
@@ -34,10 +43,16 @@ public class AdminController {
 	@Autowired
 	private AppointmentService appserv;
 	
+
 		
 		@RequestMapping("/admin")
 		public String home(Model m)
 		{
+
+			logger.info("Admin logged in");
+			//@ModelAttribute Doctor d
+			//admin will access the Database to check and verify doctors by contacting DoctorService
+
 			List<Doctor> docList=docService.getEachAndEveryDoctor();
 			List<Patient> patList=pserv.getEachAndEveryPatient();
 			List<Appointment> appList=appserv.getEachAndEveryAppointment();
@@ -47,6 +62,7 @@ public class AdminController {
 			List<DoctorDto> docacce = new ArrayList<DoctorDto>();
 			List<PatientDto> patdto = new ArrayList<PatientDto>();
 			
+			logger.trace("Started filtering doctor's list according to verification status.");
 			System.out.println("Started Filtering doctors List");
 			for (Iterator<Doctor> iterator = docList.iterator(); iterator.hasNext();) {
 				Doctor doctor = (Doctor) iterator.next();
@@ -58,6 +74,7 @@ public class AdminController {
 					docacce.add(ddto);
 			}
 			
+			logger.trace("List of all the registered patients.");
 			for (Iterator<Patient> iterator = patList.iterator(); iterator.hasNext();) {
 				Patient patient = (Patient) iterator.next();
 				PatientDto pdto=new PatientDto(patient);
@@ -65,6 +82,7 @@ public class AdminController {
 
 			}
 			
+			logger.trace("List of all the appointments.");
 			for (Iterator<Appointment> iterator = appList.iterator(); iterator.hasNext();) {
 				Appointment appointment = (Appointment) iterator.next();
 				Map<String,Object> map = new HashMap<>();
@@ -85,6 +103,7 @@ public class AdminController {
 			
 			m.addAttribute("patList", patdto);//All Patients List
 			m.addAttribute("appList", maps);//All Appointments List
+
 			return "admin_home";
 		}
 		
@@ -95,6 +114,7 @@ public class AdminController {
 			Doctor d=docService.findDoctorByUserName(uq.getReq());
 			d.setVerification("Verified");
 			docService.addDoctor(d);
+			logger.trace("Doctor verified.");
 			return "Verified doctor";
 		}
 		
@@ -104,6 +124,7 @@ public class AdminController {
 			Doctor d=docService.findDoctorByUserName(uq.getReq());
 			d.setVerification("Rejected");
 			docService.addDoctor(d);
+			logger.trace("Doctor rejected.");
 			return "Rejected Verification of doctor";
 		}
 		

@@ -16,21 +16,20 @@
 </head>
 
 <body>
-
-<h1 align="center">Patient Registration</h1>
-<br><br>
-<div id="doc" align="center">
-Are you a Doctor?   <a class="btn" th:href="@{/doctor_signup}">Register Here</a>
-
-</div>
-<br><br>
 <div align="center">
 				<div>
 					<div th:if="${param.success}">
-						<h4>Successfully Signed Up</h4>
+						<h4 style="color:green;">Successfully Signed Up</h4>
 					</div>
 				</div>
 			</div>
+
+<h1 align="center">Patient Registration</h1>
+
+
+<p style="text-align:center;">
+Are you a Doctor?   <a class="btn" th:href="@{/doctor_signup}">Register Here</a>
+</p>
 
 <form th:action="@{/patient_signup}" method="post" align="center">
  <fieldset id="field" align="center">
@@ -38,49 +37,48 @@ Are you a Doctor?   <a class="btn" th:href="@{/doctor_signup}">Register Here</a>
   <br><br>
   <table align="center">
   <tr>
-  <td><label for="userName">Username:</label>
+  <td><label for="userName"><b>Username:</b></label>
   <td><input type="text" id="userName" name="userName" required>
   </tr>
 	<tr>
-  <td><label for="fName">First name:</label>
+  <td><label for="fName"><b>First name:</b></label>
   <td><input type="text" id="fName" name="fName" required>
   </tr>
 	<tr>
-  <td><label for="lName">Last name:</label>
+  <td><label for="lName"><b>Last name:</b></label>
   <td><input type="text" id="lName" name="lName">
   </tr>
 	<tr>
-  <td><label for="emailId">Email:</label>
+  <td><label for="emailId"><b>Email:</b></label>
   <td><input type="email" id="emailId" name="emailId" required>
   </tr>
 	<tr>
-  <td><label for="mobile">Phone Number:</label>
+  <td><label for="mobile"><b>Phone Number:</b></label>
   <td><input type="text" id="contactNo" name="contactNo" required>
   </tr>
   <tr>
-  <td><label for="gender">Gender:</label>
+  <td><label for="gender"><b>Gender:</b></label>
   <td><input type="text" id="gender" name="gender" required>
   </tr>
 	<tr>
-  <td><label for="age">Age:</label>
+  <td><label for="age"><b>Age:</b></label>
   <td><input type="number" id="age" name="age" required>
   </tr>
   <tr>
-  <td><label for="city">City:</label>
+  <td><label for="city"><b>City:</b></label>
   <td><input type="text" id="city" name="city" required>
   </tr>
   <tr>
-  <td><label for="state">State:</label>
+  <td><label for="state"><b>State:</b></label>
   <td><input type="text" id="state" name="state" required>
   </tr>
   <tr>
-  <td><label for="password">Password:</label>
+  <td><label for="password"><b>Password:</b></label>
   <td><input type="text" id="password" name="password" required>
   </tr>
-  
-  <input type="hidden"  name="type" value="ROLE_patient"><br>
   <tr>
   <td><label> </label></td>
+  <input type="hidden" name="type" value="ROLE_patient"><br>
   <td><input type="submit" value="Register" id="registerbtn"></td></tr>
   </table>
  </fieldset>

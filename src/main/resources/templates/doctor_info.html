@@ -58,8 +58,9 @@ hr {
 	<div style="height: 40px;"></div>
 	<div style="background-color: black;">
 		<div class="topnavi" style="margin-left: 50px;">
-			<a class="active" th:href="@{/patient_home}">Home</a> <a
-				th:href="@{/logout}" style="margin-left: 1200px;">Logout</a>
+			<a class="active" th:href="@{/patient_home}">Home</a> 
+		    <a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+		
 		</div>
 	</div>
 	<br>
@@ -102,9 +103,9 @@ hr {
 
 						<p>
 							I am DR.<span th:text="${doc.fName}"></span> <span
-								th:text="${doc.lName}"></span> I have a specialization in <span
-								th:text="${doc.speciality}"></span> and an experience of 10
-							years.
+								th:text="${doc.lName}"></span>.I am an alumini of <span th:text="${doc.university_name}"></span>.. I have a specialization in <span
+								th:text="${doc.speciality}"></span> and an experience of <span th:text="${doc.experience}"></span> 
+							years. My workplace is at <span th:text="${doc.city}"></span>,<span th:text="${doc.state}"></span> 
 						</p>
 
 
@@ -330,7 +331,6 @@ hr {
 
 			}
 		}*/
-
 		$(document).ready(function() {
 			$("#book").submit(function(event) {
 				event.preventDefault();

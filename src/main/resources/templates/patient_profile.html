@@ -43,10 +43,12 @@
 </head>
 <body>
 	<div style="height: 40px;"></div>
-	<div style="margin: auto; background-color: black;">
-		<div class="topnavi" style="margin-left: 100px;">
-			<a class="active">Profile</a>
-			 <a th:href="@{/logout}" style="margin-left: 1100px;">Logout</a>
+
+	<div style="background-color: black;">
+		<div class="topnavi" style="margin-left: 50px;">
+			<a class="active" th:href="@{/patient_home}">Home</a> 
+		    <a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+
 		</div>
 	</div>
 	<br>

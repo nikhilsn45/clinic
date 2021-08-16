@@ -10,10 +10,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,29 +49,36 @@ public class DoctorController {
 	private AppointmentService appServ;
 
 	@RequestMapping("/doctor_signup")
-	public String doctor_signup()
+	public String doctor_signup(DoctorDto doctorDto, Model model)
 	{
 		logger.trace("Doctor signup page called.");
+		model.addAttribute("doctorDto",doctorDto);
 		return "doctor_signup";
 	}
 
 	@RequestMapping(path="/doctor_signup", method=RequestMethod.POST)
-	public String save_doctor(@ModelAttribute DoctorDto dInfo,  @ModelAttribute User u)
+	public String save_doctor(@Valid @ModelAttribute DoctorDto doctorDto, BindingResult result,Model model)
 	{
 		
-		System.out.println(dInfo);
-		System.out.println(u);
+		System.out.println(doctorDto);
+		System.out.println();
 
+		model.addAttribute("doctorDto",doctorDto);
+		
 		// add exception here
-		Doctor d = docService.findDoctorByUserName(u.getUserName());
+		Doctor d = docService.findDoctorByUserName(doctorDto.getUserName());
 		if(d != null) {
 			logger.error("Username already exists in the database!!");
-			throw new DuplicateUserFoundException("Username already exists in database. Try with a different username.");
+			result.rejectValue("userName", null, "Username already exists.");
 		}	
 		
-		docService.addDoctor(dInfo.conToDoctor());
+		if (result.hasErrors()) {
+            return "doctor_signup";
+        }
+		
+		docService.addDoctor(doctorDto.conToDoctor());
 
-		creadServ.addUser(u);
+		creadServ.addUser(new User(doctorDto.getUserName(),doctorDto.getPassword(),doctorDto.getType()));
 
 		logger.info("Doctor saved to database");
 

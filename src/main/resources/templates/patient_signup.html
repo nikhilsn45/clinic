@@ -8,87 +8,105 @@
 
 <style>
 .signin {
-  
-  text-align: center;
+	text-align: center;
 }
+.error {
+        color: red;
+    }
 </style>
 
 </head>
 
 <body>
-<div align="center">
-				<div>
-					<div th:if="${param.success}">
-						<h4 style="color:green;">Successfully Signed Up</h4>
-					</div>
-				</div>
+	<div align="center">
+		<div>
+			<div th:if="${param.success}">
+				<h4 style="color: green;">Successfully Signed Up</h4>
 			</div>
-
-<h1 align="center">Patient Registration</h1>
-
-
-<p style="text-align:center;">
-Are you a Doctor?   <a class="btn" th:href="@{/doctor_signup}">Register Here</a>
-</p>
-
-<form th:action="@{/patient_signup}" method="post" align="center">
- <fieldset id="field" align="center">
-  <!--<legend align="center">Patient Information:</legend><br><br>-->
-  <br><br>
-  <table align="center">
-  <tr>
-  <td><label for="userName"><b>Username:</b></label>
-  <td><input type="text" id="userName" name="userName" required>
-  </tr>
-	<tr>
-  <td><label for="fName"><b>First name:</b></label>
-  <td><input type="text" id="fName" name="fName" required>
-  </tr>
-	<tr>
-  <td><label for="lName"><b>Last name:</b></label>
-  <td><input type="text" id="lName" name="lName">
-  </tr>
-	<tr>
-  <td><label for="emailId"><b>Email:</b></label>
-  <td><input type="email" id="emailId" name="emailId" required>
-  </tr>
-	<tr>
-  <td><label for="mobile"><b>Phone Number:</b></label>
-  <td><input type="text" id="contactNo" name="contactNo" required>
-  </tr>
-  <tr>
-  <td><label for="gender"><b>Gender:</b></label>
-  <td><input type="text" id="gender" name="gender" required>
-  </tr>
-	<tr>
-  <td><label for="age"><b>Age:</b></label>
-  <td><input type="number" id="age" name="age" required>
-  </tr>
-  <tr>
-  <td><label for="city"><b>City:</b></label>
-  <td><input type="text" id="city" name="city" required>
-  </tr>
-  <tr>
-  <td><label for="state"><b>State:</b></label>
-  <td><input type="text" id="state" name="state" required>
-  </tr>
-  <tr>
-  <td><label for="password"><b>Password:</b></label>
-  <td><input type="text" id="password" name="password" required>
-  </tr>
-  <tr>
-  <td><label> </label></td>
-  <input type="hidden" name="type" value="ROLE_patient"><br>
-  <td><input type="submit" value="Register" id="registerbtn"></td></tr>
-  </table>
- </fieldset>
- 
-</form>
-<br>
-<div class="signin">
-	<p>Already have an account?<a th:href="@{/login}">Sign in</ a></p>
+		</div>
 	</div>
-<div style="height: 50px;"></div>
+
+	<h1 align="center">Patient Registration</h1>
+
+
+	<p style="text-align: center;">
+		Are you a Doctor? <a class="btn" th:href="@{/doctor_signup}">Register
+			Here</a>
+	</p>
+
+	<form th:action="@{/patient_signup}" th:object="${patientDto}" method="post" align="center">
+		<fieldset id="field" align="center">
+			<!--<legend align="center">Patient Information:</legend><br><br>-->
+			<br>
+			<br>
+			<table align="center">
+				<tr>
+					<td><label for="userName"><b>Username:</b></label>
+					<td><input  type="text" th:value="${patientDto.userName}" id="userName" name="userName" required>
+					<p class="error" th:if="${#fields.hasErrors('userName')}" th:errors="${patientDto.userName}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="fName"><b>First name:</b></label>
+					<td><input type="text" th:value="${patientDto.fName}" id="fName" name="fName" required>
+					<p class="error" th:if="${#fields.hasErrors('fName')}" th:errors="${patientDto.fName}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="lName"><b>Last name:</b></label>
+					<td><input type="text" th:value="${patientDto.lName}" id="lName" name="lName">
+					<p class="error" th:if="${#fields.hasErrors('lName')}" th:errors="${patientDto.lName}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="emailId"><b>Email:</b></label>
+					<td><input type="email" th:value="${patientDto.emailId}" id="emailId" name="emailId" required>
+					<p class="error" th:if="${#fields.hasErrors('emailId')}" th:errors="${patientDto.emailId}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="mobile"><b>Phone Number:</b></label>
+					<td><input type="text" th:value="${patientDto.contactNo}" id="contactNo" name="contactNo"required>
+					<p class="error" th:if="${#fields.hasErrors('contactNo')}" th:errors="${patientDto.contactNo}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="gender"><b>Gender:</b></label>
+					<td><input type="text" th:value="${patientDto.gender}" id="gender" name="gender" required>
+					<p class="error" th:if="${#fields.hasErrors('gender')}" th:errors="${patientDto.gender}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="age"><b>Age:</b></label>
+					<td><input type="number" th:value="${patientDto.age}" id="age" name="age" required>
+					<p class="error" th:if="${#fields.hasErrors('age')}" th:errors="${patientDto.age}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="city"><b>City:</b></label>
+					<td><input type="text" th:value="${patientDto.city}" id="city" name="city" required>
+					<p class="error" th:if="${#fields.hasErrors('city')}" th:errors="${patientDto.city}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="state"><b>State:</b></label>
+					<td><input type="text" th:value="${patientDto.state}" id="state" name="state" required>
+					<p class="error" th:if="${#fields.hasErrors('state')}" th:errors="${patientDto.state}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label for="password"><b>Password:</b></label>
+					<td><input type="text" th:value="${patientDto.password}" id="password" name="password" required>
+					<p class="error" th:if="${#fields.hasErrors('password')}" th:errors="${patientDto.password}">Name Error</p>
+				</tr>
+				<tr>
+					<td><label> </label></td>
+					<input type="hidden" name="type" value="ROLE_patient">
+					<br>
+					<td><input type="submit" value="Register" id="registerbtn"></td>
+				</tr>
+			</table>
+		</fieldset>
+
+	</form>
+	<br>
+	<div class="signin">
+		<p>
+			Already have an account?<a th:href="@{/login}">Sign in</ a>
+		</p>
+	</div>
+	<div style="height: 50px;"></div>
 
 </body>
 </html>

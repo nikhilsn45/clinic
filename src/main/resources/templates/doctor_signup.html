@@ -65,6 +65,9 @@ a{
 form{
 	padding-bottom: 10px;
 }
+.error {
+        color: red;
+    }
 
 
 </style>
@@ -84,65 +87,78 @@ form{
 <p style="text-align:center;">Are you a Patient? <a th:href="@{/patient_signup}" style="color:crimson;">Register Here</a></p>
 
 
-<form th:action="@{/doctor_signup}" method="post" align="center">
+<form th:action="@{/doctor_signup}" th:object="${doctorDto}" method="post" align="center">
 <fieldset id="field" align="center">
 		<br><br>
 		<table align="center">
 			<tr>
 				<td><label for="userName"><b>Username</b></label></td>
-				<td><input type="text" name="userName" id="userName" required></td>
+				<td><input type="text" th:value="${doctorDto.userName}" name="userName" id="userName" required>
+				<p class="error" th:if="${#fields.hasErrors('userName')}" th:errors="${doctorDto.userName}"></p>
 			</tr>
 			<tr>
 				<td><label for="fName"><b>First Name</b></label></td>
-				<td><input type="text"  name="fName" id="fName" required></td>
+				<td><input type="text" th:value="${doctorDto.fName}"  name="fName" id="fName" required>
+				<p class="error" th:if="${#fields.hasErrors('fName')}" th:errors="${doctorDto.fName}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="lName"><b>Last Name:</b></label></td>
-				<td><input type="text"   name="lName" id="lName" required></td>
+				<td><input type="text" th:value="${doctorDto.lName}"   name="lName" id="lName" required>
+				<p class="error" th:if="${#fields.hasErrors('lName')}" th:errors="${doctorDto.lName}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="speciality"><b>Specialization:</b></label></td>
-				<td><input type="text"  name="speciality" id="speciality" required></td>
+				<td><input type="text" th:value="${doctorDto.speciality}"  name="speciality" id="speciality" required>
+				<p class="error" th:if="${#fields.hasErrors('speciality')}" th:errors="${doctorDto.speciality}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="phone"><b>Phone No:</b></label></td>
-	         	<td><input type="text" name="contactNo" id="contactNo" required></td>
+	         	<td><input type="text" th:value="${doctorDto.contactNo}" name="contactNo" id="contactNo" required>
+				<p class="error" th:if="${#fields.hasErrors('contactNo')}" th:errors="${doctorDto.contactNo}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="license"><b>Medical License No.</b></label></td>
-				<td><input type="text"  name="licenseNo" id="licenseNo" required></td>
+				<td><input type="text" th:value="${doctorDto.licenseNo}"  name="licenseNo" id="licenseNo" required>
+				<p class="error" th:if="${#fields.hasErrors('licenseNo')}" th:errors="${doctorDto.licenseNo}">Name Error</p>
 			</tr>	
 			<tr>		
 				<td><label for="city"><b>City:</b></label></td>
-	         	<td><input type="text"  name="city" id="city" required></td>
+	         	<td><input type="text" th:value="${doctorDto.city}"  name="city" id="city" required>
+				<p class="error" th:if="${#fields.hasErrors('city')}" th:errors="${doctorDto.city}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="state"><b>State:</b></label></td>
-	         	<td><input type="text"  name="state" id="state" required></td>
+	         	<td><input type="text" th:value="${doctorDto.state}"  name="state" id="state" required>
+				<p class="error" th:if="${#fields.hasErrors('state')}" th:errors="${doctorDto.state}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="university_name"><b>University Name</b></label></td>
-	        	<td><input type="text"  name="university_name" id="university_name" required></td>
+	        	<td><input type="text" th:value="${doctorDto.university_name}"  name="university_name" id="university_name" required>
+				<p class="error" th:if="${#fields.hasErrors('university_name')}" th:errors="${doctorDto.university_name}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="organisation_name"><b>Organization Name</b></label></td>
-	        	<td><input type="text"  name="organisation_name" id="organisation_name" required></td>
+	        	<td><input type="text" th:value="${doctorDto.organisation_name}"  name="organisation_name" id="organisation_name" required>
+				<p class="error" th:if="${#fields.hasErrors('organisation_name')}" th:errors="${doctorDto.organisation_name}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="consultation_fee"><b>Consultation Fee</b></label></td>
-	        	<td> <input type="text"  name="consultation_fee" id="consultation_fee" required></td>
+	        	<td> <input type="text" th:value="${doctorDto.consultation_fee}"  name="consultation_fee" id="consultation_fee" required>
+				<p class="error" th:if="${#fields.hasErrors('consultation_fee')}" th:errors="${doctorDto.consultation_fee}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="experience"><b>Experience</b></label></td>
-	        	<td><input type="experience"   name="experience" id="experience" required></td>
+	        	<td><input type="experience"  th:value="${doctorDto.experience}"  name="experience" id="experience" required>
+				<p class="error" th:if="${#fields.hasErrors('experience')}" th:errors="${doctorDto.experience}">Name Error</p>
 			</tr>
 			<tr>
 				<td><label for="psw"><b>Password</b></label></td>
-	        	<td><input type="password"  name="password" id="password" required></td>
+	        	<td><input type="password" th:value="${doctorDto.password}"  name="password" id="password" required>
+				<p class="error" th:if="${#fields.hasErrors('password')}" th:errors="${doctorDto.password}">Name Error</p>
 			</tr>
 			<tr>
   				<td class="s1" align="center"><label> </label></td>
-  				<td ><input type="submit"value="Register" id="registerbtn" th:onclick="demo()"></td>
+  				<td ><input type="submit"value="Register" id="registerbtn" th:onclick="demo()">
   			</tr>
   			
 			</table>

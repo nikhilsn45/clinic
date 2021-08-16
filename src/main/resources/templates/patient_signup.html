@@ -16,21 +16,20 @@
 </head>
 
 <body>
-
-<h1 align="center">Patient Registration</h1>
-<br><br>
-<div id="doc" align="center">
-Are you a Doctor?   <a class="btn" th:href="@{/doctor_signup}">Register Here</a>
-
-</div>
-<br><br>
 <div align="center">
 				<div>
 					<div th:if="${param.success}">
-						<h4>Successfully Signed Up</h4>
+						<h4 style="color:green;">Successfully Signed Up</h4>
 					</div>
 				</div>
 			</div>
+
+<h1 align="center">Patient Registration</h1>
+
+
+<p style="text-align:center;">
+Are you a Doctor?   <a class="btn" th:href="@{/doctor_signup}">Register Here</a>
+</p>
 
 <form th:action="@{/patient_signup}" method="post" align="center">
  <fieldset id="field" align="center">

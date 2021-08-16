@@ -6,6 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+
+import org.apache.jasper.tagplugins.jstl.core.If;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -23,7 +28,11 @@ import com.persistent.dto.PatientDto;
 import com.persistent.entities.AppointAJAX;
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
+import com.persistent.exceptions.DuplicateUserFoundException;
+import com.persistent.exceptions.NoDoctorFoundException;
+
 import com.persistent.entities.FeedBack;
+
 import com.persistent.entities.Patient;
 import com.persistent.entities.SearchAJAX;
 import com.persistent.entities.User;
@@ -35,6 +44,9 @@ import com.persistent.service.UserService;
 @Controller
 public class PatientController {
 
+	
+	Logger logger = LoggerFactory.getLogger(PatientController.class);
+	
 	@Autowired
 	private PatientService serv;
 
@@ -50,24 +62,35 @@ public class PatientController {
 	@RequestMapping("/patient_signup")
 	public String user_signup()
 	{
+		logger.trace("Patient signup page called.");
 		return "patient_signup";
 	}
 
 	@RequestMapping(path="/patient_signup", method=RequestMethod.POST)
 	public String save_patient(@ModelAttribute PatientDto uInfo,@ModelAttribute User u)
-	{
+	{	
 		System.out.println(uInfo);
 		System.out.println(u);
+		
+		Patient p = serv.findPatientByUserName(u.getUserName());
+		if(p != null) {
+			logger.error("Username already exists in the database!!");
+			throw new DuplicateUserFoundException("Username already exists in database. Try with a different username.");
+		}
 
 		serv.addPatient(uInfo.conToPatient());
 		creadServ.addUser(u);
 
+		logger.info("Patient saved to database");
+
 		return "redirect:/patient_signup?success";//redirected to user dashboard
+
 	}
 
 	@RequestMapping("/patient_home")
 	public String patHome(Model model)
 	{
+		logger.info("Patient logged in.");
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
 		
@@ -81,10 +104,13 @@ public class PatientController {
 	@RequestMapping(path="/profile/{username}", method=RequestMethod.GET)
 	public String user_profile(@PathVariable String username, Model model)
 	{
+		logger.info("User reached his/her profile page");
 		System.out.println(username);
 		List<Appointment> appoints= appServ.getAllAppointment(username);
 		List<Map<String,Object>> maps = new ArrayList<Map<String,Object>>();
 		List<Map<String,Object>> mapsaccepted = new ArrayList<Map<String,Object>>();
+		
+		logger.trace("Appointment list is filtered based on status.");
 
 		for (Iterator<Appointment> iterator = appoints.iterator(); iterator.hasNext();) {
 			Appointment appointment = (Appointment) iterator.next();
@@ -120,7 +146,13 @@ public class PatientController {
 		for (Doctor doctor : d) {
 			doctors.add(new DoctorDto(doctor));
 		}
+		logger.info("Doctor search called based on the speciality and address");
 		System.out.println(doctors);
+		if(doctors.size() == 0) {
+			logger.error("There are no doctors of this speciality in the given area!!");
+			throw new NoDoctorFoundException("There are no doctors of this speciality in your area!!");
+		}
+		
 		//List<DoctorInfo> users = Arrays.asList(new DoctorInfo(),new DoctorInfo());
 		return doctors;
 	}
@@ -128,6 +160,7 @@ public class PatientController {
 	@RequestMapping(path=("/doctor/{username}"), method=RequestMethod.GET)
 	public String doctor_info(@ModelAttribute("pat") PatientDto pat,@PathVariable String username,Model model)
 	{
+		logger.info("Checkout doctor function called");
 		System.out.println(username);
 		Doctor doc = docServ.findDoctorByUserName(username);
 		List<Appointment> list = appServ.getAllAptHaveFeedForDoctor(username);
@@ -148,28 +181,32 @@ public class PatientController {
 
 	@RequestMapping(path=("/doctor/book_slot"), method=RequestMethod.POST)
 	public @ResponseBody String book_slot(AppointAJAX appoint)
-	{
+	{	
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
-		
+			
+		System.out.println(user);
+		logger.trace("Slot booking function called");
 		System.out.println(appoint.getDoc());
-
+			
 		Doctor d = docServ.findDoctorByUserName(appoint.getDoc());//To display required doctor's details
 		Patient p = serv.findPatientByUserName(user.getUsername());//To display required patient's details
-
-
+			
+			
 		Appointment ap = new AppointmentDto(appoint.getTiming(),appoint.getStatus()).convertToEntity();
 		ap.setDoc(d);
 		ap.setPat(p);
-
+			
 		appServ.addAppointment(ap);// saved an appointment in Appointment Table
-
+		logger.trace("Request for appointment has been sent.");
+			
 		return "Request for appointment has been sent!";
 	}
 
 	@RequestMapping(path="/feedback", method=RequestMethod.GET)
 	public String feedback(String id)
 	{
+		logger.info("Feedback page called.");
 		return "FeedBack";
 	}
 
@@ -182,7 +219,9 @@ public class PatientController {
 		appServ.addAppointment(apt);
 		System.out.println(apt);
 		System.out.println(feed);
+		logger.info("Feedback submitted.");
 		return "redirect:/feedback?success";
 	}
+
 
 }

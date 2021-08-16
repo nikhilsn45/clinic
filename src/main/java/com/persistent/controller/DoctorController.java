@@ -1,5 +1,9 @@
 package com.persistent.controller;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,6 +24,7 @@ import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.UpdateReq;
 import com.persistent.entities.User;
+import com.persistent.exceptions.DuplicateUserFoundException;
 import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
 import com.persistent.service.UserService;
@@ -27,6 +32,9 @@ import com.persistent.service.UserService;
 @Controller
 public class DoctorController {
 
+	
+	Logger logger = LoggerFactory.getLogger(DoctorController.class);
+	
 
 	@Autowired
 	private DoctorService docService;
@@ -40,19 +48,30 @@ public class DoctorController {
 	@RequestMapping("/doctor_signup")
 	public String doctor_signup()
 	{
+		logger.trace("Doctor signup page called.");
 		return "doctor_signup";
 	}
 
 	@RequestMapping(path="/doctor_signup", method=RequestMethod.POST)
-	public String save_doctor(@ModelAttribute DoctorDto dInfo, @ModelAttribute User u)
+	public String save_doctor(@ModelAttribute DoctorDto dInfo,  @ModelAttribute User u)
 	{
+		
 		System.out.println(dInfo);
 		System.out.println(u);
 
-
+		// add exception here
+		Doctor d = docService.findDoctorByUserName(u.getUserName());
+		if(d != null) {
+			logger.error("Username already exists in the database!!");
+			throw new DuplicateUserFoundException("Username already exists in database. Try with a different username.");
+		}	
+		
 		docService.addDoctor(dInfo.conToDoctor());
 
 		creadServ.addUser(u);
+
+		logger.info("Doctor saved to database");
+
 
 		return "redirect:/doctor_signup?success";
 
@@ -61,6 +80,7 @@ public class DoctorController {
 	@RequestMapping("/doctor_home")
 	public String docHome(Model model)
 	{
+		logger.info("Doctor logged in.");
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
 		
@@ -68,15 +88,17 @@ public class DoctorController {
 		System.out.println(doc);
 		DoctorDto docDto = new DoctorDto(doc);
 		model.addAttribute("doc",docDto);
-		System.out.println("Started Fetching Appointments");
+		logger.trace("Fetching appointments.");
+		//System.out.println("Started Fetching Appointments");
 		
 		List<Appointment> appoints= appServ.getAllAppointmentDoc(doc.getUserName());
 		System.out.println(appoints);
 		
 		List<Map<String,Object>> maps = new ArrayList<Map<String,Object>>();
 		List<Map<String,Object>> mapsaccepted = new ArrayList<Map<String,Object>>();
-		
-		System.out.println("Started Filtering Appointments List");
+
+		logger.trace("Filtering appointment list based on status.");
+		//System.out.println("Started Filtering Appointments List");
 		for (Iterator<Appointment> iterator = appoints.iterator(); iterator.hasNext();) {
 			Appointment appointment = (Appointment) iterator.next();
 			Map<String,Object> map = new HashMap<>();
@@ -103,11 +125,12 @@ public class DoctorController {
 	@RequestMapping(path="/accept_appo_status", method=RequestMethod.POST)
 	public @ResponseBody String alter_appo_status(UpdateReq uq)
 	{
-		System.out.println("Entered for Accepting Appointment");
+		//System.out.println("Entered for Accepting Appointment");
 		System.out.println(uq);
 		Appointment apppooo =appServ.getAppointment(uq.getReq());
 		apppooo.setStatus("accepted");
 		appServ.updateAppoStatus(apppooo);
+		logger.info("Appointment accepted.");
 
 		return "Accepted Appointment";
 
@@ -116,11 +139,12 @@ public class DoctorController {
 	@RequestMapping(path="/reject_appo_status", method=RequestMethod.POST)
 	public @ResponseBody String reject_appo_status(UpdateReq uq)
 	{
-		System.out.println("Entered for Rejecting Appointment");
+		//System.out.println("Entered for Rejecting Appointment");
 		System.out.println(uq);
 		Appointment apppooo =appServ.getAppointment(uq.getReq());
 		apppooo.setStatus("rejected");
 		appServ.updateAppoStatus(apppooo);
+		logger.info("Appointment rejected.");
 
 		return "Rejected Appointment";
 

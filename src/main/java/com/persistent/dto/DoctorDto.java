@@ -1,32 +1,24 @@
 package com.persistent.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import com.persistent.entities.Address;
 import com.persistent.entities.Doctor;
 
 public class DoctorDto {
-
+	
 	private String userName;
-	
     private String fName;
-	
 	private String lName;
-    
     private String contactNo;
-    
     private String licenseNo;
-	
     private String speciality;
-    
     private String city;
-    
     private String state;
-    
     private String university_name;
-    
     private Integer experience;
-    
     private String organisation_name;
-    
     private Integer consultation_fee;
     
     private String verification;

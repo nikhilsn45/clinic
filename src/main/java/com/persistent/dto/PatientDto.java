@@ -1,34 +1,60 @@
 package com.persistent.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.persistent.entities.Address;
 import com.persistent.entities.Patient;
 
 public class PatientDto {
 	
+	@NotNull
+	@Size(min = 4, max = 15, message = "must have at least 4 characters")
 	private String userName;
 	
+	@NotNull
+	@Size(min = 4, max = 15, message = "must have at least 4 characters")
     private String fName;
 	
+	@NotNull
+	@Size(min = 4, max = 15, message = "must have at least 4 characters")
 	private String lName;
     
+	@NotNull(message = "Must not Empty")
     private String contactNo;
     
+	@NotNull(message = "Must not Empty")
     private String gender;
     
+	@NotNull(message = "Must not Empty")
     private Integer age;
 
+	
+	@Email
     private String emailId;
     
+	@NotNull
+	@Size(min = 2, max = 15, message = "must have at least 2 characters")
     private String city;
     
+	@NotNull
+	@Size(min = 2, max = 15, message = "must have at least 2 characters")
     private String state;
+	
+	@NotNull
+	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	private String password;
+	
+	private String type;
 
     public PatientDto() {
     	
     }
     
 	public PatientDto(String userName, String fName, String lName, String contactNo, String gender,
-			Integer age, String emailId, String city, String state) {
+			Integer age, String emailId, String city, String state, String password, String type) {
 		super();
 		this.userName = userName;
 		this.fName = fName;
@@ -39,6 +65,8 @@ public class PatientDto {
 		this.emailId = emailId;
 		this.city = city;
 		this.state = state;
+		this.password = password;
+		this.type = type;
 	}
 	
 	public PatientDto(Patient p) {
@@ -123,6 +151,22 @@ public class PatientDto {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override

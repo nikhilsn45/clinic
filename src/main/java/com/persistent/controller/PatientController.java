@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
 
 import org.apache.jasper.tagplugins.jstl.core.If;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,26 +62,32 @@ public class PatientController {
 	private AppointmentService appServ;
 	
 	@RequestMapping("/patient_signup")
-	public String user_signup()
+	public String user_signup(PatientDto pat,Model model)
 	{
 		logger.trace("Patient signup page called.");
+		model.addAttribute("patientDto",pat);
 		return "patient_signup";
 	}
 
 	@RequestMapping(path="/patient_signup", method=RequestMethod.POST)
-	public String save_patient(@ModelAttribute PatientDto uInfo,@ModelAttribute User u)
+	public String save_patient(@Valid @ModelAttribute PatientDto patientDto, BindingResult result,Model model)
 	{	
-		System.out.println(uInfo);
-		System.out.println(u);
+		System.out.println(patientDto);
+		model.addAttribute("patientDto",patientDto);
 		
-		Patient p = serv.findPatientByUserName(u.getUserName());
+		Patient p = serv.findPatientByUserName(patientDto.getUserName());
 		if(p != null) {
 			logger.error("Username already exists in the database!!");
-			throw new DuplicateUserFoundException("Username already exists in database. Try with a different username.");
-		}
+			result.rejectValue("userName", null, "Username already exists.");
+			
+        }
 
-		serv.addPatient(uInfo.conToPatient());
-		creadServ.addUser(u);
+        if (result.hasErrors()) {
+            return "patient_signup";
+        }
+
+		serv.addPatient(patientDto.conToPatient());
+		creadServ.addUser(new User(patientDto.getUserName(),patientDto.getPassword(),patientDto.getType()));
 
 		logger.info("Patient saved to database");
 

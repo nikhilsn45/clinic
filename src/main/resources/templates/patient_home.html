@@ -56,38 +56,20 @@
 		</style>
 	</head>
 	<body>
-	<div style=" height: 40px;"></div>
-	<div style="margin : auto; background-color: black;">
-		<div class="topnavi" style="margin-left: 100px; margin-right: 100px;">
-  			<a class="active" th:href="@{/profile/__${pat.userName}__}">Profile</a>
-  			<a href="/about">About</a>
-  			<a th:href="@{/logout}" style="color: ghostwhite; border-radius :10px; background-color:red; margin-left: 1000px;" >Logout</a>
+
+	<div style="height: 40px;"></div>
+	<div style="background-color: black;">
+		<div class="topnavi" style="margin-left: 50px;">
+			<a class="active" th:href="@{/profile/__${pat.userName}__}">Profile</a>
+  			<a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+	
 		</div>
 	</div>
 	<br>
-	<div align="center">
-		<br>
-		<br>
-		<br>
-		<div style="border:3px solid darkcyan; width:80%; border-radius:10px;">
-		<p align="center">
-			<b>Welcome  </b><span th:text="${pat.fName}"></span>  <span th:text="${pat.lName}"></span>  ...<br>
-			<br>
-			
-			<b>City:</b><span th:text="${pat.city}"></span> <br><br>
-			
-			<b>State:</b><span th:text="${pat.state}"></span> <br><br>
-			
-			<b>Email_Id:</b><span th:text="${pat.emailId}"></span> <br><br>
-			
-			<b>Contact Number:</b><span th:text=" ${pat.contactNo}"></span><br>
-			
-			</p>
-		</div>
 	<br>
 
 	  <div align=center>
-		<form id="searchform" style="background-color: silver; margin: 10px; padding: 25px;">
+		<form id="searchform" style="background-color: silver; margin-left: 20%; margin-right: 20%; margin-top: 50px; margin-bottom:50px; padding: 25px;">
 			<h2><b>Search Doctors?</b></h2>
 			
 			<div>				
@@ -132,7 +114,7 @@
 			                    	'<b>Speciality : </b>' + doctor.speciality + '<br/>' +
 			                    	'<b>Contact    : </b>' + doctor.contactNo + '<br/>' +
 		                        	'<b>State      : </b>' + doctor.state + '<br/>' +
-		                            '<b>City      : </b>' + doctor.city + '<br/> </div>'+
+		                            '<b>City       : </b>' + doctor.city + '<br/> </div>'+
 		                            '<div style="float:right; width:40%; height:132px; text-align:center;background-color: #ddd;"><button type="submit" style="background-color:darkcyan;font-size:16px;color:white; border:none; height:35px; padding:10px;margin-top:25px;">CHECKOUT DOCTOR</button> <br/>'+
 		                            '</form><br><br><br/></div><br><br></div><br><br><br><br><br><hr style="width:1010px; "><br>';
 

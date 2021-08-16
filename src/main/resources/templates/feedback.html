@@ -80,7 +80,14 @@ hr {
 </style>
 </head>
 <body>
-
+<div align="center">
+				<div>
+					<div th:if="${param.success}">
+						<h4 style="color:green;">Feedback submitted Successfully</h4>
+						<a href="#" onclick="goBack()">Click here</a>
+					</div>
+				</div>
+</div>
 <br>
 <h1 style="text-align:center;">Feedback</h1>
 <br>
@@ -118,6 +125,11 @@ hr {
 		</div>
 </form>
 
+<script>
+function goBack() {
+  window.history.go(-2);
+}
+</script>
 </body>
 </html>
 

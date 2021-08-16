@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin</title>
+<title>Admin Home</title>
 
 <script type="text/javascript" th:src="@{/js/actions.js}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -81,15 +81,16 @@ table{
 </head>
 <body>
 
-<div>
-	<div style=" height: 50px;"></div>
-	<div class="topnavi" style="margin-left: 50px;">
-  <a class="active" href="#">Home</a>
-  <a th:href="@{/login}" style="margin-left: 700px;" >Logout</a>
+<div style="height: 40px;"></div>
+	<div style="background-color: black;">
+		<div class="topnavi" style="margin-left: 50px;">
+			<a class="active" href="#">Home</a> 
+		    <a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+		
+		</div>
 	</div>
-</div>
-<br>
-<br>
+	<br>
+	<br>
 <br>
 <h2 style="text-align:center;"><b>Admin Page</b></h2>
 <div class="wrapper" align="center">

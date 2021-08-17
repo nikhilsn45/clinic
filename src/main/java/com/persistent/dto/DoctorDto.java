@@ -9,52 +9,52 @@ import com.persistent.entities.Doctor;
 
 public class DoctorDto {
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 30, message = "Username must have at least 4 characters")
 	private String userName;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 30, message = "First name must have at least 4 characters")
     private String fName;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 30, message = "Last name must have at least 4 characters")
 	private String lName;
 	
 	@NotNull(message = "Must not Empty")
     private String contactNo;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 15, message = "License must have at least 4 characters")
     private String licenseNo;
 	
 	@NotNull
-	@Size(min = 2, max = 15, message = "must have at least 2 characters")
+	@Size(min = 2, max = 15, message = "speciality must have at least 2 characters")
     private String speciality;
 	
 	@NotNull
-	@Size(min = 2, max = 15, message = "must have at least 2 characters")
+	@Size(min = 2, max = 15, message = "city must have at least 2 characters")
     private String city;
 	
 	@NotNull
-	@Size(min = 2, max = 15, message = "must have at least 2 characters")
+	@Size(min = 2, max = 15, message = "state must have at least 2 characters")
     private String state;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 15, message = "university name must have at least 4 characters")
     private String university_name;
 	
 	@NotNull
 	private Integer experience;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 15, message = "organisation name must have at least 4 characters")
     private String organisation_name;
 	
 	@NotNull
     private Integer consultation_fee;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 15, message = "password should be 4-15 character long")
     private String password;
 	
     private String type;

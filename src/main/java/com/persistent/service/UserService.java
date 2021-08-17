@@ -16,7 +16,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.persistent.controller.HomeController;
 import com.persistent.dao.UserDao;
 import com.persistent.entities.User;
 

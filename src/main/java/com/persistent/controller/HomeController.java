@@ -1,34 +1,16 @@
 package com.persistent.controller;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
-import com.persistent.entities.Appointment;
-import com.persistent.entities.Doctor;
-import com.persistent.entities.Patient;
-
-
-import com.persistent.exceptions.DuplicateUserFoundException;
-
-import com.persistent.service.AppointmentService;
-
 
 import com.persistent.service.DoctorService;
 import com.persistent.service.PatientService;
@@ -136,11 +118,14 @@ public class HomeController {
 		 logger.trace("User authenticated");
 		 
 		 System.out.println("cread " + user.getAuthorities());
+		 
+		 //If the user has the role doctor, then redirect that user to doctor_home page
 	        
 		 if (user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_doctor"))) {
 			 logger.trace("User directed to doctor homepage");
 			 return "redirect:/doctor_home";
 			}
+		//If the user has the role doctor, then redirect that user to patient_home page
 		 else if(user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_admin"))) {
 			 logger.trace("User directed to admin homepage");
 			 return "redirect:/admin";

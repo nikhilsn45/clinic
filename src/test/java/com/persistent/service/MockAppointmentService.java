@@ -1,14 +1,8 @@
 package com.persistent.service;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.persistent.dao.AppointmentDao;
 import com.persistent.entities.Address;
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;

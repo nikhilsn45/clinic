@@ -1,9 +1,6 @@
 package com.persistent.controller;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,6 +9,8 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,6 @@ import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
 import com.persistent.entities.UpdateReq;
 import com.persistent.entities.User;
-import com.persistent.exceptions.DuplicateUserFoundException;
 import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
 import com.persistent.service.UserService;
@@ -69,6 +67,8 @@ public class DoctorController {
 	public String save_doctor(@Valid @ModelAttribute DoctorDto doctorDto, BindingResult result,Model model)
 	{
 		
+		//Doctor registration details being saved in database by converting DoctorDto to Doctor entity 
+		
 		System.out.println(doctorDto);
 		System.out.println();
 
@@ -87,6 +87,7 @@ public class DoctorController {
 		
 		docService.addDoctor(doctorDto.conToDoctor());
 
+		//Doctor registration credentials being saved in database separately with ROLE_doctor
 		creadServ.addUser(new User(doctorDto.getUserName(),doctorDto.getPassword(),doctorDto.getType()));
 
 		logger.info("Doctor saved to database");
@@ -144,7 +145,7 @@ public class DoctorController {
 	@RequestMapping(path="/accept_appo_status", method=RequestMethod.POST)
 	public @ResponseBody String alter_appo_status(UpdateReq uq)
 	{
-		//System.out.println("Entered for Accepting Appointment");
+		// Doctor logs in for checking requested appointments and accepting them
 		System.out.println(uq);
 		Appointment apppooo =appServ.getAppointment(uq.getReq());
 		apppooo.setStatus("accepted");
@@ -158,7 +159,7 @@ public class DoctorController {
 	@RequestMapping(path="/reject_appo_status", method=RequestMethod.POST)
 	public @ResponseBody String reject_appo_status(UpdateReq uq)
 	{
-		//System.out.println("Entered for Rejecting Appointment");
+		// Doctor logs in for checking requested appointments and rejecting them
 		System.out.println(uq);
 		Appointment apppooo =appServ.getAppointment(uq.getReq());
 		apppooo.setStatus("rejected");

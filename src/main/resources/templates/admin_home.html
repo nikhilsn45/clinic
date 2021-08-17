@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Home</title>
-
+<link th:href="@{/css/docpro.css}" rel="stylesheet">
 <script type="text/javascript" th:src="@{/js/actions.js}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -85,20 +85,22 @@ table{
 	<div style="background-color: black;">
 		<div class="topnavi" style="margin-left: 50px;">
 			<a class="active" href="#">Home</a> 
-		    <a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+		    <a th:href="@{/logout}" style="float: right; margin-right:50px;" >Logout</a>
 		
 		</div>
 	</div>
 	<br>
 	<br>
 <br>
-<h2 style="text-align:center;"><b>Admin Page</b></h2>
+<h2 style="text-align:center; margin-top:20px;"><b>Admin Page</b></h2>
 <div class="wrapper" align="center">
-	
+	<br>
+
 	<h4 style="text-align:left;"><b>Pending Doctor Verifications</b></h4>  
 	<!--  <button type="button" id="DList" class="DList">Show Doctors List</button>
 	<button type="button" id="Hbtn1" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>-->
-	<br>
+	
+	<hr>
 	<br>
 	<table class="table" style="border:none !important;">
 	<thead>
@@ -139,8 +141,11 @@ table{
     </tbody>
 </table>
 <br>
-<hr>
-<h4 style="text-align:left;"><b>Verified Doctors</b></h4>  
+<br>
+<br>
+
+<h4 style="text-align:left;"><b>Verified Doctors</b></h4> 
+<hr> <br>
 <table class="table " style="border:none !important;">
 	<thead>
     <tr>
@@ -168,15 +173,17 @@ table{
     </tbody>
 </table>
 
-</div>
+
 <br>
-<hr>
-<div align="center" style="width:70%; margin: auto;">
+<br>
+<br>
+
 	<h4 style="text-align:left;"><b>Registered Patients List</b></h4>
 	
 	<!--<button type="button" id="PatientsList" class="PatientsList">Show Patients List</button>
 	<button type="button" id="Hbtn2" style="background-color:red; display:inline; color:white; width:30%; height:40px; border-radius:7px;">Hide</button>-->
-	<br>
+	
+	<hr>
 	<br>
 	<table style="width:100%; " class="table ">
 		<thead>
@@ -202,16 +209,15 @@ table{
 	 </tr>
 		</tbody>
 	</table>
+
+
 </div>
-
-
-<hr>
-
 <div class="wrapper">
-	<hr>
 	<br>
-	<h4 class="h3head">All Appointments</h4>  
-	<br><br>
+	<br>
+	
+	<h4 tyle="text-align:left;"><b>All Appointments</b></h4>  
+	<hr><br>
 	<table class="table table-striped">
 	<thead>
     <tr> 
@@ -237,7 +243,7 @@ table{
 		<td th:text="${appoint.status}"/>
 	 </tr>
 </table>
-<br><hr><br>
+<br><br>
 
 </div>
 <div id="foot"></div>

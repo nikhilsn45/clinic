@@ -43,8 +43,18 @@ public class AdminController {
 	@Autowired
 	private AppointmentService appserv;
 	
+	
+	
 
 		
+		public AdminController(DoctorService docService, PatientService pserv, AppointmentService appserv) {
+		super();
+		this.docService = docService;
+		this.pserv = pserv;
+		this.appserv = appserv;
+	}
+
+
 		@RequestMapping("/admin")
 		public String home(Model m)
 		{

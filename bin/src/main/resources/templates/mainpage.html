@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link th:href="@{/css/login.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+</head>
+
+<body>
+
+<br>
+<h4 id="knowmore" align="center"> <a href="http://localhost:8088/about" >Know more about us</a>
+</h4>
+<br>
+<div class="wrapper">
+  <div class="form">
+    <div class="title">
+      Login
+    </div>
+    
+			<div>
+				<div>
+					<div th:if="${param.logout}">
+						<h4 style="color: green;">Successfully logged out</h4>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div th:if="${param.error}">
+						<h4 style="color: red;">Wrong Credentials</h4>
+					</div>
+				</div>
+			</div>
+
+			<form th:action="@{/login}" method="post">
+		      <br>
+		      <div class="input_wrap">
+		        <label for="input_text">Username</label>
+		        <div class="input_field">
+		          <input type="text" class="input" id="input_text" name="userName" required>
+		        </div>
+		      </div>
+		      <div class="input_wrap">
+		        <label for="input_password">Password</label>
+		        <div class="input_field">
+		          <input type="password" class="input" id="input_password" name="password" required>
+		        </div>
+		      </div>
+		      <div class="input_wrap">
+		        <!--<span class="error_msg">Incorrect username or password. Please try again</span>-->
+		        <input type="submit" id="login_btn" class="btn" value="Login" >
+		      </div>
+		    </form>
+			<br>
+			<div id="ne" text-align="center"> New User? Sign Up here</div>
+			<br>
+     	 	<div class="input_wrap1">
+		        <form action="/patient_signup" style="display: inline-block;">
+		        	<button  id="patient_signin_btn" class="btn btn_su" onclick="">Patient's Sign Up</button>
+		        </form>
+		        <form action="/doctor_signup" style="display: inline-block; margin-left:10px;">
+
+		        	<button id="doctor_signin_btn" class="btn btn_su">Doctor's Sign Up</button>
+		        </form>
+		        
+		    </div>
+		    <br>
+  
+  </div>
+</div>

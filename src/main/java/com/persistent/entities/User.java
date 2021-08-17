@@ -2,8 +2,6 @@ package com.persistent.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
 public class User {  //User can be a doctor or a patient

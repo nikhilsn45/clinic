@@ -121,6 +121,7 @@ public class AdminController {
 		@RequestMapping("/verify_doctor")
 		public @ResponseBody String verify_doctor(VerifyReq uq)
 		{
+			//Admin accesses the doctor database to verify the doctors
 			Doctor d=docService.findDoctorByUserName(uq.getReq());
 			d.setVerification("Verified");
 			docService.addDoctor(d);
@@ -131,6 +132,7 @@ public class AdminController {
 		@RequestMapping("/reject_doctor")
 		public @ResponseBody String reject_doctor(VerifyReq uq)
 		{
+			//Admin accesses the doctor database to reject the doctors
 			Doctor d=docService.findDoctorByUserName(uq.getReq());
 			d.setVerification("Rejected");
 			docService.addDoctor(d);

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1 align="center" >Thank you <span style="color : red;" th:text="${pat.fName}"></span>  <span style="color : red;" th:text="${pat.lName}"> </span>  for Booking an appointment with us.
+<br>
+You have requested for an appointment with Dr.<span style="color : red;" th:text="${doc.fName}"></span>  <span style="color : red;"  th:text="${doc.lName}"> </span>
+<br>Please login in a while to check your Booking Request status. </h1>
+</body>
+</html>

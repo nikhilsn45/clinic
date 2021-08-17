@@ -322,3 +322,38 @@ Caused by: java.sql.SQLException: Access denied for user 'admin'@'localhost' (us
 2021-08-17 12:50:13,109 [INFO] com.persistent.controller.HomeController [http-nio-8080-exec-10] Homepage called.
 2021-08-17 12:59:55,452 [TRACE] com.persistent.controller.DoctorController [http-nio-8080-exec-6] Doctor signup page called.
 2021-08-17 13:04:47,386 [TRACE] com.persistent.service.DoctorService [http-nio-8080-exec-9] Returns doctor object for particular username.
+2021-08-17 13:49:41,090 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-2] -----------------------------------------------------------------------------------------
+2021-08-17 13:49:41,091 [INFO] com.persistent.controller.HomeController [http-nio-8080-exec-2] Homepage called.
+2021-08-17 13:54:50,920 [TRACE] com.persistent.controller.PatientController [http-nio-8080-exec-8] Patient signup page called.
+2021-08-17 13:55:35,662 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-10] Returns patient object for particular username.
+2021-08-17 13:55:52,894 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-5] Returns patient object for particular username.
+2021-08-17 13:55:56,292 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-7] Returns patient object for particular username.
+2021-08-17 13:56:27,694 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-10] -----------------------------------------------------------------------------------------
+2021-08-17 13:56:27,694 [INFO] com.persistent.controller.HomeController [http-nio-8080-exec-10] Homepage called.
+2021-08-17 13:56:31,532 [TRACE] com.persistent.service.UserService [http-nio-8080-exec-5] User is trying to log in.
+2021-08-17 13:56:31,532 [TRACE] com.persistent.service.UserService [http-nio-8080-exec-5] Returns the user details.
+2021-08-17 13:56:31,611 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-4] User authenticated
+2021-08-17 13:56:31,611 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-4] User directed to patient homepage
+2021-08-17 13:56:31,615 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-6] Patient logged in.
+2021-08-17 13:56:31,615 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-6] Returns patient object for particular username.
+2021-08-17 13:56:34,425 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-8] User reached his/her profile page
+2021-08-17 13:56:34,425 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-8] Returns all appointments for particular username.
+2021-08-17 13:56:34,504 [TRACE] com.persistent.controller.PatientController [http-nio-8080-exec-8] Appointment list is filtered based on status.
+2021-08-17 13:56:34,505 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-8] Returns patient object for particular username.
+2021-08-17 13:56:45,766 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-10] Patient logged in.
+2021-08-17 13:56:45,766 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-10] Returns patient object for particular username.
+2021-08-17 13:57:04,969 [TRACE] com.persistent.service.DoctorService [http-nio-8080-exec-2] Returns only verified doctors list when patient searches.
+2021-08-17 13:57:04,969 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-2] Doctor search called based on the speciality and address
+2021-08-17 13:57:04,969 [ERROR] com.persistent.controller.PatientController [http-nio-8080-exec-2] There are no doctors of this speciality in the given area!!
+2021-08-17 13:57:26,049 [TRACE] com.persistent.service.DoctorService [http-nio-8080-exec-5] Returns only verified doctors list when patient searches.
+2021-08-17 13:57:26,050 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-5] Doctor search called based on the speciality and address
+2021-08-17 13:57:29,410 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-6] Checkout doctor function called
+2021-08-17 13:57:29,411 [TRACE] com.persistent.service.DoctorService [http-nio-8080-exec-6] Returns doctor object for particular username.
+2021-08-17 13:57:29,416 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-6] Returns list of appointments for which feedback is given.
+2021-08-17 13:57:29,469 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-6] Returns average rating of doctor based on feedback ratings.
+2021-08-17 13:57:41,051 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-1] Patient logged in.
+2021-08-17 13:57:41,051 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-1] Returns patient object for particular username.
+2021-08-17 13:58:01,991 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-3] User reached his/her profile page
+2021-08-17 13:58:01,992 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-3] Returns all appointments for particular username.
+2021-08-17 13:58:02,001 [TRACE] com.persistent.controller.PatientController [http-nio-8080-exec-3] Appointment list is filtered based on status.
+2021-08-17 13:58:02,002 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-3] Returns patient object for particular username.

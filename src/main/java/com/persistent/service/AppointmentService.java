@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.persistent.controller.PatientController;
 import com.persistent.dao.AppointmentDao;
 import com.persistent.entities.Appointment;
 

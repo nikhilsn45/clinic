@@ -2,32 +2,26 @@
   package com.persistent.controller;
   
   import  static org.junit.Assert.assertEquals;
-  
-  import java.util.ArrayList; 
-  import java.util.List;
-  
-  import org.junit.jupiter.api.Test; 
-  import org.junit.runner.RunWith; 
-  //import org.mockito.Mock; 
-  import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.ui.Model;
 
-import com.persistent.dto.AppointmentDto;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+//import org.mockito.Mock; 
+  import org.springframework.test.context.junit4.SpringRunner;
+
 import com.persistent.dto.DoctorDto;
-import com.persistent.entities.AppointAJAX;
-import com.persistent.entities.Appointment;
-import com.persistent.entities.Doctor;
 import com.persistent.entities.FeedBack;
-import com.persistent.entities.Patient;
 import com.persistent.entities.SearchAJAX;
 import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
 import com.persistent.service.MockAppointmentService;
-import com.persistent.service.MockDocService; 
- import com.persistent.service.MockPatientService; 
- import com.persistent.service.MockUserService; 
- import com.persistent.service.PatientService; 
- import com.persistent.service.UserService; 
+import com.persistent.service.MockDocService;
+import com.persistent.service.MockPatientService;
+import com.persistent.service.MockUserService;
+import com.persistent.service.PatientService;
+import com.persistent.service.UserService; 
  
  
   @RunWith(SpringRunner.class) 

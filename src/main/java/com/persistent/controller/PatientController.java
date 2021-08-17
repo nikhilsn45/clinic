@@ -8,10 +8,8 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
-import org.apache.jasper.tagplugins.jstl.core.If;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -30,14 +28,11 @@ import com.persistent.dto.PatientDto;
 import com.persistent.entities.AppointAJAX;
 import com.persistent.entities.Appointment;
 import com.persistent.entities.Doctor;
-import com.persistent.exceptions.DuplicateUserFoundException;
-import com.persistent.exceptions.NoDoctorFoundException;
-
 import com.persistent.entities.FeedBack;
-
 import com.persistent.entities.Patient;
 import com.persistent.entities.SearchAJAX;
 import com.persistent.entities.User;
+import com.persistent.exceptions.NoDoctorFoundException;
 import com.persistent.service.AppointmentService;
 import com.persistent.service.DoctorService;
 import com.persistent.service.PatientService;
@@ -83,6 +78,7 @@ public class PatientController {
 	@RequestMapping(path="/patient_signup", method=RequestMethod.POST)
 	public String save_patient(@Valid @ModelAttribute PatientDto patientDto, BindingResult result,Model model)
 	{	
+		//Patient registration details being saved in database by converting DoctorDto to Doctor entity 
 		System.out.println(patientDto);
 		model.addAttribute("patientDto",patientDto);
 		
@@ -98,6 +94,8 @@ public class PatientController {
         }
 
 		serv.addPatient(patientDto.conToPatient());
+		
+		//Patient registration credentials being saved in database separately with ROLE_patient
 		creadServ.addUser(new User(patientDto.getUserName(),patientDto.getPassword(),patientDto.getType()));
 
 		logger.info("Patient saved to database");
@@ -110,6 +108,7 @@ public class PatientController {
 	public String patHome(Model model)
 	{
 		logger.info("Patient logged in.");
+		//Getting the current logged in user to set up that user's session
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
 		
@@ -150,15 +149,15 @@ public class PatientController {
 
 		System.out.println(maps);
 		model.addAttribute("pat",new PatientDto(serv.findPatientByUserName(username)));
-		model.addAttribute("appoints", maps);
-		model.addAttribute("appointsAccept", mapsaccepted);
+		model.addAttribute("appoints", maps);//Patient's pending appointment list
+		model.addAttribute("appointsAccept", mapsaccepted);//Patient's accepted appointment list
 		return "patient_profile";
 	}
 
 	@PostMapping("/search")
 	public @ResponseBody List<DoctorDto> user_search_results(SearchAJAX t) {
 
-		//getuser filtered list from database
+		//Get Doctor's filtered list from database based on patient's requirements
 		System.out.println(t.type+ " " + t.state + " " + t.city);
 		List<Doctor> d = docServ.findBySpecialityAndAddress(t.type,t.state,t.city);
 		List<DoctorDto> doctors = new ArrayList<DoctorDto>();
@@ -179,6 +178,7 @@ public class PatientController {
 	@RequestMapping(path=("/doctor/{username}"), method=RequestMethod.GET)
 	public String doctor_info(@ModelAttribute("pat") PatientDto pat,@PathVariable String username,Model model)
 	{
+		//After getting list of Doctors, patient checkouts the Doctor's profile according to their interest.
 		logger.info("Checkout doctor function called");
 		System.out.println(username);
 		Doctor doc = docServ.findDoctorByUserName(username);
@@ -204,6 +204,8 @@ public class PatientController {
 		Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) authentication;
 			
+		
+		//If Patient wants an appointment of that doctor, he/she requests for an appointment.
 		System.out.println(user);
 		logger.trace("Slot booking function called");
 		System.out.println(appoint.getDoc());

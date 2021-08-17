@@ -755,3 +755,35 @@
 2021-08-17 12:32:00,223 [TRACE] com.persistent.service.PatientService [http-nio-8088-exec-1] Returns patient object for particular username.
 2021-08-17 12:32:01,014 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] -----------------------------------------------------------------------------------------
 2021-08-17 12:32:01,014 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-5] Homepage called.
+2021-08-17 12:38:05,999 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.1 on TheBeast with PID 12540 (D:\GEMS_JAVA_21\clinic (2)\clinic\target\classes started by NikhilSN in D:\GEMS_JAVA_21\clinic (2)\clinic)
+2021-08-17 12:38:06,002 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-17 12:38:07,098 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-17 12:38:07,198 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 80 ms. Found 5 JPA repository interfaces.
+2021-08-17 12:38:08,223 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8088 (http)
+2021-08-17 12:38:08,240 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-17 12:38:08,241 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-17 12:38:08,564 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-17 12:38:08,578 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-17 12:38:08,579 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2505 ms
+2021-08-17 12:38:08,831 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-17 12:38:08,911 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-17 12:38:09,096 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-17 12:38:09,260 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-17 12:38:09,265 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-17 12:38:09,847 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-17 12:38:09,876 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-17 12:38:11,137 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-17 12:38:11,147 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-17 12:38:11,215 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-17 12:38:12,118 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60688a97, org.springframework.security.web.context.SecurityContextPersistenceFilter@528c4353, org.springframework.security.web.header.HeaderWriterFilter@509e4902, org.springframework.security.web.authentication.logout.LogoutFilter@53c9541c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7a2ffb0b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7fb02606, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d763b06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@242ebd3b, org.springframework.security.web.session.SessionManagementFilter@6af29394, org.springframework.security.web.access.ExceptionTranslationFilter@712c9bcf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@464abed]
+2021-08-17 12:38:12,673 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8088 (http) with context path ''
+2021-08-17 12:38:12,683 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 7.328 seconds (JVM running for 8.005)
+2021-08-17 12:38:22,966 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8088-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-17 12:38:22,966 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-17 12:38:22,968 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8088-exec-1] Completed initialization in 2 ms
+2021-08-17 12:38:23,181 [TRACE] com.persistent.service.PatientService [http-nio-8088-exec-1] Returns patient object for particular username.
+2021-08-17 12:38:23,842 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-5] -----------------------------------------------------------------------------------------
+2021-08-17 12:38:23,842 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-5] Homepage called.
+2021-08-17 12:38:46,013 [TRACE] com.persistent.service.PatientService [http-nio-8088-exec-8] Returns patient object for particular username.
+2021-08-17 12:38:46,070 [TRACE] com.persistent.controller.HomeController [http-nio-8088-exec-2] -----------------------------------------------------------------------------------------
+2021-08-17 12:38:46,071 [INFO] com.persistent.controller.HomeController [http-nio-8088-exec-2] Homepage called.

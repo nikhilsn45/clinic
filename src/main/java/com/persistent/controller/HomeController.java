@@ -44,6 +44,14 @@ public class HomeController {
 	@Autowired
 	private PatientService pserv;
 	
+	
+	
+	public HomeController(DoctorService dserv, PatientService pserv) {
+		super();
+		this.dserv = dserv;
+		this.pserv = pserv;
+	}
+
 	public HomeController() {
 	}
 	

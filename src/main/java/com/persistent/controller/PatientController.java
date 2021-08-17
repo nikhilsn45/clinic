@@ -61,6 +61,17 @@ public class PatientController {
 	@Autowired
 	private AppointmentService appServ;
 	
+	
+	
+	public PatientController(PatientService serv, UserService creadServ, DoctorService docServ,
+			AppointmentService appServ) {
+		super();
+		this.serv = serv;
+		this.creadServ = creadServ;
+		this.docServ = docServ;
+		this.appServ = appServ;
+	}
+
 	@RequestMapping("/patient_signup")
 	public String user_signup(PatientDto pat,Model model)
 	{

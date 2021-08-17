@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor's Profile</title>
+<link th:href="@{/css/docpro.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+.topnavi a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.topnavi a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnavi a.active {
+	background-color: darkcyan;
+	color: ghostwhite;
+}
+
+hr {
+	background-color: #414744 !important;
+	width: 1160px;
+	margin-left: 150px;
+	height: 1px !important;
+}
+
+#showReviews {
+	margin-left: 160px;
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<div style="height: 40px;"></div>
+	<div style="background-color: black;">
+		<div class="topnavi" style="margin-left: 50px;">
+			<a class="active" th:href="@{/patient_home}">Home</a> 
+		    <a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+		
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<div class="container emp-profile" style="width: 1000px;">
+
+		<form method="post">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="profile-img">
+						<img src="/images/stan-lee.jpg" alt="" />
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="profile-head">
+						<h5>
+							Dr. <span th:text="${doc.fName}"></span> <span
+								th:text="${doc.lName}"></span>
+						</h5>
+						<h6>
+							<span th:text="${doc.speciality}"></span>
+						</h6>
+
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item"><a class="nav-link active"
+								id="home-tab" data-toggle="tab" href="#home" role="tab"
+								aria-controls="home" aria-selected="true">About</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-5">
+
+					<div class="profile-work">
+						<div style="height: 90px;"></div>
+						<h5>Bio</h5>
+
+						<p>
+							I am DR.<span th:text="${doc.fName}"></span> <span
+								th:text="${doc.lName}"></span>.I am an alumini of <span th:text="${doc.university_name}"></span>.. I have a specialization in <span
+								th:text="${doc.speciality}"></span> and an experience of <span th:text="${doc.experience}"></span> 
+							years. My workplace is at <span th:text="${doc.city}"></span>,<span th:text="${doc.state}"></span> 
+						</p>
+
+
+
+					</div>
+
+				</div>
+				<div class="col-md-5">
+					<div class="tab-content profile-tab" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel"
+							aria-labelledby="home-tab">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Name</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${doc.fName}"></span> <span
+											th:text="${doc.lName}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Contact Number</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${doc.contactNo}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>License</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${doc.licenseNo}"></span>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<label>Profession</label>
+								</div>
+								<div class="col-md-6">
+									<p>
+										<span th:text="${doc.speciality}"></span>
+									</p>
+								</div>
+							</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label>Experience</label>
+									</div>
+									<div class="col-md-6">
+										<p>
+											<span th:text="${doc.experience}"></span>
+										</p>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6">
+										<label>Alumini of</label>
+									</div>
+									<div class="col-md-6">
+										<p>
+											<span th:text="${doc.university_name}"></span>
+										</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<label>Works at</label>
+									</div>
+									<div class="col-md-6">
+										<p>
+											<span th:text="${doc.organisation_name}"></span>
+										</p>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6">
+										<label>Consultation Fee</label>
+									</div>
+									<div class="col-md-6">
+										<p>
+											<span th:text="${doc.consultation_fee}"></span>
+										</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<br>
+	<br>
+	<hr align="center">
+	<br>
+	<div align="center">
+		<h1>Book an Appointment</h1>
+		<br>
+		<form id="book">
+			<label for="slots">Choose a slot:</label> <select name="timing"
+				id="slots" style="margin-left: 20px; height: 40px; width: 200px;">
+				<option value="9:00-9:30">9:00-9:30</option>
+				<option value="9:30-10:00">9:30-10:00</option>
+				<option value="10:00-10:30">10:00-10:30</option>
+				<option value="10:30-11:00">10:30-11:00</option>
+				<option value="11:00-11:30">11:00-11:30</option>
+				<option value="11:30-12:00">11:30-12:00</option>
+				<option value="1:00-1:30">1:00-1:30</option>
+				<option value="1:30-2:00">1:30-2:00</option>
+				<option value="2:00-2:30">2:00-2:30</option>
+				<option value="2:30-3:00">2:30-3:00</option>
+				<option value="3:00-3:30">3:00-3:30</option>
+				<option value="3:30-4:00">3:30-4:00</option>
+			</select> <br> <input type="hidden" value="pending" id="status"
+				name="status"> <input type="hidden"
+				th:value="${doc.userName}" id="docuser" name="docuser">
+			<br>
+			<button type="submit" class ="btn" style="background-color: darkcyan; color:white;">REQUEST APPOINTMENT</button>
+		</form>
+
+
+
+	</div>
+	<br>
+	<br>
+	<br>
+
+
+	
+	<h4>
+		<span style="margin-left: 160px;">Ratings : </span> <span
+			th:text="${avg}"></span> / 5
+			<b><span id=stars style="margin-left: 40px;"></span></b>
+	</h4>
+	<input type="hidden" id="avrg" name="avrg" th:value="${avg}">
+	<div class="rate" style="margin-left: 140px;">
+		
+	</div>
+	<hr align="center">
+	
+	<br>
+	<br>
+
+	<h4 style="margin-left: 160px;">Reviews</h4>
+	<hr align="center">
+	<br>
+
+	<div id="showReviews">
+		<div th:each="appoint: ${appointments}">
+			<h5 th:text="${appoint.pat.fName}"></h5>
+			<p th:text="${appoint.feed.message}"></p>
+		</div>
+	</div>
+
+
+
+
+	<div id="foot"></div>
+	<script>
+	
+	$(document).ready(function($)
+	{
+	var tstar = 5;
+	var rat = document.getElementById("avrg").value;
+	console.log(rat);
+	document.getElementById("stars").innerHTML = displayRating(rat);
+	
+	function displayRating(rat){
+		 rating = Math.round(rat * 2) / 2;
+		  let output = [];
+		
+		  
+		  for (var i = rating; i >= 1; i--)
+		    output.push('<i class="fa fa-star" aria-hidden="true" style="color: gold;"></i>');
+		
+		  
+		  if (i == .5) output.push('<i class="fa fa-star-half-o" aria-hidden="true" style="color: gold;"></i>');
+		
+		  // Fill the empty stars
+		  for (let i = (5 - rating); i >= 1; i--)
+		    output.push('<i class="fa fa-star-o" aria-hidden="true" style="color: gold;"></i>');
+		
+		  return output.join('');
+
+		}
+		
+	}
+	);
+		
+		/*var myArray = [
+		    {'name':'Jake', 'review':'very good'},
+		    {'name':'Molly', 'review':'excellent'},
+		    {'name':'Paul', 'review':'perfect'},
+		    
+		]
+		
+			
+		displayReviews(myArray);
+
+		function displayReviews(data){
+			var re = document.getElementById('showReviews')
+		
+			for (var i = 0; i < myArray.length ; i++){
+				var div = document.createElement("div");
+				var h5 = document.createElement("h5");
+				var br = document.createElement('br');
+				h5.innerHTML = data[i].name
+				div.innerHTML = data[i].review ;
+				re.appendChild(h5);
+				re.appendChild(div);
+				re.appendChild(br);
+
+			}
+		}*/
+		$(document).ready(function() {
+			$("#book").submit(function(event) {
+				event.preventDefault();
+				var d = {
+					timing : $('#slots').val(),
+					status : $('#status').val(),
+					doc : $('#docuser').val()
+				};
+
+				$.ajax({
+					type : "POST",
+					url : "book_slot",
+					data : d,
+					success : function(data) {
+
+						alert(data);
+
+					},
+					error : function(xhr, status, error) {
+						alert("alerting");
+						alert(xhr.responseText);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

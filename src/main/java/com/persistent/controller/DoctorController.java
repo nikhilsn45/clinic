@@ -47,6 +47,15 @@ public class DoctorController {
 
 	@Autowired
 	private AppointmentService appServ;
+	
+	
+
+	public DoctorController(DoctorService docService, UserService creadServ, AppointmentService appServ) {
+		super();
+		this.docService = docService;
+		this.creadServ = creadServ;
+		this.appServ = appServ;
+	}
 
 	@RequestMapping("/doctor_signup")
 	public String doctor_signup(DoctorDto doctorDto, Model model)

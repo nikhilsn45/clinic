@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+h1{
+	color:blue;
+	font-family:sans-serif;
+	text-transform:uppercase;
+}
+
+.bgimage{
+	
+	opacity:1;
+}
+body{
+	background-image:url("/images/doctors.jpg");
+}
+.taskbar
+{
+	background-color:white;
+	font-size:50px;
+	margin:8px;
+	height:100px;
+	color:blue;
+	text-align:center;
+}
+.regform
+{
+	height:600px;
+	opacity:1;
+	background-color:aquamarine;
+	color:black;
+	margin:auto;
+	width:400px;
+	border:3px;
+	padding:10px;
+	opacity:1;
+}
+button
+{
+	background-color:white;
+	border:none;
+	color:blue;
+	text-align:center;
+	
+}
+label{
+	font-weight:bold;
+}
+table
+{
+	width:70%;
+}
+td
+{
+	height:100px;
+}

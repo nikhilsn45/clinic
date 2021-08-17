@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor's Profile</title>
+<link th:href="@{/css/docpro.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+	.topnavi a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnavi a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnavi a.active {
+  background-color: darkcyan;
+  color: ghostwhite;
+}
+</style>
+</head>
+<body>
+
+<div style="height: 40px;"></div>
+	<div style="background-color: black;">
+		<div class="topnavi" style="margin-left: 50px;">
+			<a class="active" href="#">Home</a> 
+		    <a th:href="@{/logout}" style="float: right; margin-right:50px; color: ghostwhite; border-radius :7px; background-color:red;" >Logout</a>
+		
+		</div>
+	</div>
+	<br>
+	<br>
+<div class="pro">
+<h5 style="margin-left: 50px; color:black;">Profile</h5>  
+</div>
+
+<div class="container emp-profile" style="width: 1000px;">
+
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="profile-img">
+                            <img src="/images/stan-lee.jpg" alt=""/>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="profile-head">
+                                    <h5>
+                                        Dr. <span th:text="${doc.fName}"></span>  <span th:text="${doc.lName}"></span>
+                                    </h5>
+                                    <h6>
+                                        <span th:text="${doc.speciality}"></span>
+                                    </h6>
+                                    
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                    
+                        <div class="profile-work">
+                        <div style="height: 90px;"></div>
+                            <h5>Bio</h5>
+                            
+	                         I am DR.<span th:text="${doc.fName}"></span> <span
+								th:text="${doc.lName}"></span>.I am an alumini of <span th:text="${doc.university_name}"></span>.I have a specialization in <span
+								th:text="${doc.speciality}"></span> and an experience of <span th:text="${doc.experience}"></span> 
+							years. My workplace is at <span th:text="${doc.city}"></span>,<span th:text="${doc.state}"></span> 
+	                            </p>
+                        	
+                            
+                        </div>
+                    
+                    </div>
+                    <div class="col-md-5">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.fName}"></span> <span th:text="${doc.lName}"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Contact Number</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.contactNo}"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>License</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.licenseNo}"></span></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.speciality}"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.experience}"></span></p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Alumini of</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.university_name}"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Works at</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.organisation_name}"></span></p>
+                                            </div>
+                                        </div>
+                                        
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Consultation Fee</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:text="${doc.consultation_fee}"></span></p>
+                                            </div>
+                                        </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+ 
+<div class="wrapper">
+	<hr>
+	<br>
+	<h4 class="h3head">Pending Appointments</h4>  
+	<br><br>
+	<table class="table table-striped">
+	<thead>
+    <tr> 
+        <th>Patient Name</th>     <!-- appoints -->
+        <th>Contact</th>
+        <th>Age</th>
+        <th>Appointment Time</th>
+        <th>Address</th>
+        <th>Accept Appointment</th>
+        <th>Reject Appointment</th>
+    </tr>
+	</thead>
+    <tr th:each="appoint:${appoints}">
+      
+		<td th:text="${appoint.name}"/>
+		<td th:text="${appoint.contact}"/>
+		<td th:text="${appoint.age}"/>
+		<td th:text="${appoint.timing}"/>
+		<td th:text="${appoint.address}"/>
+		
+		<td>
+		 <form id="accept" method = "post" >
+			<input type="hidden" name="appid" id="appid" th:value="${appoint.id}"/>
+		<button type="submit" id ="btn-accept" class="btn btn-sm px-3">Accept</button>
+		 </form>
+		</td>
+		
+		<td>
+		 <form id="reject" method ="post">
+			<input type="hidden" name="appid" id="appid" th:value="${appoint.id}"/>
+		<button type="submit" id ="btn-reject" class="btn btn-danger btn-sm px-3" >Reject</button>
+		 </form>
+		</td>
+	 </tr>
+</table>
+<br><hr><br>
+
+<h4 class="h3head">Accepted Appointments</h4>  
+  <br><br>
+<table class="table table-striped">
+	<thead>
+    <tr>
+       <th>Patient Name</th>    
+       <th>Contact</th>
+       <th>Age</th>
+       <th>Appointment Time</th>
+       <th>Address</th>
+    </tr>
+	</thead>
+    <tbody id="appoTable">
+    
+    <tr th:each="appoint:${appointsAccept}">
+      
+		<td th:text="${appoint.name}"/>
+		<td th:text="${appoint.contact}"/>
+		<td th:text="${appoint.age}"/>
+		<td th:text="${appoint.timing}"/>
+		<td th:text="${appoint.address}"/>
+	</tr>
+      
+    </tbody>
+</table>
+
+</div>
+<div id="foot"></div>
+<script>
+	
+	function addAppointment(name,contact,age,timing,address)
+	{
+		var appo_accept = document.getElementById('appoTable')
+
+		
+			var row = `<tr>
+							<td>${name}</td>
+							<td>${contact}</td>
+							<td>${age}</td>
+							<td>${timing}</td>
+							<td>${address}</td>
+					 </tr>`
+			appo_accept.innerHTML += row
+	}
+	
+	
+	$(document).ready(function($)
+	{
+	$(document).on('click',"#btn-reject", function(e)
+	{
+		e.preventDefault();
+		var docId={req : $('#appid').val()};
+			 $.ajax({
+	        	 	type : "POST",
+					url : "reject_appo_status",
+					data : docId,
+					success : function(data) {
+						
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("Some Error Occured");
+	                    alert(xhr.responseText);
+	                }
+	            });
+		
+		
+		
+		var r = $(this).closest('tr').remove();
+	}
+	);
+	
+	$(document).on('click',"#btn-accept", function(e)
+	{	
+		e.preventDefault();
+		var docId={req : $('#appid').val()};
+			 $.ajax({
+	        	 	type : "POST",
+					url : "accept_appo_status",
+					data : docId,
+					success : function(data) {
+						
+						alert(data);
+						
+	                },
+	                error : function(xhr, status, error) {
+	                	alert("Some Error Occured");
+	                    alert(xhr.responseText);
+	                }
+	            });
+			    var row = $(this).closest('tr');
+				var col1 = row.find("td:eq(0)").text();
+				var col2 = row.find("td:eq(1)").text();
+				var col3 = row.find("td:eq(2)").text();
+				var col4 = row.find("td:eq(3)").text();
+				var col5 = row.find("td:eq(4)").text();
+				
+				addAppointment(col1,col2,col3,col4,col5);
+				//console.log(row);
+			    row.remove();
+		
+	}
+	);
+});
+</script>
+</body>
+</html>

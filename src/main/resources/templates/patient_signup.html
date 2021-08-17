@@ -43,53 +43,102 @@
 				<tr>
 					<td><label for="userName"><b>Username:</b></label>
 					<td><input  type="text" th:value="${patientDto.userName}" id="userName" name="userName" required>
-					<p class="error" th:if="${#fields.hasErrors('userName')}" th:errors="${patientDto.userName}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('userName')}" th:errors="${patientDto.userName}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="fName"><b>First name:</b></label>
 					<td><input type="text" th:value="${patientDto.fName}" id="fName" name="fName" required>
-					<p class="error" th:if="${#fields.hasErrors('fName')}" th:errors="${patientDto.fName}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('fName')}" th:errors="${patientDto.fName}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="lName"><b>Last name:</b></label>
 					<td><input type="text" th:value="${patientDto.lName}" id="lName" name="lName">
-					<p class="error" th:if="${#fields.hasErrors('lName')}" th:errors="${patientDto.lName}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('lName')}" th:errors="${patientDto.lName}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="emailId"><b>Email:</b></label>
 					<td><input type="email" th:value="${patientDto.emailId}" id="emailId" name="emailId" required>
-					<p class="error" th:if="${#fields.hasErrors('emailId')}" th:errors="${patientDto.emailId}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('emailId')}" th:errors="${patientDto.emailId}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="mobile"><b>Phone Number:</b></label>
 					<td><input type="text" th:value="${patientDto.contactNo}" id="contactNo" name="contactNo"required>
-					<p class="error" th:if="${#fields.hasErrors('contactNo')}" th:errors="${patientDto.contactNo}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('contactNo')}" th:errors="${patientDto.contactNo}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="gender"><b>Gender:</b></label>
 					<td><input type="text" th:value="${patientDto.gender}" id="gender" name="gender" required>
-					<p class="error" th:if="${#fields.hasErrors('gender')}" th:errors="${patientDto.gender}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('gender')}" th:errors="${patientDto.gender}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="age"><b>Age:</b></label>
 					<td><input type="number" th:value="${patientDto.age}" id="age" name="age" required>
-					<p class="error" th:if="${#fields.hasErrors('age')}" th:errors="${patientDto.age}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('age')}" th:errors="${patientDto.age}">Name Err
+				</tr>
+				
 				<tr>
 					<td><label for="city"><b>City:</b></label>
 					<td><input type="text" th:value="${patientDto.city}" id="city" name="city" required>
-					<p class="error" th:if="${#fields.hasErrors('city')}" th:errors="${patientDto.city}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('city')}" th:errors="${patientDto.city}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="state"><b>State:</b></label>
 					<td><input type="text" th:value="${patientDto.state}" id="state" name="state" required>
-					<p class="error" th:if="${#fields.hasErrors('state')}" th:errors="${patientDto.state}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('state')}" th:errors="${patientDto.state}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label for="password"><b>Password:</b></label>
 					<td><input type="text" th:value="${patientDto.password}" id="password" name="password" required>
-					<p class="error" th:if="${#fields.hasErrors('password')}" th:errors="${patientDto.password}">Name Error</p>
 				</tr>
+				<tr>
+					<td></td>
+					<td class="error" th:if="${#fields.hasErrors('password')}" th:errors="${patientDto.password}">Name Err
+				</tr>
+				
+				
 				<tr>
 					<td><label> </label></td>
 					<input type="hidden" name="type" value="ROLE_patient">

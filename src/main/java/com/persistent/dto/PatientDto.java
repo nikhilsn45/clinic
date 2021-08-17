@@ -10,15 +10,15 @@ import com.persistent.entities.Patient;
 public class PatientDto {
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 30, message = "Username must have at least 4 characters")
 	private String userName;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 30, message = "First name must have at least 4 characters")
     private String fName;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 30, message = "Last name must have at least 4 characters")
 	private String lName;
     
 	@NotNull(message = "Must not Empty")
@@ -35,15 +35,15 @@ public class PatientDto {
     private String emailId;
     
 	@NotNull
-	@Size(min = 2, max = 15, message = "must have at least 2 characters")
+	@Size(min = 2, max = 15, message = "city must have at least 2 characters")
     private String city;
     
 	@NotNull
-	@Size(min = 2, max = 15, message = "must have at least 2 characters")
+	@Size(min = 2, max = 15, message = "state must have at least 2 characters")
     private String state;
 	
 	@NotNull
-	@Size(min = 4, max = 15, message = "must have at least 4 characters")
+	@Size(min = 4, max = 15, message = "password should be 4-15 character long")
 	private String password;
 	
 	private String type;

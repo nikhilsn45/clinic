@@ -29,6 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.csrf().disable();
 		http.authorizeRequests().antMatchers(
 				"/doctor_signup",
+				"/about",
 				"/patient_signup",
 				"/js/**",
 				"/css/**",

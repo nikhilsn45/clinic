@@ -357,3 +357,53 @@ Caused by: java.sql.SQLException: Access denied for user 'admin'@'localhost' (us
 2021-08-17 13:58:01,992 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-3] Returns all appointments for particular username.
 2021-08-17 13:58:02,001 [TRACE] com.persistent.controller.PatientController [http-nio-8080-exec-3] Appointment list is filtered based on status.
 2021-08-17 13:58:02,002 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-3] Returns patient object for particular username.
+2021-08-17 14:38:08,299 [INFO] com.persistent.ClinicApplication [main] Starting ClinicApplication using Java 16.0.1 on TheBeast with PID 14384 (D:\GEMS_JAVA_21\clinic (2)\clinic\target\classes started by NikhilSN in D:\GEMS_JAVA_21\clinic (2)\clinic)
+2021-08-17 14:38:08,302 [INFO] com.persistent.ClinicApplication [main] No active profile set, falling back to default profiles: default
+2021-08-17 14:38:09,087 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-17 14:38:09,153 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 57 ms. Found 5 JPA repository interfaces.
+2021-08-17 14:38:10,171 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-08-17 14:38:10,182 [INFO] org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2021-08-17 14:38:10,182 [INFO] org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-17 14:38:10,408 [INFO] org.apache.jasper.servlet.TldScanner [main] At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2021-08-17 14:38:10,419 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2021-08-17 14:38:10,419 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2053 ms
+2021-08-17 14:38:10,575 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-17 14:38:10,625 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-08-17 14:38:10,745 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-17 14:38:10,841 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-08-17 14:38:10,845 [WARN] com.zaxxer.hikari.util.DriverDataSource [main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-08-17 14:38:11,214 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-08-17 14:38:11,230 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-08-17 14:38:12,598 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-17 14:38:12,609 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-17 14:38:12,762 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-17 14:38:13,284 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78141c58, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c1c0892, org.springframework.security.web.header.HeaderWriterFilter@6a30f6b1, org.springframework.security.web.authentication.logout.LogoutFilter@2eb9c7ad, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5274acd1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d51b6a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34588991, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@9863ed5, org.springframework.security.web.session.SessionManagementFilter@52ab003b, org.springframework.security.web.access.ExceptionTranslationFilter@7fb1820d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15a5cc6e]
+2021-08-17 14:38:14,219 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-17 14:38:14,228 [INFO] com.persistent.ClinicApplication [main] Started ClinicApplication in 6.33 seconds (JVM running for 6.812)
+2021-08-17 14:54:23,988 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-17 14:54:23,989 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-08-17 14:54:23,990 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-08-17 14:54:24,027 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-2] -----------------------------------------------------------------------------------------
+2021-08-17 14:54:24,027 [INFO] com.persistent.controller.HomeController [http-nio-8080-exec-2] Homepage called.
+2021-08-17 14:54:37,078 [TRACE] com.persistent.service.UserService [http-nio-8080-exec-7] Admin is trying to log in.
+2021-08-17 14:54:37,183 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-8] User authenticated
+2021-08-17 14:54:37,183 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-8] User directed to admin homepage
+2021-08-17 14:54:37,194 [INFO] com.persistent.controller.AdminController [http-nio-8080-exec-9] Admin logged in
+2021-08-17 14:54:37,194 [TRACE] com.persistent.service.DoctorService [http-nio-8080-exec-9] Returns all doctors list.
+2021-08-17 14:54:37,592 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-9] Returns all patients list.
+2021-08-17 14:54:37,628 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-9] Returns all appointment list.
+2021-08-17 14:54:37,696 [TRACE] com.persistent.controller.AdminController [http-nio-8080-exec-9] Started filtering doctor's list according to verification status.
+2021-08-17 14:54:37,696 [TRACE] com.persistent.controller.AdminController [http-nio-8080-exec-9] List of all the registered patients.
+2021-08-17 14:54:37,696 [TRACE] com.persistent.controller.AdminController [http-nio-8080-exec-9] List of all the appointments.
+2021-08-17 14:55:09,262 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-7] -----------------------------------------------------------------------------------------
+2021-08-17 14:55:09,262 [INFO] com.persistent.controller.HomeController [http-nio-8080-exec-7] Homepage called.
+2021-08-17 14:55:25,632 [TRACE] com.persistent.service.UserService [http-nio-8080-exec-2] User is trying to log in.
+2021-08-17 14:55:25,632 [TRACE] com.persistent.service.UserService [http-nio-8080-exec-2] Returns the user details.
+2021-08-17 14:55:25,713 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-4] User authenticated
+2021-08-17 14:55:25,714 [TRACE] com.persistent.controller.HomeController [http-nio-8080-exec-4] User directed to patient homepage
+2021-08-17 14:55:25,721 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-3] Patient logged in.
+2021-08-17 14:55:25,721 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-3] Returns patient object for particular username.
+2021-08-17 14:55:28,107 [INFO] com.persistent.controller.PatientController [http-nio-8080-exec-6] User reached his/her profile page
+2021-08-17 14:55:28,107 [TRACE] com.persistent.service.AppointmentService [http-nio-8080-exec-6] Returns all appointments for particular username.
+2021-08-17 14:55:28,146 [TRACE] com.persistent.controller.PatientController [http-nio-8080-exec-6] Appointment list is filtered based on status.
+2021-08-17 14:55:28,146 [TRACE] com.persistent.service.PatientService [http-nio-8080-exec-6] Returns patient object for particular username.

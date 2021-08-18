@@ -27,7 +27,8 @@ import com.persistent.service.UserService;
   @RunWith(SpringRunner.class) 
   
   
-  public class PatientControllerTest { 
+  public class PatientControllerTest {
+	  
 	  DoctorService df = new MockDocService();
   
 	  PatientService pf = new MockPatientService();
